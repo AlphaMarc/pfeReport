@@ -36,6 +36,32 @@
   \field{year}{2013}
 \endentry
 
+\entry{journeyToBPC}{incollection}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Governatori}{G.}%
+     {Guido}{G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Sadiq}{S.}%
+     {Shazia}{S.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {IGI Global}%
+  }
+  \strng{namehash}{GGSS1}
+  \strng{fullhash}{GGSS1}
+  \field{labelyear}{2009}
+  \field{sortinit}{G}
+  \field{booktitle}{Handbook of Research on BPM}
+  \field{pages}{426\bibrangedash 454}
+  \field{title}{The Journey to Business Process Compliance}
+  \field{year}{2009}
+\endentry
+
 \entry{PresentationBooklet}{booklet}{}
   \name{author}{1}{}{%
     {{}%
