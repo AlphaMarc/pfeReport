@@ -3,3 +3,7 @@
 *.log
 *.dvi
 *.tex~
+*.bbl
+*.blg
+*.run*
+*.*gz
