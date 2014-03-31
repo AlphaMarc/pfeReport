@@ -1,0 +1,268 @@
+\documentclass[10pt]{article}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{geometry} % Required to change the page size to A4
+\geometry{a4paper} % Set the page size to be A4 as opposed to the default US Letter
+
+\usepackage{graphicx} % Required for including pictures
+
+\usepackage{float} % Allows putting an [H] in \begin{figure} to specify the exact location of the figure
+\usepackage{wrapfig} % Allows in-line images
+
+\usepackage[style=authoryear]{biblatex} % Using biblatex package for bibiography in order to comply with INSA requirements
+
+
+\makeatletter
+
+\newrobustcmd*{\parentexttrack}[1]{%
+  \begingroup
+  \blx@blxinit
+  \blx@setsfcodes
+  \blx@bibopenparen#1\blx@bibcloseparen
+  \endgroup}
+
+\AtEveryCite{%
+  \let\parentext=\parentexttrack%
+  \let\bibopenparen=\bibopenbracket%
+  \let\bibcloseparen=\bibclosebracket}
+
+\makeatother
+
+\addbibresource{biblio.bib}
+
+
+\usepackage{graphicx} % Required for including pictures
+\graphicspath{{art/}} % Specifies the directory where pictures are stored
+
+\usepackage{framed} % to frame the project title
+
+\usepackage{datetime} % print dates
+
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+
+\usepackage{geometry}% http://ctan.org/pkg/geometry
+
+\usepackage{fancyhdr} % for header and footer custom
+
+\begin{document}
+
+\def\labelitemi{--} % defining dash instead of bullets
+
+% -------------------------------- %
+%            TITLE PAGE            %
+% -------------------------------- %
+\newgeometry{vmargin=1in}
+\begin{titlepage}
+
+\begin{center}
+
+\includegraphics[width=2.5cm]{INSA-logo.jpg} \hspace{3cm}
+\includegraphics[width=1.5cm]{NICTA-logo.jpg}\hspace{4cm}
+\includegraphics[width=1.5cm]{IAE-logo.jpg} 
+
+\vspace{3cm}
+\textsc{\LARGE \textit{\textbf{\uppercase{Projet de fin d'étude}}}}
+\vspace{1.5cm}
+
+\begin{framed}
+\LARGE \uppercase{titre du projet\\autre ligne}
+\end{framed}
+
+\vspace{1cm}
+\large En vue de l'obtention des diplomes \\
+Ingénieur Informatique et Réseaux de l'INSA de Toulouse\\
+Master Management de l'Innovation de l'IAE de Toulouse
+
+\end{center}
+\vspace{1.5cm}
+\begin{flushright}
+\textbf{\large  NICTA Queensland Research Laboratory\\ \hspace{.5cm}- Brisbane, QLD, Australia}
+\end{flushright}
+
+\vspace{1.3cm}
+\begin{center}
+\begin{minipage}{.3\textwidth}
+\begin{center}
+\textbf{INSA Tutor}\\
+Nawal Guermouche\\
+Researcher at the LAAS\\
+nguermouche@laas.fr
+\end{center}
+\end{minipage}
+\begin{minipage}{.3\textwidth}
+\begin{center}
+\textbf{NICTA Tutor}\\
+Guido Governatori\\
+Principal Researcher at the NICTA\\
+governatori@nicta.com
+\end{center}
+\end{minipage}
+\begin{minipage}{.3\textwidth}
+\begin{center}
+\textbf{IAE Tutor}\\
+John Doe\\
+Researcher at somewhere\\
+Jdoe@iae-toulouse.fr
+\end{center}
+\end{minipage}
+\end{center}
+
+\vfill
+\begin{minipage}{0.55\textwidth}
+\begin{flushleft}
+\textbf{\large Marc Allaire\\[.5cm] 
+\small INSA - Spécialité Informatique et Réseaux,\\\hspace{.5cm}Majeure Systèmes Distribués Communicants\\
+IAE - Master Management Stratégique,\\\hspace{.5cm}Spécialité Management de l'innovation}
+\end{flushleft}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+\begin{flushright}
+\newdate{date}{30}{08}{2014}
+\textbf{\displaydate{date}}
+\end{flushright}
+\end{minipage}
+
+
+\end{titlepage}
+
+
+
+
+\newpage
+% -------------------------------- %
+%              REPORT              %
+% -------------------------------- %
+\restoregeometry
+\renewcommand{\thesection}{\Roman{section}} 
+
+%executive summary
+\renewcommand{\abstractname}{Executive Summary}
+\begin{abstract}
+\lipsum[1-2]
+\end{abstract}
+
+
+\newpage
+
+% special thanks
+%executive summary
+\begin{center}
+\begin{minipage}{.8\textwidth}
+\textbf{\large Special Thanks to}\\
+\textbf{Guido Governatori} \textit{For his help and support throughout this project}
+\end{minipage}
+\end{center}
+
+\newpage
+
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+% \pagestyle{headings}
+\pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+\fancyhead{}
+\fancyhead[R]{\slshape \rightmark}
+\fancyfoot{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0 pt}
+
+\section{Presenting the context of the Project}
+\subsection{A brief presentation of NICTA}
+NICTA is Australia's Information and Communication Technologies centre of excellence.\footnotemark It was created in 2002 within the framework of the Backing Australia's Ability initiative a government plan to foster innovation in Australia. NICTA won the selection process to become Australia's ICT centre of excellence. It is supported and funded by the Australian federal government as well as states governments where laboratories are running (New South Wales, Victoria, Queensland, Australian Capital Territory). Major universities in each of the previously cited states also participate in the funding.\\
+
+\footnotetext{Centre of Excellence are a common term used by Australian government to qualify prestigious centre of expertise where researchers collaborate to maintain Australia's international standing in research areas of national priority \autocite{ARCCentreExcellence}}
+
+NICTA has 5 laboratories around Australia and employs over 700 people representing the largest research organisation dedicated to ICT in Australia. Since its foundation it has developed many collaboration with the industry especially via joint projects and company creation. NICTA not only focuses on research excellence but is actively looking for business opportunities to capture the value created by its research group. Hence an organisation divided in two main centres \autocite{PresentationBooklet}.
+
+\begin{description}
+\item[Research Groups] are aiming to become leaders in their own domain of expertise with a long-term vision for ICT-innovation producing cutting edge results. Each operating in a different areas, they cover a large part of information and communication technologies. They are (in no particular order) :
+\begin{itemize}
+\item Software Systems is aiming to provide secure, reliable and safe systems that are proven to achieve \enquote{real world} enterprise performance and objectives. 
+\item Computer Vision mainly work at a fundamental level in order to provide tools to better analyse the world through 2D videos. Their key areas of research are using the existing mathematics of multiple view geometry with new techniques such as machine learning and optimization.
+\item Control and Signal Processing 
+\item Optimization 
+\item Machine Learning
+\item Networks
+\end{itemize}
+
+\item[Business Teams] are focused on exploiting the results of research through active market exploration and strategic surveillance. They provide business support for researchers and therefore cover economic sectors related to the above research groups. They are (in no particular order) :
+\begin{itemize}
+\item Broadband and the Digital Economy
+\item Health
+\item Infrastructure, Transports and Logistics
+\item Security and Environment
+\end{itemize}
+\end{description}
+
+\subsection{Software System Research Group}
+
+The Business Process Compliance group in which I am working is part of the Software Systems group, one of the six research groups. Starting from the observation that ICT systems are costly and hard to develop because of the constantly evolving framework of norms and requirement within which they operate. Business process compliance is becomming an increasing area of concern in both public and private sectors because of the complexity of regulations and the lack of automated tools. The compliance market is worth tenth of billions of dollars only in Australia.\autocite{BPCWebsite}
+
+
+
+
+
+
+\newpage
+
+\section{Introducing the project's theoretical framework}
+\subsection{Defeasible Logic}
+What is defeasible logic ?
+Why it was used in this particular case ?
+
+\subsection{representing norms and business processes}
+how do we represent these into a formal framework ?
+\lipsum[1-25]
+
+\subsection{Business Process Management and Compliance}
+What are the challenges of business process management and compliance ?\\
+In which way Business processes foster innovation ?
+
+\subsection{Tools already developed : Regorus and SPINdle}
+What are they and what are they doing ?\\
+Areas of improvement ?
+
+
+\newpage
+
+\section{The project's technical and strategical objectives}
+\subsection{Technical part}
+\subsubsection{Adding features to Regorus}
+\subsubsection{Solving and implementing the propagation of the effects problem}
+\subsubsection{Extending the theoretical model by adding time}
+
+\subsection{Strategic part}
+\subsubsection{A critical summary of the work done}
+Historical analysis of what have been done, what failed...
+
+\subsubsection{Find a strategy to commercialize Regorus}
+Which business model ?\\
+Who are the clients ?\\
+Who are our concurents ?\\
+
+\section{My contribution}
+
+
+\newpage
+% -------------------------------- %
+%           BIBLIOGRAPHY           %
+% -------------------------------- %
+
+
+\newpage
+
+\pagestyle{plain}
+% Here is the bibliography on the last page
+\nocite{*}
+\printbibliography[title={Book references},type=book]
+\printbibliography[title={Article references},type=article]
+\printbibliography[title={Online references},type=online]
+
+\printbibliography[title={Other references}, nottype=online,nottype=article, nottype=book]
+
+
+\end{document}

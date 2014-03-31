@@ -1,0 +1,78 @@
+% $ biblatex auxiliary file $
+% $ biblatex version 1.7 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\entry{ARCCentreExcellence}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{Australian Research Council}}{A.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{A1}
+  \strng{fullhash}{A1}
+  \field{labelyear}{2013}
+  \field{sortinit}{A}
+  \field{title}{ARC Centres of Excellence}
+  \verb{url}
+  \verb http://www.arc.gov.au/ncgp/ce/ce_default.htm
+  \endverb
+  \field{month}{05}
+  \field{year}{2013}
+\endentry
+
+\entry{PresentationBooklet}{booklet}{}
+  \name{author}{1}{}{%
+    {{}%
+     {NICTA}{N.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{N1}
+  \strng{fullhash}{N1}
+  \field{labelyear}{2010}
+  \field{sortinit}{N}
+  \field{pagetotal}{24}
+  \field{title}{Research Excellence in ICT, Wealth Creation for Australia}
+  \field{year}{2010}
+\endentry
+
+\entry{BPCWebsite}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{NICTA}}{N.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{N2}
+  \strng{fullhash}{N2}
+  \field{labelyear}{2013}
+  \field{sortinit}{N}
+  \field{title}{Business Process Compliance}
+  \verb{url}
+  \verb http://www.nicta.com.au/research/projects/business_process_compliance
+  \endverb
+  \field{year}{2013}
+\endentry
+
+\lossort
+\endlossort
+
+\endinput
