@@ -6,4 +6,4 @@
 *.bbl
 *.blg
 *.run*
-*.gz
+*.synctex.gz
