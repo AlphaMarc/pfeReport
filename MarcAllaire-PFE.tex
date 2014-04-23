@@ -10,8 +10,12 @@
 \usepackage{float} % Allows putting an [H] in \begin{figure} to specify the exact location of the figure
 \usepackage{wrapfig} % Allows in-line images
 
-\usepackage[style=authoryear]{biblatex} % Using biblatex package for bibiography in order to comply with INSA requirements
+\usepackage{parskip}
 
+\usepackage{amsmath} % Package to use the \text in equation environement
+
+\usepackage[style=authoryear]{biblatex} % Using biblatex package for bibiography in order to comply with INSA requirements
+\setlength\bibitemsep{1.25\itemsep} % adding space between bib entriesS
 
 \makeatletter
 
@@ -47,6 +51,7 @@
 
 \begin{document}
 
+\setlength{\parindent}{1em}
 \def\labelitemi{--} % defining dash instead of bullets
 
 % -------------------------------- %
@@ -211,41 +216,123 @@ The Business Process Compliance group in which I am working is part of the Softw
 
 
 \newpage
-
-\section{Introducing the project's theoretical framework}
-\subsection{Defeasible Logic}
+\section{Technical work on Regorus}
+\subsection{Introducing the project's theoretical framework}
+\subsubsection{Defeasible Logic}
 What is defeasible logic ?
 Why it was used in this particular case ?
 
-\subsection{representing norms and business processes}
+\subsubsection{representing norms and business processes}
 how do we represent these into a formal framework ?
-\lipsum[1-25]
 
-\subsection{Business Process Management and Compliance}
+\subsubsection{Business Process Management and Compliance}
 What are the challenges of business process management and compliance ?\\
 In which way Business processes foster innovation ?
 
-\subsection{Tools already developed : Regorus and SPINdle}
+\subsubsection{Tools already developed : Regorus and SPINdle}
 What are they and what are they doing ?\\
 Areas of improvement ?
 
 
 \newpage
+\subsection{Adding features to Regorus}
+\subsubsection{Implementing Cooccurrent Obligations}
+As introduced earlier there is different types of obligation in defeasible logic. This wide range allows us to model precisely and accurately a large number of business processes and rules. However some shortcomings have been spotted leading to imprecise modelling.
 
-\section{The project's technical and strategical objectives}
-\subsection{Technical part}
-\subsubsection{Adding features to Regorus}
+Let's first introduce an example to underline the lack of appropriate obligation. Taken from the Australian \textbf{INSERT THE PROPER ACT HERE} act when needing personal information from someone it must be given by the person himself. We could model this rule with a punctual obligation like this :
+\begin{equation}
+r1 : \text{Need Personal Information} \Rightarrow \text{[Op] Get it in person}
+\end{equation}
+In the current implementation of the compliance checking algorithm if the effect of the task triggers the rule $r1$ then the obligation is carried on to the next task where it will be checked in the \textit{Current} obligation set. In our example that does not really make sense since once we get the information we should check \textbf{in the same task} is the information was taken personally or not.
+
+To be able to precisely describe this kind of behaviour we need to introduce a new type of obligation, Cooccurrent Obligation. This represent an extension of punctual obligation which must be fulfilled in the same task where it was triggered. The addition of this new obligation forces us to modify the implementation of the software in the core packages to check compliance as well as in the editor part to let the user add this kind of obligation to their implementation of rules.
+
+First let's see how this new type changes the core compliance checking algorithm :
+
+For now the compliance checking algorithm works in five main steps for each task of the business process :
+\begin{enumerate}
+\item Get the obligations generated from the previous task
+\item Get the effects of the current task
+\item Generate new effects
+\item Check compliance with the given obligations and effects
+\item Generate the new obligations for the next task
+\end{enumerate}
+
+We need to make a few changes to take into account the new type of obligation. First, in the generated obligations look for Cooccurrent obligations then check these obligations on the literals just generated and see if there is a violation. If this is the case then the chain of reparation is marked as activated and checked for compliance in the task.
+
+As we said before cooccurrent obligations are close relatives of punctual obligations this allows us to leave the compliance checking algorithm and related routines unchanged and just call it again with the freshly generated cooccurrent obligation as punctual obligations and the new effects. To sum up we add three new steps to the pseudo algorithm introduced previously :
+\begin{enumerate}
+\item Get cooccurrent obligation from the set of new obligations
+\item Call the compliance checking algorithm to check compliance with the new effects and the cooccurrent obligations
+\item Generate new obligations for the next task and forward
+\end{enumerate}
+
+Now we need to take into account violation and compensation. If a cooccurrent obligation is violated and if it is part of a compensation chain we will check the rest of the chain in the very same task it was activated. 
+
+\subsubsection{XOR splits and the condition associated to them}
+In order to be able to implement conditional splits in business processes it is necessary to have XOR splits and corresponding XOR join. Unfortunately with this mandatory tool for business process modelling comes some issues, especially with punctual obligations, that we will try to tackle.
+
+First let see how XOR nodes behave in business process modelling with a little example from a demonstration video of Regorus \autocite{regorusVid}.
+
+\begin{figure}[!h] %on ouvre l'environnement figure
+\begin{center}
+\includegraphics[height=4cm]{XOR.png} %ou image.png, .jpeg etc.
+\caption{A simple example of XOR split} %la légende
+\end{center}
+\label{image_soleil} %l'étiquette pour faire référence à cette image
+\end{figure} %on ferme l'environnement figure 
+
+This sample shows an important feature of the XOR nodes : annotations on the edges. When checking compliance all the possible executions of a given business process are computed which mean in one case we will have \textit{Existing Customer} as an effect and in another thread we will have \textit{New Customer} as effect. The issue is in the way we take these effects into account to check compliance in the following tasks.
+
+For now Regorus puts \enquote{dummy nodes} between the XOR split and the first task as shown in the following illustration.
+\begin{figure}[!h] %on ouvre l'environnement figure
+\begin{center}
+\includegraphics[height=4cm]{XOR2.png} %ou image.png, .jpeg etc.
+\caption{Illustration of the \enquote{dummy nodes} added by regorus} %la légende
+\end{center}
+\label{image_soleil} %l'étiquette pour faire référence à cette image
+\end{figure} %on ferme l'environnement figure
+
+But a better behaviour would be to take these directly into account without the need for dummy nodes. Indeed punctual and cooccurrent obligations cannot be handled properly in this case. If the node before the XOR split yields an punctual obligation like this one $\text{p} \rightarrow \text{[Op]q}$ then with the actual implementation the obligation will be checked in the dummy nodes when it should be checked for compliance in the first \enquote{real} node following the XOR split.
+
+Again for cooccurrent obligations if the effect associated with the edge of the XOR split yields a cooccurrent obligation like $\text{p} \rightarrow \text{[Oc]q}$ then it will be checked on the dummy node when it should, once again, be checked for compliance in the first \enquote{real} node following the XOR split.
+
+We chose to follow these steps to implement this desired behaviour :
+\begin{enumerate}
+\item Identify the XOR splits in the business process graph
+\item When on a XOR split make a call to SPINdle to generate the obligations triggered by the effect associated with the edge
+\item Forward the new obligations to the next node without calling the compliance checking algorithm
+\end{enumerate}
+
+
 \subsubsection{Solving and implementing the propagation of the effects problem}
+
 \subsubsection{Extending the theoretical model by adding time}
 
-\subsection{Strategic part}
-\subsubsection{A critical summary of the work done}
+\newpage
+\section{Strategic reflection on Regorus}
+\subsection{A critical summary of the work done}
 Historical analysis of what have been done, what failed...
 
-\subsubsection{Find a strategy to commercialize Regorus}
+\subsection{Find a business model for Regorus}
+
+\subsubsection{Two-sided markets}
+On two sided market the main sources are \autocite{ParkerA05} \autocite{eisenmann2006strategies} \autocite{rochet2003platform}
+
 Which business model ?\\
 Who are the clients ?\\
 Who are our concurents ?\\
+
+\subsubsection{How Business Process Modeling is integrated in knowledge management}
+Knowledge Management is a relatively new field of study born in the early eighties when researchers in management looked into the importance of knowledge in organization.\autocite{Wiig19971}
+
+With the increasing use of information technologies by firms and the escalation in the size of data stored by those knowledge management became a legitimate concern. How to make sense of these ever growing raw databases and extract tangible information out of it? At the same time organization started to consider knowledge as an asset following the lead of Japanese car manufacturers.\autocite{Koenig08} How can a firm use its tacit and explicit knowledge to adapt better to the ever changing market ?
+
+Knowledge management was introduced in popular press in the early nineties mainly through the work of Nonaka. \autocite{nonaka1991knowledge} He is the one who later popularized the concept of Ba in his famous article \autocite{Nonaka_Konno_1998}
+
+\subsection{What can be done to improve market penetration}
+Qualitative market study to discover what our clients are sensible to.\\
+Ask questions about the key points presented in the previous section about two-sided networks
 
 \section{My contribution}
 
@@ -259,8 +346,10 @@ Who are our concurents ?\\
 \newpage
 
 \pagestyle{plain}
+
 % Here is the bibliography on the last page
 \nocite{*}
+\setlength{\bibitemsep}{5pt}
 \printbibliography[title={Book references},type=book]
 \printbibliography[title={Article references},type=article]
 \printbibliography[title={Online references},type=online]
