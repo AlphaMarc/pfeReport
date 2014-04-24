@@ -38,6 +38,6 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {III.2.2}How Business Process Modeling is integrated in knowledge management}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {III.3}What can be done to improve market penetration}{7}
+\contentsline {subsection}{\numberline {III.3}What can be done to improve market penetration}{8}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {IV}My contribution}{7}
+\contentsline {section}{\numberline {IV}My contribution}{8}
