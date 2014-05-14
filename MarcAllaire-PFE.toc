@@ -4,7 +4,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {I.1}A brief presentation of NICTA}{1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {I.2}Software System Research Group}{2}
+\contentsline {subsection}{\numberline {I.2}The Business Process Compliance Group}{2}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {II}Technical work on Regorus}{3}
 \defcounter {refsection}{0}\relax 
