@@ -1,6 +1,8 @@
-\documentclass[10pt]{article}
+\documentclass[10pt]{report}
 
 \usepackage[utf8]{inputenc}
+
+% \renewcommand*\rmdefault{iwona} % change the font
 
 \usepackage{geometry} % Required to change the page size to A4
 \geometry{a4paper} % Set the page size to be A4 as opposed to the default US Letter
@@ -13,6 +15,7 @@
 \usepackage{parskip}
 
 \usepackage{amsmath} % Package to use the \text in equation environement
+\usepackage{amssymb} %Package for fancy math symbols
 
 \usepackage[style=authoryear]{biblatex} % Using biblatex package for bibiography in order to comply with INSA requirements
 \setlength\bibitemsep{1.25\itemsep} % adding space between bib entriesS
@@ -49,6 +52,9 @@
 
 \usepackage{fancyhdr} % for header and footer custom
 
+\patchcmd{\chapter}{\clearpage}{}{}{}
+
+
 \begin{document}
 
 \setlength{\parindent}{1em}
@@ -67,7 +73,7 @@
 \includegraphics[width=1.5cm]{IAE-logo.jpg} 
 
 \vspace{3cm}
-\textsc{\LARGE \textit{\textbf{\uppercase{Projet de fin d'étude}}}}
+\textsc{\LARGE \textit{\textbf{\uppercase{End of studies project report}}}}
 \vspace{1.5cm}
 
 \begin{framed}
@@ -106,9 +112,9 @@ governatori@nicta.com
 \begin{minipage}{.3\textwidth}
 \begin{center}
 \textbf{IAE Tutor}\\
-John Doe\\
-Researcher at somewhere\\
-Jdoe@iae-toulouse.fr
+Margaret K. Kyle\\
+Professor, UT1\\
+margaret.kyle@iae-toulouse.fr
 \end{center}
 \end{minipage}
 \end{center}
@@ -145,8 +151,23 @@ IAE - Master Management Stratégique,\\\hspace{.5cm}Spécialité Management de l
 %executive summary
 \renewcommand{\abstractname}{Executive Summary}
 \begin{abstract}
-\lipsum[1-2]
+This report presents the work done around the Regorous software at NICTA during my final year internship. It is divided in two main parts. First a technical one that presents the new features that were added to the code-base. After a short but thorough introduction to the theoretical work underlying you will find an in-depth presentation of the new components that were implemented. My main contributions are : 
+\begin{itemize}
+\item Impementation of Cooccurrent obligation to extend the \enquote{vocabulary} available to translate regulation into defeasible rules. This necessitated a rewrite of the core library to introduce this new type and modify the compliance checking algorithm to take into account the special behaviour of this obligation.
+\item Modifications of the implementation of the compliance checking algorithm to check compliance of compensation chains in the same task they were triggered in instead of waiting for the next task. 
+\item Porting of the eclipse plug-in project to the current version of eclipse and third party libraries. This was an intensive work that taught me a lot about issues related to production environement. This is not something I was used to as a young graduate but the INSA generalist formation helped me go through.
+\end{itemize}
+
+Most of the code in this report is Java code or pseudo algorithmic code. I will not go into too much details about the exact implementation but rather focus on the methodology and the algorithms I used during the project.
+
+~\\Second part is more strategy oriented, it is built around reviewing Regorous marketing strategy. Indeed, NICTA is not only working on technological matters but on how they can impact the \enquote{real world} and make it to production use in firms. There has been past attempts to sell the software to companies but all failed. I present an historical review of the work already done and try to build a product strategy based on past feedbacks and marketing studies.
+
+I also investigate what are the side effects of Regorous and aim to link these with existing work taking its roots from both research and the corporate world. I present how Regorus is a great tool of knowledge management within the firm and back my argument with research papers.
+
+The report finds that the lack of a proper marketing study for Regorus is leading to a lot of approximations and guesses when it comes to targeted market or individuals within the firm. There is an urgent need to pinpoint who are the decision makers in corporations when it comes to buying software and what are their motivation, who they listen to, what is important to them. In short, we must know who are our clients. I suggest a that a focus group should be done once the targeted audience is well defined and propose a collection of subjects that could be worked on.
+
 \end{abstract}
+
 
 
 \newpage
@@ -155,8 +176,13 @@ IAE - Master Management Stratégique,\\\hspace{.5cm}Spécialité Management de l
 %executive summary
 \begin{center}
 \begin{minipage}{.8\textwidth}
-\textbf{\large Special Thanks to}\\
-%\textbf{Guido Governatori} \textit{For his help and support throughout this project}
+\textbf{\large Acknowledgement}\\\\
+I would like to take this opportunity to thank all the people who have contributed in some way to this reports particulary Mr Guido Governatori who initiated the project, for his attention, and for all the time he awarded to me, his advice was really useful and appreciated.\\
+
+I also thank all the member of NICTA QRL who were always ready to help me. It was an amazing experience both humanely and professionally \\
+
+Then, I would like to thank all the members of the Business Process Compliance group for their patience and the time they spent to explain their work to me.\\
+
 \end{minipage}
 \end{center}
 
@@ -176,8 +202,8 @@ IAE - Master Management Stratégique,\\\hspace{.5cm}Spécialité Management de l
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0 pt}
 
-\section{Presenting the context of the Project}
-\subsection{A brief presentation of NICTA}
+\chapter{Presenting the context of the Project}
+\section{A brief presentation of NICTA}
 NICTA is Australia's Information and Communication Technologies centre of excellence.\footnotemark It was created in 2002 within the framework of the Backing Australia's Ability initiative a government plan to foster innovation in Australia. NICTA won the selection process to become Australia's ICT centre of excellence. It is supported and funded by the Australian federal government as well as states governments where laboratories are running (New South Wales, Victoria, Queensland, Australian Capital Territory). Major universities in each of the previously cited states also participate in the funding.\\
 
 \footnotetext{Centre of Excellence are a common term used by Australian government to qualify prestigious centre of expertise where researchers collaborate to maintain Australia's international standing in research areas of national priority \autocite{ARCCentreExcellence}}
@@ -204,7 +230,7 @@ NICTA has 5 laboratories around Australia and employs over 700 people representi
 \end{itemize}
 \end{description}
 
-\subsection{The Business Process Compliance Group}
+\section{The Business Process Compliance Group}
 
 The Business Process Compliance group in which I am working is part of the Software Systems group, one of the six research groups. The interest in business process compliance starts from a simple observation. ICT systems are costly and hard to develop because of the constantly evolving framework of norms and requirement within which they operate leading to less agility and slower development cycles especially in domains with strict legal obligations. Business process compliance is becomming an increasing area of concern in both public and private sectors because of the complexity of regulations and the lack of automated tools. The compliance market is worth tenth of billions of dollars in Australia.\autocite{BPCWebsite}
 
@@ -212,27 +238,103 @@ From this observation, the BPC group started by selecting a framework to represe
 
 
 \newpage
-\section{Technical work on Regorus}
-\subsection{Introducing the project's theoretical framework}
-\subsubsection{Defeasible Logic}
-What is defeasible logic ?
-Why it was used in this particular case ?
+\chapter{Technical work on Regorus}
+\section{Introducing the project's theoretical framework}
+\subsection{A short introduction to defeasible logic}
 
-\subsubsection{representing norms and business processes}
+Defeasible reasoning as presented in \autocite{koons_defeasible_2005} is a non-demonstrative type of reasoning where one cannot reach a full, undoubted conclusion and where a conclusion can be defeated if further evidence of the contrary is demonstrated. Both computer scientists and philosophers has shown an interest in this field. The philosophical interest can be traced back to ancient Greece and Aristotle. Although the scientific reasoning is built on deductive logic, for everyday life we rely on a defeasible reasoning. We try to make general statements out of personal experience, for example we could say that all birds fly. This proposition would be true until we experience a bird that cannot fly such as a penguin. This would defeat the first rule.
+
+Computer scientist interest in defeasible logic has grown during the last 40 years especially in the field of artificial intelligence. An intelligent program needs a formal representation of the world, a formal language to represent knowledge, causality and ability in order to achieve its given goal. This requirement was first introduced in \autocite{mccarthy1968some}.
+
+Defeasible Logic was first introduced by Donal Nute in \autocite{nute1994defeasible} as a proposition to represent defeasible reasoning in a logical way. As stated in \autocite{ecai2000} defeasible logic is a flexible non-monotonic formalism able to represent a large set of non-monotonic reasoning. Also several powerful implementations have been proposed with good complexity properties allowing a correct computational time. This has been made possible by the design of defeasible logic that makes implementation easy yet efficient.
+
+Let's introduce the basics of Defeasible Logic as in \autocite{RepresentationResultsDefeasibleLogic}. A defeasible theory gives us five different ways of representing knowledge \textit{facts}, \textit{strict rules}, \textit{defeasible rules}, \textit{defeaters} and a \textit{superiority relation}. 
+
+\begin{description}
+\item[Facts] are indisputable statements for example Tux is a penguin which could be written formaly as $penguin(Tux)$
+\item[Strict rules] are rules as in deductive logic. It's the kind of rule we find in scientific reasoning. The conclusion is irrefutable if the premises also are. These are formally represented as : 
+$$penguin(X) \rightarrow bird(X)$$
+\item[Defeasible rules] are the ones that can be defeated by evidence of the contrary. To draw a parallel with everyday reasoning one could generalize from experience that "Birds fly" a statement that would be true until the opposite is deducted. These rules are formally represented as :
+$$bird(X) \Rightarrow flies(X)$$
+\item[defeaters] are weaker rules that cannot be used to draw any conclusion but can prevent one. They are used to defeat other rules (hence the name) because they produce evidence of the contrary. 
+$$heavy(X) \leadsto \neg flies(X)$$
+From this defeater we cannot conclude that because someone or something is heavy it cannot fly, it is only here to prevent the conclusion of $flies(X)$.
+\item[Superiority relation] is used to create an order in a rule set. It is important to note that this relation does not have the properties of a proper superiority relation. When we have two different rules which derive something and its negation we cannot draw a conclusion since defeasible logic is skeptical. The superiority relation allows us to come to a conclusion. For example :
+
+\[
+\begin{aligned}
+& r :&      bird(X) &\Rightarrow flies(X)\\
+& r':&brokenWing(X) &\Rightarrow \neg flies(X)\\
+& & r'>r
+\end{aligned}
+\]
+
+In this case we cannot reach a conclusion since $r$ and $r'$ reach opposite concusions. By introducing the superiority relation we say that $r'$ is stricly stronger than $r$ and therefore we can conclude that the bird cannot fly. Please note that there is no cyclical 
+\end{description}
+
+Now that we are more familiar with the concepts of defeasible logic we can show how we can reach a defeasible conclusion using proof theory. It exists four proof types for a conclusion D.
+\begin{description}
+\item[$\pm\Delta$q] means that $q$ or $\neg q$ or is definitely provable in D
+\item[$\pm\partial$q] means that $q$ or $\neg q$ or is defeasibly provable in D
+\end{description}
+
+We won't get into details about how to definitely prove a literal since the focus of this report is more on defeasible proof. All you need to know is that if $q$ is definitely provable then it is also defeasibly provable.
+
+In \autocite{RepresentationResultsDefeasibleLogic} provability is defined using the concept of \emph{derivation} in a conclusion D which is a set of facts rules and superiority relations ($D=(F,R,>)$). A derivation P can be seen as several steps in a demonstration. At the step $P(i)$ of the proof we have a given set $(F,R,>)$ from this we can prove $P(i+1)$ either definitely or defeasibly.
+
+In order to reach a definitive conclusion $\pm\Delta q$ we need to have a rule that deduce $(\neg)q$ or have $(\neg)q$ as a fact. 
+
+The following definitions exposes how to defeasibly conclude a literal $q$ at $P(i+1)$.
+\newtheorem{mydef}{Definition}
+\begin{mydef} \label{def-defeasible-proof}
+If $P(i+1)$ = $+\partial q$ then either
+\begin{enumerate}
+\item $+\Delta q$ $\in$ $P(1..i)$ or
+\item \begin{enumerate}
+      \item $\exists r$ $\in$ $R_{sd}[q]$, $\forall a$ $\in$ $A(r)$ : $+\partial a$ $\in$ $P(1..i)$
+      \item $-\Delta q$ $\in$ $P(1..i)$
+      \item $\forall s$ $\in$ $R[\neg q]$ either
+          \begin{enumerate}
+          \item $\exists a$ $\in$ $A(s)$ : $-\partial a$ $\in$ $P(1..i)$ or
+          \item $\exists t$ $\in$ $R_{sd}[q]$ such that \\ $\forall a$ $\in$ $A(t)$ : $+\partial a$ $\in$ $P(1..i)$ and $t>s$
+          \end{enumerate}
+      \end{enumerate}
+\end{enumerate}
+
+
+\end{mydef}
+
+In less mathematical terms this definition means that in order to defeasibly prove $q$ we can follow two paths. Either prove that $q$ is definitely provable or work the defeasible part. Three conditions apply :
+\begin{enumerate}
+\item there is a rule r that concludes $q$ for every literal $a$ such as $a$ has been defeasably proven in a previous step $P(1..i)$.
+\item $\neg q$ has not been definitively proven in a previous step $P(1..i)$
+\item for every rule $s$ that conclude $\neg q$ for a literal $a$ either
+  \begin{enumerate}
+  \item $\neg a$ has been defeasibly prven in a previous step $P(1..i)$ or
+  \item there is a rule $t$ that concludes $q$ such as $t>s$
+  \end{enumerate}
+\end{enumerate}
+
+
+\subsection{Using defeasible deontic logic to represent legal norms}
 how do we represent these into a formal framework ?
+~\\Why it was used in this particular case ?
 
-\subsubsection{Business Process Management and Compliance}
+
+\subsection{BPMN2.0 and the representation of business processes}
+
+\subsection{Business Process Management and Compliance}
 What are the challenges of business process management and compliance ?\\
 In which way Business processes foster innovation ?
 
-\subsubsection{Tools already developed : Regorus and SPINdle}
+\subsection{Tools already developed : Regorus and SPINdle}
 What are they and what are they doing ?\\
 Areas of improvement ?
 
 
 \newpage
-\subsection{Adding features to Regorus}
-\subsubsection{Implementing Cooccurrent Obligations}
+\section{Adding features to Regorus}
+\subsection{Implementing Cooccurrent Obligations}
 As introduced earlier there is different types of obligation in defeasible logic. This wide range allows us to model precisely and accurately a large number of business processes and rules. However some shortcomings have been spotted leading to imprecise modelling.
 
 Let's first introduce an example to underline the lack of appropriate obligation. Taken from the Australian \textbf{INSERT THE PROPER ACT HERE} act when needing personal information from someone it must be given by the person himself. We could model this rule with a punctual obligation like this :
@@ -263,9 +365,11 @@ As we said before cooccurrent obligations are close relatives of punctual obliga
 \item Generate new obligations for the next task and forward
 \end{enumerate}
 
-Now we need to take into account violation and compensation. If a cooccurrent obligation is violated and if it is part of a compensation chain we will check the rest of the chain in the very same task it was activated. 
+Now we need to take into account violation and compensation. If a cooccurrent obligation is violated and if it is part of a compensation chain we will check the rest of the chain in the very same task it was activated.
 
-\subsubsection{XOR splits and the condition associated to them}
+
+
+\subsection{XOR splits and the condition associated to them}
 In order to be able to implement conditional splits in business processes it is necessary to have XOR splits and corresponding XOR join. Unfortunately with this mandatory tool for business process modelling comes some issues, especially with punctual obligations, that we will try to tackle.
 
 First let see how XOR nodes behave in business process modelling with a little example from a demonstration video of Regorus \autocite{regorusVid}.
@@ -301,27 +405,42 @@ We chose to follow these steps to implement this desired behaviour :
 \end{enumerate}
 
 
-\subsubsection{Solving and implementing the propagation of the effects problem}
+\subsection{Porting the eclipse plug-in to the Kepler version of Eclipse}
 
-\subsubsection{Extending the theoretical model by adding time}
+New releases come with their burden of broken APIs and unresolved functions names. Eclipse is not an exception for that matter. The Eclipse plug-in code has not been touched for two years so when I tried to compile and run it on my machine I stumbled upon a lot of errors. Like other complex software the eclipse plug-in depends on some third-party library to work properly. These evolved quite a bit over time to a point where function that once existed where not even referenced in the last version.
+
+First let me tell you about the \textit{graphiti} library. It's a component of the \enquote{Eclipse Modelling Framework}. As one of the main feature of the plug-in is to be able to draw business process, it relies on this library.
+
+Really this hasn't been too much of a hassle since like other eclipse core libraries it is pretty well documented and the javadoc is easily avaiable online. One of the methods the code was using wasn't referenced anymore in the Kepler version of the library and the type calling this method was marked as deprecated. 
+
+I eventually found a workaround for my problem but it taught me a great lesson for future software documentation I may write : always not only document what you changed but also why or to what purpose you changed the library.
+
+This task also trained me on a part of software development we rarely talk about in class : production environment and dependency management. Developing a software that is portable is really important and it must be a very important concern. Will the libraries I use be available for future developers ? Are the maintainers of these libraries care about backports or keeping legacy software usable ?
+These are very important concerns and even more difficult to enforce in a Java environment. %citation needed
+
+
+\subsection{Extending the theoretical model by adding time}
+Guido paper on temporal defeasible logic \autocite{JusticeDelayed2001} \autocite{TemporalExtension2007}
 
 \newpage
-\section{Strategic reflection on Regorus}
-\subsection{A critical summary of the work done}
+\chapter{Strategic reflection on Regorus}
+\section{A critical summary of the work done}
 Historical analysis of what have been done, what failed...
 
 They tried to go to the market without any market study
 
-\subsection{Find a business model for Regorus}
+\section{Find a business model for Regorus}
 
-\subsubsection{Two-sided markets}
+\subsection{Two-sided markets}
 On two sided market the main sources are \autocite{ParkerA05} \autocite{eisenmann2006strategies} \autocite{rochet2003platform}
 
 Which business model ?\\
 Who are the clients ?\\
 Who are our concurents ?\\
 
-\subsubsection{How Business Process Modeling is integrated in knowledge management}
+Will the market is likely to end up in a winner take all situation ?\\
+
+\subsection{How Business Process Modeling is integrated in knowledge management}
 
 We think that one of the ways to promote Regorus and improve its market penetration is to research the ways it can be useful for a company. Apart from its main purpose of asserting compliance of business processes Regorus can be useful at higher levels by being a part of the knowledge management plan of the firm for example.
 
@@ -333,11 +452,9 @@ Knowledge management was introduced in popular press in the early nineties mainl
 
 Regorus is a great tool for companies because it helps them explicit their practices and internal knowledge into a new figurative language such as BPMN. This translates personal, sticky knowledge to be translated into an explicit, normative form leading to a better understanding and transmission of know-how. In this sense Regorous is more than just a tool to check the compliance of processes it is also a powerful way of managing knowledge in the firm and therefore leading to better results.
 
-\subsection{What can be done to improve market penetration}
+\section{What can be done to improve market penetration}
 Qualitative market study to discover what our clients are sensible to.\\
 Ask questions about the key points presented in the previous section about two-sided networks
-
-\section{My contribution}
 
 
 \newpage

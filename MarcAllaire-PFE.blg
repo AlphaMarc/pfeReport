@@ -15,47 +15,49 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: MarcAllaire-PFE-blx.bib
 Database file #2: biblio.bib
+Warning--I didn't find a database entry for "JusticeDelayed2001"
 Biblatex version: 1.7
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
-You've used 18 entries,
+You've used 24 entries,
             6019 wiz_defined-function locations,
-            1258 strings with 11991 characters,
-and the built_in function-call counts, 62024 in all, are:
-= -- 2103
-> -- 3146
-< -- 592
-+ -- 1745
-- -- 1833
-* -- 4467
-:= -- 4716
+            1301 strings with 13568 characters,
+and the built_in function-call counts, 82813 in all, are:
+= -- 2887
+> -- 4021
+< -- 797
++ -- 2170
+- -- 2289
+* -- 6019
+:= -- 6075
 add.period$ -- 0
-call.type$ -- 18
-change.case$ -- 252
+call.type$ -- 24
+change.case$ -- 365
 chr.to.int$ -- 160
-cite$ -- 34
-duplicate$ -- 6465
-empty$ -- 6145
-format.name$ -- 1096
-if$ -- 13006
+cite$ -- 46
+duplicate$ -- 8748
+empty$ -- 8264
+format.name$ -- 1511
+if$ -- 17555
 int.to.chr$ -- 0
-int.to.str$ -- 49
+int.to.str$ -- 67
 missing$ -- 0
-newline$ -- 496
-num.names$ -- 771
-pop$ -- 5401
+newline$ -- 669
+num.names$ -- 1082
+pop$ -- 7318
 preamble$ -- 1
-purify$ -- 293
+purify$ -- 422
 quote$ -- 0
-skip$ -- 3293
+skip$ -- 4490
 stack$ -- 0
-substring$ -- 1483
-swap$ -- 2310
-text.length$ -- 525
-text.prefix$ -- 17
+substring$ -- 1911
+swap$ -- 3091
+text.length$ -- 693
+text.prefix$ -- 23
 top$ -- 1
-type$ -- 672
+type$ -- 900
 warning$ -- 0
-while$ -- 457
+while$ -- 570
 width$ -- 0
-write$ -- 477
+write$ -- 644
+(There was 1 warning)
