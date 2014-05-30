@@ -12,7 +12,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {I.1}A short introduction to defeasible logic}{3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {I.2}Using defeasible logic to represent legal norms}{5}
+\contentsline {subsection}{\numberline {I.2}Using defeasible deontic logic to represent legal norms}{5}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {I.3}BPMN2.0 and the representation of business processes}{5}
 \defcounter {refsection}{0}\relax 

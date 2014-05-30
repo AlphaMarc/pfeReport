@@ -453,6 +453,56 @@
   \field{year}{1968}
 \endentry
 
+\entry{mcnamara_deontic_2014}{incollection}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{McNamara}}{M.}%
+     {Paul}{P.}%
+     {}{}%
+     {}{}}%
+  }
+  \name{editor}{1}{}{%
+    {{}%
+     {Zalta}{Z.}%
+     {Edward~N.}{E.~N.}%
+     {}{}%
+     {}{}}%
+  }
+  \keyw{logic: action, logic: modal, logic: relevance, Mally, Ernst, Mally,
+  Ernst: deontic logic, moral dilemmas, reasoning: moral}
+  \strng{namehash}{MP1}
+  \strng{fullhash}{MP1}
+  \field{labelyear}{2014}
+  \field{sortinit}{M}
+  \field{abstract}{%
+  Deontic logic[1] is that branch of symbolic logic that has been the most
+  concernedwith the contribution that the following notions make to what
+  followsfrom what:, [Detailed Table of Contents], If p then ◊p (if p is
+  true, thenp is possible)., {TTC:} ({OBp} ∨ {OPp} {∨IMp)} \&
+  [{\textasciitilde}({OBp} {\&IMp)} \& {\textasciitilde}({OBp} {\&OPp)} \&
+  {\textasciitilde}({OPp} \& {IMp)].}, , (2) You may sleep on the sofa-bed and
+  you may sleep on the guest roombed., (2) It ought to be that if Jones goes,
+  then he tells them he iscoming., (2) If Doe does kill his mother, then it is
+  obligatory that Doe killsher gently., {BA{\textasciitilde}p},, Copyright ©
+  2010 {byPaul} {McNamara{\textless}paulmunh@gmail.com{\textgreater}} , View
+  this site from another server:,%
+  }
+  \field{booktitle}{The Stanford Encyclopedia of Philosophy}
+  \field{edition}{Spring 2014}
+  \field{title}{Deontic Logic}
+  \verb{url}
+  \verb http://plato.stanford.edu/archives/spr2014/entries/logic-deontic/
+  \endverb
+  \verb{file}
+  \verb SEP - Snapshot:/home/marc/.mozilla/firefox/08my123y.default/zotero/stor
+  \verb age/S2SPUDMA/logic-deontic.html:text/html
+  \endverb
+  \field{year}{2014}
+  \field{urlday}{29}
+  \field{urlmonth}{05}
+  \field{urlyear}{2014}
+\endentry
+
 \entry{PresentationBooklet}{booklet}{}
   \name{author}{1}{}{%
     {{}%
