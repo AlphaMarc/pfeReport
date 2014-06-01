@@ -1,6 +1,7 @@
 \documentclass[10pt]{report}
 
 \usepackage[utf8]{inputenc}
+\usepackage[LGR,T1]{fontenc} % this is to be able to output greek 
 
 % \renewcommand*\rmdefault{iwona} % change the font
 
@@ -38,6 +39,14 @@
 
 \addbibresource{biblio.bib}
 
+\newcommand{\textgreek}[1]{\begingroup\fontencoding{LGR}\selectfont#1\endgroup} % type greek words
+
+% redefine the chapter style
+\usepackage{titlesec, blindtext, color}
+\definecolor{gray75}{gray}{0.75}
+\newcommand{\hsp}{\hspace{20pt}}
+\renewcommand{\thechapter}{\Roman{chapter}}
+\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\hsp\textcolor{gray75}{|}\hsp}{0pt}{\Huge\bfseries}
 
 \usepackage{graphicx} % Required for including pictures
 \graphicspath{{art/}} % Specifies the directory where pictures are stored
@@ -52,7 +61,9 @@
 
 \usepackage{fancyhdr} % for header and footer custom
 
-\patchcmd{\chapter}{\clearpage}{}{}{}
+\setcounter{secnumdepth}{3}  % to have subsubsections numbered
+\renewcommand\thesubsection{\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\alph{subsubsection}}
 
 
 \begin{document}
@@ -310,7 +321,7 @@ In less mathematical terms this definition means that in order to defeasibly pro
 \item $\neg q$ has not been definitively proven in a previous step $P(1..i)$
 \item for every rule $s$ that conclude $\neg q$ for a literal $a$ either
   \begin{enumerate}
-  \item $\neg a$ has been defeasibly prven in a previous step $P(1..i)$ or
+  \item $\neg a$ has been defeasibly proven in a previous step $P(1..i)$ or
   \item there is a rule $t$ that concludes $q$ such as $t>s$
   \end{enumerate}
 \end{enumerate}
@@ -318,7 +329,12 @@ In less mathematical terms this definition means that in order to defeasibly pro
 
 \subsection{Using defeasible deontic logic to represent legal norms}
 
+Deontic logic (from ancient greek \textgreek{deontos} meaning duty, what must be done) is a branch of symbolic logic concerned with the logic of obligations and permissions \autocite{mcnamara_deontic_2010}. Therefore it is exactly the kind of logical framework we want to be able to express regulations. Unfortunately standard deontic logic is unable to represent simple notions of normative reasoning such as prima-facie obligations or contrary-to-duty obligation. This lack of expressibility has driven away the very people that would have used deontic logic the most\autocite{nute1997defeasible}.
 
+Let's take a closer look at prima-facie obligation for example and see how we can express these in the light of defeasible logic. Prima-facie means \enquote{at first sight} hence a prima-facie obligation is an obligation that stands at first sight, one that can be defeated if new facts can prove otherwise. We can see that this type of obligation can easily be expressed using defeasible logic, it is defeasible.
+
+\subsubsection{Different types of obligations}
+\subsubsection{Expressing violations with the $\otimes$ operator}
 
 
 how do we represent these into a formal framework ?
@@ -424,7 +440,7 @@ These are very important concerns and even more difficult to enforce in a Java e
 
 
 \subsection{Extending the theoretical model by adding time}
-Guido paper on temporal defeasible logic \autocite{JusticeDelayed2011} \autocite{TemporalExtension2007}
+Guido paper on temporal defeasible logic \autocite{JusticeDelayed2001} \autocite{TemporalExtension2007}
 
 \newpage
 \chapter{Strategic reflection on Regorus}
@@ -474,11 +490,11 @@ Ask questions about the key points presented in the previous section about two-s
 % Here is the bibliography on the last page
 \nocite{*}
 \setlength{\bibitemsep}{5pt}
-\printbibliography[title={Book references},type=book]
-\printbibliography[title={Article references},type=article]
-\printbibliography[title={Online references},type=online]
+\printbibliography[title={Book references},type=book, heading=subbibliography]
+\printbibliography[title={Article references},type=article, heading=subbibliography]
+\printbibliography[title={Online references},type=online, heading=subbibliography]
 
-\printbibliography[title={Other references}, nottype=online,nottype=article, nottype=book]
+\printbibliography[title={Other references}, nottype=online,nottype=article, nottype=book, heading=subbibliography]
 
 
 \end{document}
