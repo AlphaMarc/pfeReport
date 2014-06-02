@@ -12,15 +12,15 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1}A short introduction to defeasible logic}{3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2}Using defeasible deontic logic to represent legal norms}{5}
+\contentsline {subsection}{\numberline {2}Using defeasible deontic logic to represent legal norms and regulations}{5}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.a}Different types of obligations}{5}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.b}Expressing violations with the $\otimes $ operator}{5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3}BPMN2.0 and the representation of business processes}{5}
+\contentsline {subsection}{\numberline {3}BPMN2.0 and the representation of business processes}{6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4}Business Process Management and Compliance}{5}
+\contentsline {subsection}{\numberline {4}Business Process Management and Compliance}{6}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {5}Tools already developed : Regorus and SPINdle}{6}
 \defcounter {refsection}{0}\relax 
