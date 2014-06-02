@@ -3,7 +3,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage[LGR,T1]{fontenc} % this is to be able to output greek 
 
-% \renewcommand*\rmdefault{iwona} % change the font
+%\renewcommand*\rmdefault{stix} % change the font
+% \usepackage{times} % use times font for report
 
 \usepackage{geometry} % Required to change the page size to A4
 \geometry{a4paper} % Set the page size to be A4 as opposed to the default US Letter
@@ -335,8 +336,25 @@ Deontic logic (from ancient greek \textgreek{deontos} meaning duty, what must be
 
 Let's take a closer look at prima-facie obligation for example and see how we can express these in the light of defeasible logic. Prima-facie means \enquote{at first sight} hence a prima-facie obligation is an obligation that stands at first sight, one that can be defeated if new facts can prove otherwise. We can see that this type of obligation can easily be expressed using defeasible logic, it is defeasible. Furthermore regulations contain feature exceptions that are easily represented using defeasible logic.
 
+There are many benefits to use a logical framework to represent regulations, some of those are presented in \autocite{ModellingAndAnalysisOfRegulations}. They are subdivided into two main area of application :
+\begin{itemize}
+\item \textbf{the understanding and application of regulations} for users not familiar with legal writing and don't want to study a regulation yet being under the obligation to comply.
+   \begin{description}
+   \item \textit{Decision support} : If I make this decision, is it compliant ? You can run your process against a set of regulations and see if it complies. This is one of the situations where Regorous is actually effective. A formal framework for expressing processes is needed too in this case.
+   \item \textit{Explanation} : We can return to the user the complete reasoning chain that lead to the given answer. It is therefore easier for the user to understand what cause this answer for their request.
+   \end{description}
+\item \textbf{the creation of regulation} for assisting legal professional in their work.
+   \begin{description}
+   \item \textit{Anomaly detection} Having a formal logical framework backing the drafting of regulation allows us to easily detect anomalies such as inconsistencies or loops.
+   \item \textit{Hypothetical reasoning} It is possible, like for decision support, to inspect the effects of a regulation on the entire system.
+   \item \textit{Debugging} When a regulation is not yielding the expected answer to a given query it is possible to debug it.
+   \end{description}    
+\end{itemize}
+
 \subsubsection{Different types of obligations}
-Now that we explained the need for 
+Now that we explained the need for a logical framework for legal reasoning and how good deontic defeasible logic is we can introduce the different types of obligations. Indeed to accurately represent the complexity of norms and regulations it is necessary to have a range of different types of obligations to be able to translate legal text into an equivalent logical representation.
+
+
 
 \subsubsection{Expressing violations with the $\otimes$ operator}
 
