@@ -16,32 +16,48 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.a}Different types of obligations}{6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.b}Expressing violations with the $\otimes $ operator}{6}
+\contentsline {subsubsection}{\numberline {2.b}Expressing chain of obligation with the $\otimes $ operator}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3}BPMN2.0 and the representation of business processes}{6}
+\contentsline {subsection}{\numberline {3}BPMN2.0 and the representation of business processes}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4}Business Process Management and Compliance}{6}
+\contentsline {subsection}{\numberline {4}Tools already developed : Regorus and SPINdle}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5}Tools already developed : Regorus and SPINdle}{6}
+\contentsline {section}{\numberline {II}Adding features to Regorus}{8}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {II}Adding features to Regorus}{7}
+\contentsline {subsection}{\numberline {1}Implementing Cooccurrent Obligations}{8}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1}Implementing Cooccurrent Obligations}{7}
+\contentsline {subsection}{\numberline {2}XOR splits and the condition associated to them}{9}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2}XOR splits and the condition associated to them}{8}
+\contentsline {subsection}{\numberline {3}Porting the eclipse plug-in to the Kepler version of Eclipse}{10}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3}Porting the eclipse plug-in to the Kepler version of Eclipse}{9}
+\contentsline {subsection}{\numberline {4}Extending the theoretical model by adding time}{10}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4}Extending the theoretical model by adding time}{9}
+\contentsline {subsubsection}{\numberline {4.a}Temporal formalism for deontic defeasible logic}{11}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {III}Strategic reflection on Regorus}{10}
+\contentsline {subsubsection}{\numberline {4.b}Proving that defeasible logic and temporal defeasible logic reach the same conclusions}{11}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {I}A critical summary of the work done}{10}
+\contentsline {chapter}{\numberline {III}Strategic reflection on Regorus}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {II}Find a business model for Regorus}{10}
+\contentsline {section}{\numberline {I}Business Process Management and Compliance}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1}Two-sided markets}{10}
+\contentsline {section}{\numberline {II}A critical summary of the work done}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2}How Business Process Modeling is integrated in knowledge management}{10}
+\contentsline {section}{\numberline {III}Find a business model for Regorus}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {III}What can be done to improve market penetration}{11}
+\contentsline {subsection}{\numberline {1}Two-sided markets}{12}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {1.a}A definition for two-sided market and its dynamics}{13}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{A definition}{13}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Network effects}{13}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Value creation through interactions}{13}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {1.b}How does Regorus fits the model}{13}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {1.c}Possible users of the platform and strategies}{13}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2}How Business Process Modeling is integrated in knowledge management}{13}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {IV}What can be done to improve market penetration}{14}

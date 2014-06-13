@@ -39,6 +39,7 @@
      {}{}%
      {}{}}%
   }
+  \keyw{tech}
   \strng{namehash}{AG+1}
   \strng{fullhash}{AGBDGGMMJ1}
   \field{labelyear}{1999}
@@ -84,6 +85,7 @@
   \list{publisher}{1}{%
     {IOS Press}%
   }
+  \keyw{tech}
   \strng{namehash}{AG+1}
   \strng{fullhash}{AGBDGGMMJRA1}
   \field{labelyear}{2000}
@@ -118,6 +120,7 @@
      {}{}%
      {}{}}%
   }
+  \keyw{tech}
   \strng{namehash}{AG+1}
   \strng{fullhash}{AGBDGGMMJ1}
   \field{labelyear}{2001}
@@ -141,6 +144,7 @@
      {}{}%
      {}{}}%
   }
+  \keyw{tech}
   \strng{namehash}{A1}
   \strng{fullhash}{A1}
   \field{labelyear}{2013}
@@ -151,6 +155,62 @@
   \endverb
   \field{month}{05}
   \field{year}{2013}
+\endentry
+
+\entry{Choudary2014}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Choudary}{C.}%
+     {Sangeet~Paul}{S.~P.}%
+     {}{}%
+     {}{}}%
+  }
+  \keyw{strat}
+  \strng{namehash}{CSP1}
+  \strng{fullhash}{CSP1}
+  \field{labelyear}{2014}
+  \field{sortinit}{C}
+  \field{shorttitle}{How small ideas like Twitter, WhatsApp and Airbnb create
+  large value through network effects}
+  \field{title}{How small ideas like Twitter, WhatsApp and Airbnb create large
+  value through network effects : Platform Thinking}
+  \verb{url}
+  \verb http://platformed.info/twitter-whatsapp-uber-airbnb-network-effects/
+  \endverb
+  \field{year}{2014}
+  \field{urlday}{13}
+  \field{urlmonth}{06}
+  \field{urlyear}{2014}
+\endentry
+
+\entry{economides2006}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Economides}{E.}%
+     {Nicholas}{N.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Katsamakas}{K.}%
+     {Evangelos}{E.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Informs}%
+  }
+  \keyw{strat}
+  \strng{namehash}{ENKE1}
+  \strng{fullhash}{ENKE1}
+  \field{labelyear}{2006}
+  \field{sortinit}{E}
+  \field{number}{7}
+  \field{pages}{1057\bibrangedash 1071}
+  \field{title}{Two-sided competition of proprietary vs. open source technology
+  platforms and the implications for the software industry}
+  \field{volume}{52}
+  \field{journaltitle}{Management Science}
+  \field{year}{2006}
 \endentry
 
 \entry{eisenmann2006strategies}{article}{}
@@ -171,6 +231,7 @@
      {}{}%
      {}{}}%
   }
+  \keyw{strat}
   \strng{namehash}{ETPGVAMW1}
   \strng{fullhash}{ETPGVAMW1}
   \field{labelyear}{2006}
@@ -199,6 +260,7 @@
   \list{publisher}{1}{%
     {Springer}%
   }
+  \keyw{tech}
   \strng{namehash}{GGAR1}
   \strng{fullhash}{GGAR1}
   \field{labelyear}{2011}
@@ -227,6 +289,7 @@
   \list{publisher}{1}{%
     {IOS Press}%
   }
+  \keyw{tech}
   \strng{namehash}{GGRA1}
   \strng{fullhash}{GGRA1}
   \field{labelyear}{2008}
@@ -256,6 +319,7 @@
   \list{publisher}{1}{%
     {ACS}%
   }
+  \keyw{tech}
   \strng{namehash}{GGRA1}
   \strng{fullhash}{GGRA1}
   \field{labelyear}{2010}
@@ -288,6 +352,7 @@
   \list{publisher}{1}{%
     {Springer}%
   }
+  \keyw{tech}
   \strng{namehash}{GGRA1}
   \strng{fullhash}{GGRA1}
   \field{labelyear}{2010}
@@ -319,6 +384,7 @@
   \list{publisher}{1}{%
     {IGI Global}%
   }
+  \keyw{tech}
   \strng{namehash}{GGSS1}
   \strng{fullhash}{GGSS1}
   \field{labelyear}{2009}
@@ -345,6 +411,7 @@
   \list{publisher}{1}{%
     {Springer}%
   }
+  \keyw{tech}
   \strng{namehash}{GGTP1}
   \strng{fullhash}{GGTP1}
   \field{labelyear}{2007}
@@ -357,6 +424,31 @@
   \field{pages}{476\bibrangedash 485}
   \field{title}{Temporal Extensions to Defeasible Logic}
   \field{year}{2007}
+\endentry
+
+\entry{Hagiu2011}{book}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Hagiu}{H.}%
+     {Andrei}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wright}{W.}%
+     {Julian}{J.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Harvard Business School}%
+  }
+  \keyw{strat}
+  \strng{namehash}{HAWJ1}
+  \strng{fullhash}{HAWJ1}
+  \field{labelyear}{2011}
+  \field{sortinit}{H}
+  \field{title}{Multi-sided platforms}
+  \field{year}{2011}
 \endentry
 
 \entry{Koenig08}{article}{}
@@ -372,8 +464,7 @@
      {}{}%
      {}{}}%
   }
-  \keyw{KM; knowledge management; history; development; information management;
-  intellectual capital; conten}
+  \keyw{strat}
   \strng{namehash}{KMNK1}
   \strng{fullhash}{KMNK1}
   \field{labelyear}{2008}
@@ -386,6 +477,7 @@
   \endverb
   \field{volume}{7}
   \field{journaltitle}{Journal of Information \& Knowledge Management (JIKM)}
+  \field{month}{03}
   \field{year}{2008}
 \endentry
 
@@ -404,7 +496,7 @@
      {}{}%
      {}{}}%
   }
-  \keyw{artificial intelligence: logic and, causation: probabilistic,
+  \keyw{tech, artificial intelligence: logic and, causation: probabilistic,
   epistemology: Bayesian, logic: modal, logic: non-monotonic, logic: of belief
   revision, probability, interpretations of}
   \strng{namehash}{KR1}
@@ -444,6 +536,7 @@
   \list{publisher}{1}{%
     {Stanford University USA}%
   }
+  \keyw{tech}
   \strng{namehash}{MJHP1}
   \strng{fullhash}{MJHP1}
   \field{labelyear}{1968}
@@ -461,6 +554,7 @@
      {}{}%
      {}{}}%
   }
+  \keyw{tech}
   \strng{namehash}{MP1}
   \strng{fullhash}{MP1}
   \field{sortinit}{M}
@@ -475,7 +569,6 @@
   \verb pedia of Philosophy):/home/marc/.mozilla/firefox/08my123y.default/zoter
   \verb o/s torage/ZAEUJHND/challenges.html:text/html
   \endverb
-  \field{type}{2010}
   \field{urlday}{01}
   \field{urlmonth}{06}
   \field{urlyear}{2014}
@@ -496,8 +589,7 @@
      {}{}%
      {}{}}%
   }
-  \keyw{logic: action, logic: modal, logic: relevance, Mally, Ernst, Mally,
-  Ernst: deontic logic, moral dilemmas, reasoning: moral}
+  \keyw{tech}
   \strng{namehash}{MP1}
   \strng{fullhash}{MP1}
   \field{labelyear}{2014}
@@ -539,6 +631,7 @@
      {}{}%
      {}{}}%
   }
+  \keyw{tech}
   \strng{namehash}{N1}
   \strng{fullhash}{N1}
   \field{labelyear}{2010}
@@ -556,6 +649,7 @@
      {}{}%
      {}{}}%
   }
+  \keyw{tech}
   \strng{namehash}{N2}
   \strng{fullhash}{N2}
   \field{labelyear}{2013}
@@ -576,6 +670,7 @@
      {}{}}%
   }
   \field{editoratype}{collaborator}
+  \keyw{tech}
   \field{labelyear}{2012}
   \field{sortinit}{N}
   \field{abstract}{%
@@ -609,6 +704,7 @@
      {}{}%
      {}{}}%
   }
+  \keyw{strat}
   \strng{namehash}{NI1}
   \strng{fullhash}{NI1}
   \field{labelyear}{1991}
@@ -637,7 +733,7 @@
   \list{publisher}{1}{%
     {Butterworth-Heinemann}%
   }
-  \keyw{Wissensmanagement ba concept creation foundation knowledge of}
+  \keyw{strat}
   \strng{namehash}{NIKN1}
   \strng{fullhash}{NIKN1}
   \field{labelyear}{1998}
@@ -663,6 +759,7 @@
      {}{}%
      {}{}}%
   }
+  \keyw{tech}
   \strng{namehash}{ND1}
   \strng{fullhash}{ND1}
   \field{labelyear}{1994}
@@ -686,6 +783,7 @@
   \list{publisher}{1}{%
     {Springer}%
   }
+  \keyw{tech}
   \strng{namehash}{ND1}
   \strng{fullhash}{ND1}
   \field{labelyear}{1997}
@@ -708,7 +806,7 @@
      {van}{v.}%
      {}{}}%
   }
-  \keyw{dblp}
+  \keyw{strat}
   \strng{namehash}{PGGAMWv1}
   \strng{fullhash}{PGGAMWv1}
   \field{labelyear}{2005}
@@ -741,6 +839,7 @@
   \list{publisher}{1}{%
     {Wiley Online Library}%
   }
+  \keyw{strat}
   \strng{namehash}{RJCTJ1}
   \strng{fullhash}{RJCTJ1}
   \field{labelyear}{2003}
@@ -761,6 +860,7 @@
      {}{}%
      {}{}}%
   }
+  \keyw{strat}
   \strng{namehash}{WKM1}
   \strng{fullhash}{WKM1}
   \field{labelyear}{1997}

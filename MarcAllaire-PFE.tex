@@ -1,10 +1,15 @@
 \documentclass[10pt]{report}
 
+\usepackage{ mathrsfs }
+
 \usepackage[utf8]{inputenc}
 \usepackage[LGR,T1]{fontenc} % this is to be able to output greek 
 
 %\renewcommand*\rmdefault{stix} % change the font
 % \usepackage{times} % use times font for report
+
+\usepackage{setspace} % pour agrandir l'interligne
+% \doublespacing pour double espace sinon \onehalfspacing pour 1.5
 
 \usepackage{geometry} % Required to change the page size to A4
 \geometry{a4paper} % Set the page size to be A4 as opposed to the default US Letter
@@ -66,6 +71,10 @@
 \renewcommand\thesubsection{\arabic{subsection}}
 \renewcommand\thesubsubsection{\thesubsection.\alph{subsubsection}}
 
+
+% ---------- Aliales, macros
+\newcommand{\ochain}{$\otimes \text{-chain}$}
+%---------------------------
 
 \begin{document}
 
@@ -199,7 +208,7 @@ Then, I would like to thank all the members of the Business Process Compliance g
 \end{center}
 
 \newpage
-
+\setcounter{tocdepth}{3} % to have subsubsections in TOC
 \tableofcontents
 \newpage
 \pagenumbering{arabic}
@@ -352,22 +361,59 @@ There are many benefits to use a logical framework to represent regulations, som
 \end{itemize}
 
 \subsubsection{Different types of obligations}
-Now that we explained the need for a logical framework for legal reasoning and how good deontic defeasible logic is we can introduce the different types of obligations. Indeed to accurately represent the complexity of norms and regulations it is necessary to have a range of different types of obligations to be able to translate legal text into an equivalent logical representation.
+Now that we explained the need for a logical framework for legal reasoning and how good deontic defeasible logic is we can introduce the different types of obligations. Indeed to accurately represent the complexity of norms and regulations it is necessary to have a range of different types of obligations to be able to translate legal text into an equivalent logical representation as explained in \autocite{ConceptuallyRichModelofBPC}. There is three main types of obligations :
+\begin{itemize}
+\item \textbf{Achievement Obligation} : There is an obligation to meet once before the deadline. For example \textit{You must change your tires before they are worn out}
+\item \textbf{Maintenance Obligation} : There is an obligation to meet at all instant before the deadline. For example \textit{You must provide for your children until they are 18}
+\item \textbf{Punctual Obligation} : There is an obligation to meet at one instant. They must be fulfilled at the same moment they were triggered.
+\end{itemize}
 
+Achievement obligations can be further detailled to be able to express what happens if a violation of the obligation occurs. Does the obligation persists ? (\textit{You must pay the fine within 90 days otherwise you must pay a 15\% tax.} In this case it is obvious that the obligation to pay the fine is persistant after the deadline, after it was violated.) We therefore introduce a new concept that can apply to an achievement obligation : \textbf{Persistant or non Persistant}
 
+We still lack vocabulary to express another subtlety of achievement obligations. Let's consider the following obligation \textit{When shopping for an item a consumer must pay for it after receiving the invoice and no later than 30 days after receiving it.} Now if the customer by mistake or for any other reason transfers the due amount before receiving the invoice. Then it is obvious that the obligation has been fulfilled even though the action was take outside of the time frame allocated to it. We will call this type of obligation \textbf{Preemptive and non-Preemptive}. 
 
-\subsubsection{Expressing violations with the $\otimes$ operator}
+Also, please note that these concepts cannot apply to maintenance or punctual obligations.
 
+The following table summarizes the aforementioned concepts and the notation attached to it.
 
-how do we represent these into a formal framework ?
-~\\Why it was used in this particular case ?
+\renewcommand{\arraystretch}{1.5}
+\begin{center}
+\begin{tabular}{c|c|c}
+Operator & Inline Notation & Read as \\
+\hline
+$O^{a, \pi}_{pr}$     & [OAPP]  & Achievement Persistent Preemptive            \\
+$O^{a, \pi}_{n-pr}$   & [OAPNP] & Achievement Persistent non-Preemptive        \\
+$O^{a, \tau}_{pr}$    & [OANPP]  & Achievement non-Persistent Preemptive        \\
+$O^{a, \tau}_{n-pr}$  & [OANPNP]  & Achievement non-Persistent non-Preemptive    \\
+$O^{m}$               & [OM]  & Maintenance                                  \\
+$O^{p}$               & [OP]  & Punctual                                     \\
+\end{tabular}
+\end{center}
 
+\subsubsection{Expressing chain of obligation with the $\otimes$ operator}
+
+Now that we described the broad range of obligation giving us the necessary vocabulary to translate regulations into our logical framework. Still we are missing one critical point of regulations : reparation chains. If an obligation is violated, you are not complying with the regulation unless there is a reparation chain that kicks in and leaves you in an unoptimal situation compliance wise but still compliant.
+
+ For example let's consider the following rules : 
+ \[
+ \begin{aligned}
+   & r : &\text{invoice} & \Rightarrow O^{a, \pi}_{pr}\text{pay}\\
+   & r': &\neg \text{pay} & \Rightarrow O^{p}\text{pay fine}
+ \end{aligned}
+ \]
+ Well it can be reduced to be expresses as a $\otimes$-expression such as these two obligation cannot be seen any more as independent. 
+  \[
+ \begin{aligned}
+   & r : &\text{invoice} & \Rightarrow O^{a, \pi}_{pr}\text{pay} \otimes O^{p}\text{pay fine}\\
+ \end{aligned}
+ \]
+
+We can now create chains of obligations started by a given set of literal and giving the actor a chance to stay compliant even if an obligation was violated. \autocite{NormComplianceinBPModeling}
 
 \subsection{BPMN2.0 and the representation of business processes}
+Business process are 
 
-\subsection{Business Process Management and Compliance}
-What are the challenges of business process management and compliance ?\\
-In which way Business processes foster innovation ?
+
 
 \subsection{Tools already developed : Regorus and SPINdle}
 What are they and what are they doing ?\\
@@ -451,9 +497,7 @@ We chose to follow these steps to implement this desired behaviour :
 
 New releases come with their burden of broken APIs and unresolved functions names. Eclipse is not an exception for that matter. The Eclipse plug-in code has not been touched for two years so when I tried to compile and run it on my machine I stumbled upon a lot of errors. Like other complex software the eclipse plug-in depends on some third-party library to work properly. These evolved quite a bit over time to a point where function that once existed where not even referenced in the last version.
 
-First let me tell you about the \textit{graphiti} library. It's a component of the \enquote{Eclipse Modelling Framework}. As one of the main feature of the plug-in is to be able to draw business process, it relies on this library.
-
-Really this hasn't been too much of a hassle since like other eclipse core libraries it is pretty well documented and the javadoc is easily avaiable online. One of the methods the code was using wasn't referenced anymore in the Kepler version of the library and the type calling this method was marked as deprecated. 
+First let me tell you about the \textit{graphiti} library. It's a component of the \enquote{Eclipse Modelling Framework}. As one of the main feature of the plug-in is to be able to draw business process, it relies on this library. Really this hasn't been too much of a hassle since like other eclipse core libraries it is pretty well documented and the javadoc is easily avaiable online. One of the methods the code was using wasn't referenced anymore in the Kepler version of the library and the type calling this method was marked as deprecated. 
 
 I eventually found a workaround for my problem but it taught me a great lesson for future software documentation I may write : always not only document what you changed but also why or to what purpose you changed the library.
 
@@ -462,10 +506,41 @@ These are very important concerns and even more difficult to enforce in a Java e
 
 
 \subsection{Extending the theoretical model by adding time}
-Guido paper on temporal defeasible logic \autocite{JusticeDelayed2001} \autocite{TemporalExtension2007}
+
+%Shitty paragraphs needs to be rephrased
+We have seen before that obligations in regulations are often closely related to the notion of deadlines for example \textit{Pay before ten days}. Defeasible Deontic Logic with BPMN 2.0 as implemented in Regorous are a powerfull tool to deal with business process compliance. However defeasible deontic logic does not features time by design. Sure it is possible to use facts as ersatz for time for example the rule introduced before can be modelled as : $r: \neg \text{moreThan10Days} \Rightarrow O_{a}Pay$ and this could translate in a task of the business process having the litteral $ \neg \text{moreThan10Days}$ attached but there is room for improvement.
+
+Adding time in defeasible deontic logic is a much anticipated feature because it implements at the source the essence of deadline allowing us, as we will see later on, to represent obligation types elegantly. In \autocite{TemporalExtension2007} extensions to include time in the logic are proposed.
+
+Moreover time in our framework would dramatically improve the computational complexity of the system. For now we check compliance at each task of the business process collecting the new rules and forwarding them to the next task. With time we could do all of this at once. %how adding time liberate us from doing this? need a clear example and maybe some images.
+
+\subsubsection{Temporal formalism for deontic defeasible logic}
+
+\autocite{JusticeDelayed2011} introduces new notations and concepts to deal with time in deontic defeasible logic. Time is represented as a discrete linear order of instants $ \mathscr{T} = (t_{1}, t_{2} ... t_{n})$.
+\begin{itemize}
+\item if $l$ is a literal then $l^{t}$ is a temporal litteral. We will refer to the set of temporal literal as $\text{TLit}$. We also introduce $\top$ and $\bot$ which are also temporal literals, they are propositions that are respectively always complied with and never complied with
+\item if $l^{t}$ is a temporal literal then $Ol^{t}$ and its negation are deontic literals meaning that the obligation to do $l$ holds at time $t$. We will refer to the set of deontic literals as $DLit$
+\item if $a^{t_{a}}$ and $b^{t_{b}}$ are temporal literals, $t \in \mathscr{T}$ and $x \in \{a,m,p\}$ then $a^{t_{a}} \otimes^{x}_{t} b^{t_{b}}$ is an \ochain used to express chain of reparation in laws
+\end{itemize} 
+
+
+An \ochain like $\alpha \otimes^{a}_{t} a^{t_{a}} \otimes^{y}_{t'} b^{t_{b}}$ means that the violation of $\alpha$ triggers an achievement obligation from $t_{a}$ to $t'$.
+
+\subsubsection{Proving that defeasible logic and temporal defeasible logic reach the same conclusions}
+
+It is important to prove that given the same process and rules both versions of defeasible deontic logic with and without time reach the same conclusions about compliance.
+
+
 
 \newpage
 \chapter{Strategic reflection on Regorus}
+
+\section{Business Process Management and Compliance}
+Business process compliance is a growing concern for any company and it is seen most of the time as a burden.  They are at the cross road of very different parts of a company that usually don't interact much.
+
+What are the challenges of business process management and compliance ?\\
+In which way Business processes foster innovation ?
+
 \section{A critical summary of the work done}
 Historical analysis of what have been done, what failed...
 
@@ -473,8 +548,10 @@ They tried to go to the market without any market study
 
 \section{Find a business model for Regorus}
 
+As discussed above, private companies have been keen in the past on integrating Regorus in their processes. Unfortunately it never went through approval from key person in the companies. In the following section we will try to find in which existing business model Regorus could fit and what are the side effects of its use in an organisation. First we will look into Two-sided markets then we will explore how good Regorus is as a knowledge management tool.
+
 \subsection{Two-sided markets}
-On two sided market the main sources are \autocite{ParkerA05} \autocite{eisenmann2006strategies} \autocite{rochet2003platform}
+On two sided market the main sources are \autocite{ParkerA05} \autocite{eisenmann2006strategies} \autocite{rochet2003platform} \autocite{Hagiu2011} \autocite{economides2006}
 
 Which business model ?\\
 Who are the clients ?\\
@@ -482,9 +559,26 @@ Who are our concurents ?\\
 
 Will the market is likely to end up in a winner take all situation ?\\
 
+Two sided markets are found in many industries but they are particularly found in the high-tech industry. As this market is a high growing one two-sided markets have drawn, over the past decade, a particular interest from researchers in strategy and economics \autocite{Hagiu2011}. In the following section we will first try to come up with a definition of two-sided market or platforms, then we will discuss how Regorus can fit this model. Indeed, Regorus in its essence is a tool that unites different business (law, BP management, IT) therefore it seems quite straightforward that this model could fit it. In a last part we propose different actors that could interact around our platform and unfold strategies following from these hypotheses.
+
+\subsubsection{A definition for two-sided market and its dynamics}
+
+Although there is an extensive literature on the matter a precise definition is yet to emerge. It is not the purpose of this document to propose yet another one, we will try to identify key features of such a market in existing definitions and evaluate their relevance.
+
+First, let us start with a definition from \autocite{Hagiu2011}, that defines multi-sided platforms as : \enquote{An organization that creates value primarily by enabling direct interactions between two (or more) distinct types of affiliated customers}. This definition shows us the two main things to sort out in a multi-sided platform,defining the customers and the kind of interaction they have. 
+
+
+
+
+An important thing to note is that with platforms the value creation is not in the idea nor in the number of user but in the interaction in the network, the activity of the users. For example twitter idea is worth nothing, just being able to send 140 characters messages through a web application is worthless, its user base is not creating much value either if they don't interact (by tweeting, retweeting, faving other tweets). By doing so they create value for each other \autocite{Choudary2014}. So when looking for a business model for Regorus the quality of the software is not so much relevant. It will at best allow us to make some user jump and hopefully reach the tipping point but the real value of the platform would be the interaction between both sides. How by interacting through Regorous they are creating value for each other. This is an important point that we will consider when looking for solutions to improve market penetration.
+
+
+\subsubsection{How does Regorus fits the model}
+\subsubsection{Possible users of the platform and strategies}
+
 \subsection{How Business Process Modeling is integrated in knowledge management}
 
-We think that one of the ways to promote Regorus and improve its market penetration is to research the ways it can be useful for a company. Apart from its main purpose of asserting compliance of business processes Regorus can be useful at higher levels by being a part of the knowledge management plan of the firm for example.
+We think that one of the ways to promote Regorus and improve its market penetration is to research the ways it can be useful for a company. Apart from its main purpose of asserting compliance of business processes Regorus can be useful at higher levels by being a part of the knowledge management plan of the firm.
 
 Knowledge Management is a relatively new field of study born in the early eighties when researchers in management looked into the importance of knowledge in organization.\autocite{Wiig19971}
 
@@ -504,7 +598,6 @@ Ask questions about the key points presented in the previous section about two-s
 %           BIBLIOGRAPHY           %
 % -------------------------------- %
 
-
 \newpage
 
 \pagestyle{plain}
@@ -512,11 +605,14 @@ Ask questions about the key points presented in the previous section about two-s
 % Here is the bibliography on the last page
 \nocite{*}
 \setlength{\bibitemsep}{5pt}
-\printbibliography[title={Book references},type=book, heading=subbibliography]
-\printbibliography[title={Article references},type=article, heading=subbibliography]
-\printbibliography[title={Online references},type=online, heading=subbibliography]
+% \printbibliography[title={Book references},type=book, heading=subbibliography]
+% \printbibliography[title={Article references},type=article, heading=subbibliography]
+% \printbibliography[title={Online references},type=online, heading=subbibliography]
 
-\printbibliography[title={Other references}, nottype=online,nottype=article, nottype=book, heading=subbibliography]
+\printbibliography[title={Technological references},keyword={tech}, heading=subbibliography]
+\printbibliography[title={Strategic references},keyword={strat}, heading=subbibliography]
+
+\printbibliography[title={Other references}, notkeyword={tech}, notkeyword={strat}, heading=subbibliography]
 
 
 \end{document}
