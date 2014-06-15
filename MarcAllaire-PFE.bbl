@@ -520,6 +520,27 @@
   \field{urlyear}{2014}
 \endentry
 
+\entry{coursKyle}{unpublished}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Kyle}{K.}%
+     {Margaret}{M.}%
+     {}{}%
+     {}{}}%
+  }
+  \keyw{strat}
+  \strng{namehash}{KM1}
+  \strng{fullhash}{KM1}
+  \field{labelyear}{2013}
+  \field{sortinit}{K}
+  \field{howpublished}{University Lecture}
+  \field{title}{Strategy in Innovative Industries, Two-sided Platforms}
+  \list{institution}{1}{%
+    {IAE Toulouse}%
+  }
+  \field{year}{2013}
+\endentry
+
 \entry{mccarthy1968some}{book}{}
   \name{author}{2}{}{%
     {{}%

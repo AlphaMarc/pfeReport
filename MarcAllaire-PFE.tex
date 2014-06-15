@@ -9,7 +9,7 @@
 % \usepackage{times} % use times font for report
 
 \usepackage{setspace} % pour agrandir l'interligne
-% \doublespacing pour double espace sinon \onehalfspacing pour 1.5
+%\doublespacing % pour double espace sinon \onehalfspacing pour 1.5
 
 \usepackage{geometry} % Required to change the page size to A4
 \geometry{a4paper} % Set the page size to be A4 as opposed to the default US Letter
@@ -174,9 +174,9 @@ IAE - Master Management Stratégique,\\\hspace{.5cm}Spécialité Management de l
 \begin{abstract}
 This report presents the work done around the Regorous software at NICTA during my final year internship. It is divided in two main parts. First a technical one that presents the new features that were added to the code-base. After a short but thorough introduction to the theoretical work underlying you will find an in-depth presentation of the new components that were implemented. My main contributions are : 
 \begin{itemize}
-\item Impementation of Cooccurrent obligation to extend the \enquote{vocabulary} available to translate regulation into defeasible rules. This necessitated a rewrite of the core library to introduce this new type and modify the compliance checking algorithm to take into account the special behaviour of this obligation.
+\item Implementation of Co-occurrence obligation to extend the \enquote{vocabulary} available to translate regulation into defeasible rules. This necessitated a rewrite of the core library to introduce this new type and modify the compliance checking algorithm to take into account the special behaviour of this obligation.
 \item Modifications of the implementation of the compliance checking algorithm to check compliance of compensation chains in the same task they were triggered in instead of waiting for the next task. 
-\item Porting of the eclipse plug-in project to the current version of eclipse and third party libraries. This was an intensive work that taught me a lot about issues related to production environement. This is not something I was used to as a young graduate but the INSA generalist formation helped me go through.
+\item Porting of the eclipse plug-in project to the current version of eclipse and third party libraries. This was an intensive work that taught me a lot about issues related to production environment. This is not something I was used to as a young graduate but the INSA generalist formation helped me go through.
 \end{itemize}
 
 Most of the code in this report is Java code or pseudo algorithmic code. I will not go into too much details about the exact implementation but rather focus on the methodology and the algorithms I used during the project.
@@ -198,7 +198,7 @@ The report finds that the lack of a proper marketing study for Regorus is leadin
 \begin{center}
 \begin{minipage}{.8\textwidth}
 \textbf{\large Acknowledgement}\\\\
-I would like to take this opportunity to thank all the people who have contributed in some way to this reports particulary Mr Guido Governatori who initiated the project, for his attention, and for all the time he awarded to me, his advice was really useful and appreciated.\\
+I would like to take this opportunity to thank all the people who have contributed in some way to this reports particularly Mr Guido Governatori who initiated the project, for his attention, and for all the time he awarded to me, his advice was really useful and appreciated.\\
 
 I also thank all the member of NICTA QRL who were always ready to help me. It was an amazing experience both humanely and professionally \\
 
@@ -253,7 +253,7 @@ NICTA has 5 laboratories around Australia and employs over 700 people representi
 
 \section{The Business Process Compliance Group}
 
-The Business Process Compliance group in which I am working is part of the Software Systems group, one of the six research groups. The interest in business process compliance starts from a simple observation. ICT systems are costly and hard to develop because of the constantly evolving framework of norms and requirement within which they operate leading to less agility and slower development cycles especially in domains with strict legal obligations. Business process compliance is becomming an increasing area of concern in both public and private sectors because of the complexity of regulations and the lack of automated tools. The compliance market is worth tenth of billions of dollars in Australia.\autocite{BPCWebsite}
+The Business Process Compliance group in which I am working is part of the Software Systems group, one of the six research groups. The interest in business process compliance starts from a simple observation. ICT systems are costly and hard to develop because of the constantly evolving framework of norms and requirement within which they operate leading to less agility and slower development cycles especially in domains with strict legal obligations. Business process compliance is becoming an increasing area of concern in both public and private sectors because of the complexity of regulations and the lack of automated tools. The compliance market is worth tenth of billions of dollars in Australia.\autocite{BPCWebsite}
 
 From this observation, the BPC group started by selecting a framework to represent both business processes and the laws they must comply to. These research lead to numerous articles aiming to build a model of rules and business processes that would give the end user the most flexibility and the possibility to accurately translate existing body of law. This theoretical work led to more concrete projects. As of today the group in undergoing three main projects~: Regorous, SPINdle and the Rule Editor. These provide a powerful platform for compliance officers in companies.
 
@@ -272,7 +272,7 @@ Defeasible Logic was first introduced by Donal Nute in \autocite{nute1994defeasi
 Let's introduce the basics of Defeasible Logic as in \autocite{RepresentationResultsDefeasibleLogic}. A defeasible theory gives us five different ways of representing knowledge \textit{facts}, \textit{strict rules}, \textit{defeasible rules}, \textit{defeaters} and a \textit{superiority relation}. 
 
 \begin{description}
-\item[Facts] are indisputable statements for example Tux is a penguin which could be written formaly as $penguin(Tux)$
+\item[Facts] are indisputable statements for example Tux is a penguin which could be written formally as $penguin(Tux)$
 \item[Strict rules] are rules as in deductive logic. It's the kind of rule we find in scientific reasoning. The conclusion is irrefutable if the premises also are. These are formally represented as : 
 $$penguin(X) \rightarrow bird(X)$$
 \item[Defeasible rules] are the ones that can be defeated by evidence of the contrary. To draw a parallel with everyday reasoning one could generalize from experience that "Birds fly" a statement that would be true until the opposite is deducted. These rules are formally represented as :
@@ -280,7 +280,7 @@ $$bird(X) \Rightarrow flies(X)$$
 \item[defeaters] are weaker rules that cannot be used to draw any conclusion but can prevent one. They are used to defeat other rules (hence the name) because they produce evidence of the contrary. 
 $$heavy(X) \leadsto \neg flies(X)$$
 From this defeater we cannot conclude that because someone or something is heavy it cannot fly, it is only here to prevent the conclusion of $flies(X)$.
-\item[Superiority relation] is used to create an order in a rule set. It is important to note that this relation does not have the properties of a proper superiority relation. When we have two different rules which derive something and its negation we cannot draw a conclusion since defeasible logic is skeptical. The superiority relation allows us to come to a conclusion. For example :
+\item[Superiority relation] is used to create an order in a rule set. It is important to note that this relation does not have the properties of a proper superiority relation. When we have two different rules which derive something and its negation we cannot draw a conclusion since defeasible logic is sceptical. The superiority relation allows us to come to a conclusion. For example :
 
 \[
 \begin{aligned}
@@ -290,7 +290,7 @@ From this defeater we cannot conclude that because someone or something is heavy
 \end{aligned}
 \]
 
-In this case we cannot reach a conclusion since $r$ and $r'$ reach opposite concusions. By introducing the superiority relation we say that $r'$ is stricly stronger than $r$ and therefore we can conclude that the bird cannot fly. Please note that there is no cyclical 
+In this case we cannot reach a conclusion since $r$ and $r'$ reach opposite conclusions. By introducing the superiority relation we say that $r'$ is strictly stronger than $r$ and therefore we can conclude that the bird cannot fly. Please note that there is no cyclical 
 \end{description}
 
 Now that we are more familiar with the concepts of defeasible logic we can show how we can reach a defeasible conclusion using proof theory. It exists four proof types for a conclusion D.
@@ -327,7 +327,7 @@ If $P(i+1)$ = $+\partial q$ then either
 
 In less mathematical terms this definition means that in order to defeasibly prove $q$ we can follow two paths. Either prove that $q$ is definitely provable or work the defeasible part. Three conditions apply :
 \begin{enumerate}
-\item there is a rule r that concludes $q$ for every literal $a$ such as $a$ has been defeasably proven in a previous step $P(1..i)$.
+\item there is a rule r that concludes $q$ for every literal $a$ such as $a$ has been defeasibly proven in a previous step $P(1..i)$.
 \item $\neg q$ has not been definitively proven in a previous step $P(1..i)$
 \item for every rule $s$ that conclude $\neg q$ for a literal $a$ either
   \begin{enumerate}
@@ -341,7 +341,7 @@ In less mathematical terms this definition means that in order to defeasibly pro
 
 Regulations and legal norms are an important concern for government and businesses. They are complex and hard to reason about especially when multiple regulations written separately are applied to a given situation. In a world where compliance to regulation is becoming both harder and more important because of their growing number and sanctions applied for non compliance, a normative logical framework is needed to be able to reason about regulations.
 
-Deontic logic (from ancient greek \textgreek{deontos} meaning duty, what must be done) is a branch of symbolic logic concerned with the logic of obligations and permissions \autocite{mcnamara_deontic_2010}. Therefore it is exactly the kind of logical framework we want to be able to express regulations. Unfortunately standard deontic logic is unable to represent simple notions of normative reasoning such as prima-facie obligations or contrary-to-duty obligation. This lack of expressibility has driven away the very people that would have used deontic logic the most\autocite{nute1997defeasible}.
+Deontic logic (from ancient Greek \textgreek{deontos} meaning duty, what must be done) is a branch of symbolic logic concerned with the logic of obligations and permissions \autocite{mcnamara_deontic_2010}. Therefore it is exactly the kind of logical framework we want to be able to express regulations. Unfortunately standard deontic logic is unable to represent simple notions of normative reasoning such as prima-facie obligations or contrary-to-duty obligation. This lack of expressibility has driven away the very people that would have used deontic logic the most\autocite{nute1997defeasible}.
 
 Let's take a closer look at prima-facie obligation for example and see how we can express these in the light of defeasible logic. Prima-facie means \enquote{at first sight} hence a prima-facie obligation is an obligation that stands at first sight, one that can be defeated if new facts can prove otherwise. We can see that this type of obligation can easily be expressed using defeasible logic, it is defeasible. Furthermore regulations contain feature exceptions that are easily represented using defeasible logic.
 
@@ -368,9 +368,9 @@ Now that we explained the need for a logical framework for legal reasoning and h
 \item \textbf{Punctual Obligation} : There is an obligation to meet at one instant. They must be fulfilled at the same moment they were triggered.
 \end{itemize}
 
-Achievement obligations can be further detailled to be able to express what happens if a violation of the obligation occurs. Does the obligation persists ? (\textit{You must pay the fine within 90 days otherwise you must pay a 15\% tax.} In this case it is obvious that the obligation to pay the fine is persistant after the deadline, after it was violated.) We therefore introduce a new concept that can apply to an achievement obligation : \textbf{Persistant or non Persistant}
+Achievement obligations can be further detailed to be able to express what happens if a violation of the obligation occurs. Does the obligation persists ? (\textit{You must pay the fine within 90 days otherwise you must pay a 15\% tax.} In this case it is obvious that the obligation to pay the fine is persistent after the deadline, after it was violated.) We therefore introduce a new concept that can apply to an achievement obligation : \textbf{Persistent or non Persistent}
 
-We still lack vocabulary to express another subtlety of achievement obligations. Let's consider the following obligation \textit{When shopping for an item a consumer must pay for it after receiving the invoice and no later than 30 days after receiving it.} Now if the customer by mistake or for any other reason transfers the due amount before receiving the invoice. Then it is obvious that the obligation has been fulfilled even though the action was take outside of the time frame allocated to it. We will call this type of obligation \textbf{Preemptive and non-Preemptive}. 
+We still lack vocabulary to express another subtlety of achievement obligations. Let's consider the following obligation \textit{When shopping for an item a consumer must pay for it after receiving the invoice and no later than 30 days after receiving it.} Now if the customer by mistake or for any other reason transfers the due amount before receiving the invoice. Then it is obvious that the obligation has been fulfilled even though the action was take outside of the time frame allocated to it. We will call this type of obligation \textbf{Pre-emptive and non-Pre-emptive}. 
 
 Also, please note that these concepts cannot apply to maintenance or punctual obligations.
 
@@ -497,7 +497,7 @@ We chose to follow these steps to implement this desired behaviour :
 
 New releases come with their burden of broken APIs and unresolved functions names. Eclipse is not an exception for that matter. The Eclipse plug-in code has not been touched for two years so when I tried to compile and run it on my machine I stumbled upon a lot of errors. Like other complex software the eclipse plug-in depends on some third-party library to work properly. These evolved quite a bit over time to a point where function that once existed where not even referenced in the last version.
 
-First let me tell you about the \textit{graphiti} library. It's a component of the \enquote{Eclipse Modelling Framework}. As one of the main feature of the plug-in is to be able to draw business process, it relies on this library. Really this hasn't been too much of a hassle since like other eclipse core libraries it is pretty well documented and the javadoc is easily avaiable online. One of the methods the code was using wasn't referenced anymore in the Kepler version of the library and the type calling this method was marked as deprecated. 
+First let me tell you about the \textit{graphiti} library. It's a component of the \enquote{Eclipse Modelling Framework}. As one of the main feature of the plug-in is to be able to draw business process, it relies on this library. Really this hasn't been too much of a hassle since like other eclipse core libraries it is pretty well documented and the javadoc is easily available online. One of the methods the code was using wasn't referenced any more in the Kepler version of the library and the type calling this method was marked as deprecated. 
 
 I eventually found a workaround for my problem but it taught me a great lesson for future software documentation I may write : always not only document what you changed but also why or to what purpose you changed the library.
 
@@ -508,7 +508,7 @@ These are very important concerns and even more difficult to enforce in a Java e
 \subsection{Extending the theoretical model by adding time}
 
 %Shitty paragraphs needs to be rephrased
-We have seen before that obligations in regulations are often closely related to the notion of deadlines for example \textit{Pay before ten days}. Defeasible Deontic Logic with BPMN 2.0 as implemented in Regorous are a powerfull tool to deal with business process compliance. However defeasible deontic logic does not features time by design. Sure it is possible to use facts as ersatz for time for example the rule introduced before can be modelled as : $r: \neg \text{moreThan10Days} \Rightarrow O_{a}Pay$ and this could translate in a task of the business process having the litteral $ \neg \text{moreThan10Days}$ attached but there is room for improvement.
+We have seen before that obligations in regulations are often closely related to the notion of deadlines for example \textit{Pay before ten days}. Defeasible Deontic Logic with BPMN 2.0 as implemented in Regorous are a powerful tool to deal with business process compliance. However defeasible deontic logic does not features time by design. Sure it is possible to use facts as ersatz for time for example the rule introduced before can be modelled as : $r: \neg \text{moreThan10Days} \Rightarrow O_{a}Pay$ and this could translate in a task of the business process having the literal $ \neg \text{moreThan10Days}$ attached but there is room for improvement.
 
 Adding time in defeasible deontic logic is a much anticipated feature because it implements at the source the essence of deadline allowing us, as we will see later on, to represent obligation types elegantly. In \autocite{TemporalExtension2007} extensions to include time in the logic are proposed.
 
@@ -518,9 +518,10 @@ Moreover time in our framework would dramatically improve the computational comp
 
 \autocite{JusticeDelayed2011} introduces new notations and concepts to deal with time in deontic defeasible logic. Time is represented as a discrete linear order of instants $ \mathscr{T} = (t_{1}, t_{2} ... t_{n})$.
 \begin{itemize}
-\item if $l$ is a literal then $l^{t}$ is a temporal litteral. We will refer to the set of temporal literal as $\text{TLit}$. We also introduce $\top$ and $\bot$ which are also temporal literals, they are propositions that are respectively always complied with and never complied with
+\item if $l$ is a literal then $l^{t}$ is a temporal literal. We will refer to the set of temporal literal as $\text{TLit}$. We also introduce $\top$ and $\bot$ which are also temporal literals, they are propositions that are respectively always complied with and never complied with
 \item if $l^{t}$ is a temporal literal then $Ol^{t}$ and its negation are deontic literals meaning that the obligation to do $l$ holds at time $t$. We will refer to the set of deontic literals as $DLit$
 \item if $a^{t_{a}}$ and $b^{t_{b}}$ are temporal literals, $t \in \mathscr{T}$ and $x \in \{a,m,p\}$ then $a^{t_{a}} \otimes^{x}_{t} b^{t_{b}}$ is an \ochain used to express chain of reparation in laws
+\item 
 \end{itemize} 
 
 
@@ -529,6 +530,12 @@ An \ochain like $\alpha \otimes^{a}_{t} a^{t_{a}} \otimes^{y}_{t'} b^{t_{b}}$ me
 \subsubsection{Proving that defeasible logic and temporal defeasible logic reach the same conclusions}
 
 It is important to prove that given the same process and rules both versions of defeasible deontic logic with and without time reach the same conclusions about compliance.
+
+\paragraph{Translate \enquote{classic} rules into temporal ones}
+
+For each task in every possible trace we define a set of temporal rules corresponding to the body of \enquote{classic} rules. All of the antecedents and effects of the rules are annotated with the task number which will play the role of time as the set of task numbers is isomorphic to $\mathbb{N}$ which is a perfect candidate for time. We therefore define :
+
+\[ R(\text{trace}, \text{task}) = \{r\text{ | }r_{i} (\text{trace}, \text{task}) : a_{1}^{task}, ..., a_{n}^{task} \Rightarrow^{\pi} p^{task} \}\]
 
 
 
@@ -567,16 +574,37 @@ Although there is an extensive literature on the matter a precise definition is 
 
 First, let us start with a definition from \autocite{Hagiu2011}, that defines multi-sided platforms as : \enquote{An organization that creates value primarily by enabling direct interactions between two (or more) distinct types of affiliated customers}. This definition shows us the two main things to sort out in a multi-sided platform,defining the customers and the kind of interaction they have. 
 
+\paragraph{Network effects}
+Interactions and dynamics in multi-sided platforms are far from the traditional businesses. Here a new kind of complexity is involved : Networks effects, meaning non linear behaviour. Usually the value one side of users attach to the platform depends on the number of users on the other side. This is called \textbf{cross-side network effect}. This effect can be either positive meaning that more users on one side will attract more people on the other side or negative meaning more people on one side decreases the attractiveness of the platform for the other side. Cross side effects can be positive in both way creating a positive feedback on the system (more users on one side attracts more user on the other side that attracts even more user on the other side). In such a configuration the main concern for the platform provider is to reach the critical mass, the tipping point from where the number of user on both side will grow by itself. This is the case for Groupon where the more customers join the website, the more attractive it becomes for sellers and a great number of deals is an incentive to attract more customers, and so on. However in some cases cross-side network effects are positive in one way and negative the other way meaning that the size of one group of users increases the attractiveness of the platform for the other whereas the size of the latter decreases the attractiveness for the former. In this case the system will reach a dynamic equilibrium at some point. An example would be newspaper where the more readers attracts more advertisers but too much advertisement drives away readers. 
 
+There is another network effect in multi-sided platforms \textbf{same-side network effects}, it is the equivalent of cross-side effects but on one side of the platform. An example a positive same-side network effect is Facebook where more users attract even more users as people are keen on joining if their friends are already on the social network website.
 
+\paragraph{Concerns regarding network effects when creating a platform}
+If we forecast positive cross-side and same-side network effects for our platform then the main concern is how to attract the first users to our platform and how many of those do we need to reach a tipping point. We need to find an incentive to make the "penguins jump" \autocite{coursKyle}. Therefore it is important to know what our customers value to be able to give them what they want. As reaching the critical mass is very important in a network environment, knowing the needs and expectations of our customers is a must.
 
+\paragraph{Pricing in a platform environment}
+Usually when we draw demand in function of price we have a linear curve of equation $-ax + b$ but in a platform environment in many cases the demand drops very fast when we go from free to a penny. This is called the penny drop and it is why one side of the platform is usually subsidized. Although most of the classical examples of multi-sided platforms features a subsidized and a money side it is not always the case. 
+
+\paragraph{value creation}
 An important thing to note is that with platforms the value creation is not in the idea nor in the number of user but in the interaction in the network, the activity of the users. For example twitter idea is worth nothing, just being able to send 140 characters messages through a web application is worthless, its user base is not creating much value either if they don't interact (by tweeting, retweeting, faving other tweets). By doing so they create value for each other \autocite{Choudary2014}. So when looking for a business model for Regorus the quality of the software is not so much relevant. It will at best allow us to make some user jump and hopefully reach the tipping point but the real value of the platform would be the interaction between both sides. How by interacting through Regorous they are creating value for each other. This is an important point that we will consider when looking for solutions to improve market penetration.
 
+\paragraph{winner take all}
 
-\subsubsection{How does Regorus fits the model}
+
 \subsubsection{Possible users of the platform and strategies}
+clients are not really money sensitive - (absolutely not)\\
 
-\subsection{How Business Process Modeling is integrated in knowledge management}
+
+
+\subsection{Alternative business models for Regorus}
+We might consider a classic business model (razor blade ? early bird prices ? Provide a web service where they could compute the compliance since this is a resource hungry process, web application would be easier also for updates and maintenance that would be a monthly fee to pay to have access to computation resource and rules or pay for the compliance test, we could even deploy in-house for our greatest customers)
+
+
+\subsection{How does Regorus fits the model}
+
+
+
+\subsection{How Business Process Modelling is integrated in knowledge management}
 
 We think that one of the ways to promote Regorus and improve its market penetration is to research the ways it can be useful for a company. Apart from its main purpose of asserting compliance of business processes Regorus can be useful at higher levels by being a part of the knowledge management plan of the firm.
 

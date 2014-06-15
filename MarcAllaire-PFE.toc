@@ -36,6 +36,8 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {4.b}Proving that defeasible logic and temporal defeasible logic reach the same conclusions}{11}
 \defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Translate \enquote {classic} rules into temporal ones}{11}
+\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {III}Strategic reflection on Regorus}{12}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {I}Business Process Management and Compliance}{12}
@@ -48,16 +50,22 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {1.a}A definition for two-sided market and its dynamics}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{A definition}{13}
-\defcounter {refsection}{0}\relax 
 \contentsline {paragraph}{Network effects}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Value creation through interactions}{13}
+\contentsline {paragraph}{Concerns regarding network effects when creating a platform}{14}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.b}How does Regorus fits the model}{13}
+\contentsline {paragraph}{Pricing in a platform environment}{14}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.c}Possible users of the platform and strategies}{13}
+\contentsline {paragraph}{value creation}{14}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2}How Business Process Modeling is integrated in knowledge management}{13}
+\contentsline {paragraph}{winner take all}{14}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {IV}What can be done to improve market penetration}{14}
+\contentsline {subsubsection}{\numberline {1.b}Possible users of the platform and strategies}{14}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2}Alternative business models for Regorus}{14}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3}How does Regorus fits the model}{15}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4}How Business Process Modeling is integrated in knowledge management}{15}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {IV}What can be done to improve market penetration}{15}
