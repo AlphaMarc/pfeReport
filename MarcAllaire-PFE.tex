@@ -11,6 +11,9 @@
 \usepackage{setspace} % pour agrandir l'interligne
 %\doublespacing % pour double espace sinon \onehalfspacing pour 1.5
 
+\usepackage{array} % pour avoir des tableaux multilignes
+\usepackage{tabularx}
+
 \usepackage{geometry} % Required to change the page size to A4
 \geometry{a4paper} % Set the page size to be A4 as opposed to the default US Letter
 
@@ -168,6 +171,10 @@ IAE - Master Management Stratégique,\\\hspace{.5cm}Spécialité Management de l
 % -------------------------------- %
 \restoregeometry
 \renewcommand{\thesection}{\Roman{section}} 
+
+% Pour des tableaux plus aérés
+\renewcommand{\arraystretch}{1.5}
+\setlength{\tabcolsep}{0.5cm}
 
 %executive summary
 \renewcommand{\abstractname}{Executive Summary}
@@ -376,7 +383,7 @@ Also, please note that these concepts cannot apply to maintenance or punctual ob
 
 The following table summarizes the aforementioned concepts and the notation attached to it.
 
-\renewcommand{\arraystretch}{1.5}
+
 \begin{center}
 \begin{tabular}{c|c|c}
 Operator & Inline Notation & Read as \\
@@ -410,7 +417,7 @@ Now that we described the broad range of obligation giving us the necessary voca
 
 We can now create chains of obligations started by a given set of literal and giving the actor a chance to stay compliant even if an obligation was violated. \autocite{NormComplianceinBPModeling}
 
-\subsection{BPMN2.0 and the representation of business processes}
+\subsection{An algorithm for business process compliance}
 Business process are 
 
 
@@ -505,16 +512,18 @@ This task also trained me on a part of software development we rarely talk about
 These are very important concerns and even more difficult to enforce in a Java environment. %citation needed
 
 
-\subsection{Extending the theoretical model by adding time}
+\section{Extending the theoretical model by adding time}
 
 %Shitty paragraphs needs to be rephrased
 We have seen before that obligations in regulations are often closely related to the notion of deadlines for example \textit{Pay before ten days}. Defeasible Deontic Logic with BPMN 2.0 as implemented in Regorous are a powerful tool to deal with business process compliance. However defeasible deontic logic does not features time by design. Sure it is possible to use facts as ersatz for time for example the rule introduced before can be modelled as : $r: \neg \text{moreThan10Days} \Rightarrow O_{a}Pay$ and this could translate in a task of the business process having the literal $ \neg \text{moreThan10Days}$ attached but there is room for improvement.
 
+\subsection{Motivation for adding time in defeasible logic}
+
 Adding time in defeasible deontic logic is a much anticipated feature because it implements at the source the essence of deadline allowing us, as we will see later on, to represent obligation types elegantly. In \autocite{TemporalExtension2007} extensions to include time in the logic are proposed.
 
-Moreover time in our framework would dramatically improve the computational complexity of the system. For now we check compliance at each task of the business process collecting the new rules and forwarding them to the next task. With time we could do all of this at once. %how adding time liberate us from doing this? need a clear example and maybe some images.
+Moreover time in our framework would dramatically improve the computational complexity of the system. For now we check compliance at each task of the business process collecting the new rules and forwarding them to the next task. With time we could do all of this at once. With temporal rules we would only need to create traces which would yield a set of temporal literals and check this set against the set of temporal rules. Let's take the following little example : %how adding time liberate us from doing this? need a clear example and maybe some images.
 
-\subsubsection{Temporal formalism for deontic defeasible logic}
+\subsection{Temporal formalism for deontic defeasible logic}
 
 \autocite{JusticeDelayed2011} introduces new notations and concepts to deal with time in deontic defeasible logic. Time is represented as a discrete linear order of instants $ \mathscr{T} = (t_{1}, t_{2} ... t_{n})$.
 \begin{itemize}
@@ -527,7 +536,7 @@ Moreover time in our framework would dramatically improve the computational comp
 
 An \ochain like $\alpha \otimes^{a}_{t} a^{t_{a}} \otimes^{y}_{t'} b^{t_{b}}$ means that the violation of $\alpha$ triggers an achievement obligation from $t_{a}$ to $t'$.
 
-\subsubsection{Proving that defeasible logic and temporal defeasible logic reach the same conclusions}
+\subsection{Proving that defeasible logic and temporal defeasible logic reach the same conclusions}
 
 It is important to prove that given the same process and rules both versions of defeasible deontic logic with and without time reach the same conclusions about compliance.
 
@@ -537,7 +546,31 @@ For each task in every possible trace we define a set of temporal rules correspo
 
 \[ R(\text{trace}, \text{task}) = \{r\text{ | }r_{i} (\text{trace}, \text{task}) : a_{1}^{task}, ..., a_{n}^{task} \Rightarrow^{\pi} p^{task} \}\]
 
+\paragraph{consider sets of obligations}
+Now we are considering the sets of obligation we find in the algorithm for business process compliance checking. In this we find at each task three main sets of obligations and literals : Current, Violated and State. They contain respectively obligations in force at the given task, obligations that were violated in previous tasks and deontic literals attached to the current or previous tasks. We aim to prove that the transformation of these sets from \enquote{classical} formalism to temporal is isomorphic and our transformation bijective. All these set are depending on the current task we consider, they will be referred as : $\text{Set}(n)$
 
+First let's proove that $$\text{if}\ p \in \text{State}(n)\ \text{then}\ +\partial p^{n} $$
+this is trivially proven by definition of our translation where every literal associated with a task is annotated temporally with the task number in the trace. Therefore if $p$ is in the $\text{State}(n)$ it has been proven at a step $(1..n)$.
+
+Now what about $$\text{if}\ q \in \text{Current}(n)\ \text{then}\ +\partial Oq^{n} $$
+If an obligation is in force at a task n in the \enquote{classical} formalism is it also in the temporal one, in other word is the rule applicable at the index where it triggers $q$. If $q$ is in the set of current obligation it means that there is a rule $r$ that yields $q$ at task $k$ and that this rule was fired meaning all of the antecedents have been proven. In other words :
+\begin{align*}
+&\forall a \in A(r),\ a \in\ \text{State}(k) \\
+& \text{so if}\ a \text{ is a literal then }   a \in \text{ Facts} \\
+& \text{or if } a\ \text{is an obligation } Ol\ \text{then } +\partial l^{1..k} 
+\end{align*} 
+
+Or, the conditions on the Antecedents for a rule to be applicable are :
+\begin{itemize}
+\item if the antecedent is a litteral then it must be in the Facts (attached to a previous task)
+\item if the antecendent is an obligation then it must have been defeasibly proven beforehand.
+\end{itemize}
+Both conditions are met so the rule would also trigger in temporal defeasible logic. Now we have to see if it would trigger at the right index in the \ochain.
+
+If $q=Ol$ is part of an \ochain like $A_{1}\otimes .. \otimes A_{n} \otimes q \otimes B_{1} \otimes .. \otimes B_{n}$ and if $q$ is in current that means that for all obligation $A_{i}$, $-\partial A_{i}$ has been proven for a previous task $(1..k-1)$. Which translates into :
+\begin{itemize}
+\item for punctual obligations this means we either have $\neg l$ at task k when the obligation was triggered or that $l$ was not in the State set at task k.
+\end{itemize}
 
 \newpage
 \chapter{Strategic reflection on Regorus}
@@ -574,25 +607,57 @@ Although there is an extensive literature on the matter a precise definition is 
 
 First, let us start with a definition from \autocite{Hagiu2011}, that defines multi-sided platforms as : \enquote{An organization that creates value primarily by enabling direct interactions between two (or more) distinct types of affiliated customers}. This definition shows us the two main things to sort out in a multi-sided platform,defining the customers and the kind of interaction they have. 
 
-\paragraph{Network effects}
-Interactions and dynamics in multi-sided platforms are far from the traditional businesses. Here a new kind of complexity is involved : Networks effects, meaning non linear behaviour. Usually the value one side of users attach to the platform depends on the number of users on the other side. This is called \textbf{cross-side network effect}. This effect can be either positive meaning that more users on one side will attract more people on the other side or negative meaning more people on one side decreases the attractiveness of the platform for the other side. Cross side effects can be positive in both way creating a positive feedback on the system (more users on one side attracts more user on the other side that attracts even more user on the other side). In such a configuration the main concern for the platform provider is to reach the critical mass, the tipping point from where the number of user on both side will grow by itself. This is the case for Groupon where the more customers join the website, the more attractive it becomes for sellers and a great number of deals is an incentive to attract more customers, and so on. However in some cases cross-side network effects are positive in one way and negative the other way meaning that the size of one group of users increases the attractiveness of the platform for the other whereas the size of the latter decreases the attractiveness for the former. In this case the system will reach a dynamic equilibrium at some point. An example would be newspaper where the more readers attracts more advertisers but too much advertisement drives away readers. 
+%\paragraph{Network effects}
+Interactions and dynamics in multi-sided platforms are far from the traditional businesses. Here a new kind of complexity is involved : Networks effects, meaning non linear behaviour. Usually the value one side of users attach to the platform depends on the number of users on the other side. This is called \textbf{cross-side network effect}. This effect can be either positive meaning that more users on one side will attract more people on the other side or negative meaning more people on one side decreases the attractiveness of the platform for the other side. Cross side effects can be positive in both way creating a positive feedback on the system (more users on one side attracts more user on the other side that attracts even more user on the other side). In such a configuration the main concern for the platform provider is to reach the critical mass, the tipping point from where the number of user on both side will grow by itself. \autocite{eisenmann2006strategies} This is the case for Groupon where the more customers join the website, the more attractive it becomes for sellers and a great number of deals is an incentive to attract more customers, and so on. However in some cases cross-side network effects are positive in one way and negative the other way meaning that the size of one group of users increases the attractiveness of the platform for the other whereas the size of the latter decreases the attractiveness for the former. In this case the system will reach a dynamic equilibrium at some point. An example would be newspaper where the more readers attracts more advertisers but too much advertisement drives away readers. \autocite{ParkerA05}
 
-There is another network effect in multi-sided platforms \textbf{same-side network effects}, it is the equivalent of cross-side effects but on one side of the platform. An example a positive same-side network effect is Facebook where more users attract even more users as people are keen on joining if their friends are already on the social network website.
+There is another network effect in multi-sided platforms \textbf{same-side network effects}, it is the equivalent of cross-side effects but on one side of the platform. An example a positive same-side network effect is Facebook where more users attract even more users as people are keen on joining if their friends are already on the social network website. Unfortunately most of the platform have negative same-side network effects where more people on one side decreases the willingness to join for other users.
 
-\paragraph{Concerns regarding network effects when creating a platform}
-If we forecast positive cross-side and same-side network effects for our platform then the main concern is how to attract the first users to our platform and how many of those do we need to reach a tipping point. We need to find an incentive to make the "penguins jump" \autocite{coursKyle}. Therefore it is important to know what our customers value to be able to give them what they want. As reaching the critical mass is very important in a network environment, knowing the needs and expectations of our customers is a must.
+%\paragraph{Concerns regarding network effects when creating a platform}
+If we forecast positive cross-side and same-side network effects for our platform then the main concern is how to attract the first users to our platform and how many of those do we need to reach a tipping point. We need to find an incentive to make the "penguins jump" \autocite{coursKyle}. Therefore it is important to know what our customers value to be able to give them what they want. As reaching the critical mass is very important in a network environment, knowing the needs and expectations of our customers is a must. 
 
-\paragraph{Pricing in a platform environment}
-Usually when we draw demand in function of price we have a linear curve of equation $-ax + b$ but in a platform environment in many cases the demand drops very fast when we go from free to a penny. This is called the penny drop and it is why one side of the platform is usually subsidized. Although most of the classical examples of multi-sided platforms features a subsidized and a money side it is not always the case. 
+%\paragraph{Pricing in a platform environment}
+Pricing in a platform environment is hard, we have to find a price for each side taking into account the network effects. Usually when we draw demand in function of price we have a linear curve of equation $-ax + b$ but in a platform environment in many cases the demand on one side drops very fast when we go from free to a penny. This is called the penny drop and it is why one side of the platform is generally subsidized. Because the number of users on the subsidized side is highly valued by the other side, the money put into subsidy will be compensated by the price premium we make the other side pay to access our user base. Although most of the classical examples of multi-sided platforms features a subsidized and a money side it is not always the case, if neither sides are money sensitive then we can imagine charging both sides even though one side might be charged less than if we considered a simple-sided classical market.
+The objective is to use the network effects and attract money side users therefore we first need to attract the users that the money side users value. And once we attracted these users we need to find the degree of subsidy we will offer to attract enough users and what premium we will charge the other side for the privilege of accessing them. \autocite{rochet2003platform}
 
-\paragraph{value creation}
-An important thing to note is that with platforms the value creation is not in the idea nor in the number of user but in the interaction in the network, the activity of the users. For example twitter idea is worth nothing, just being able to send 140 characters messages through a web application is worthless, its user base is not creating much value either if they don't interact (by tweeting, retweeting, faving other tweets). By doing so they create value for each other \autocite{Choudary2014}. So when looking for a business model for Regorus the quality of the software is not so much relevant. It will at best allow us to make some user jump and hopefully reach the tipping point but the real value of the platform would be the interaction between both sides. How by interacting through Regorous they are creating value for each other. This is an important point that we will consider when looking for solutions to improve market penetration.
+%\paragraph{value creation}
+An important thing to note is that the value creation in platforms is not in the idea nor in the number of user but in the interaction in the network, the activity of the users. For example twitter idea is worth nothing, just being able to send 140 characters messages through a web application is worthless, its user base is not creating much value either if they don't interact (by tweeting, retweeting, faving other tweets). By doing so they create value for each other \autocite{Choudary2014}. So when looking for a business model for Regorus the quality of the software is not so much relevant. It will at best allow us to make some user jump and hopefully reach the tipping point but the real value of the platform would be the interaction between both sides. How by interacting through Regorous they are creating value for each other. This is an important point that we will consider when looking for solutions to improve market penetration. \autocite{economides2006}
 
-\paragraph{winner take all}
+%\paragraph{winner take all}
+Because of these non-linear effects, outcomes from multi-sided platform is hard to predict. However history gives us some insight into what we can expect given networks effects in force, multi-homing costs and users sensitivity to new features. Knowing the most likely scenario for the platform tells us if we need to fight to death because we expect a winner take all scenario or to accept competition. The following table gives predicted outcomes depending of the characteristics of the platform :
 
+\begin{center}
+\begin{tabularx}{15cm}{|c|p{3.5cm}|X|}
+\hline
+Likely outcome & Strategy & Platform characteristics \tabularnewline
+\hline
+Winner Take All & Fight to death & High multi-homing costs on at least one side, Strong positive network effects for the users with high multi-homing costs, Neither side have strong preference for special features.\\
+\hline
+Cohabitation & Accept competition, Find a niche market & One side at least have special needs, Low multi-homing costs.\\
+\hline
+\end{tabularx}
+\end{center}
+
+Finally some other assets can help to win the war for platform domination \autocite{eisenmann2006strategies} :
+\begin{itemize}
+\item Pre-existing relations with prospective users on at least one side. This helps at the very beginning when we need to attract early users expecting to feed the positive network effects. It is even more useful if our relation are with influential users in their domain.
+\item Reputation can also help a great deal since users are more likely to join if they can put some trust in the platform provider.
+\item As we need to reach a critical point for our platform to tip we are likely to subsidize users at the beginning meaning that we could lose money at first. Therefore we will need deep pockets to be able to launch our platform.
+\item Because once the tipping point is reached user base will increase exponentially we need to make sure our solution is scalable and wont crumble when stressed with too many requests.
+\end{itemize}
 
 \subsubsection{Possible users of the platform and strategies}
 clients are not really money sensitive - (absolutely not)\\
+On one side we have :
+\begin{itemize}
+\item big firms that already check the compliance of their processes with expensive audits by private firms. They want absolute certainty that this tool will give us reliable results and they want to be able to come back to us if it does not. They don't care about the price because they are already paying lots of money on private audits.
+\item smaller firms that are under complex and strict regulations but don't have the money or the manpower to have private or in-house audits for their processes. In this case they probably care a little bit about the price although saying that this might avoid them a big fine might ease things up. We could primarily target firms that were just fined for non compliance.
+\item private audit firm could use our software when conducting audits. Because it has already been proven that Regorus is orders of magnitude faster than manually checking for compliance especially when the processes have already been explicited.
+\end{itemize}
+
+On the other side we have
+\begin{itemize}
+\item regulation authorities that probably want the most possible compliant firms in their industry. In the past Regorus have been validated by one regulation agency (the one for telecommunication companies) which is good because we have a clear positive cross-side network effect here, the more regulation agencies saying that our product is yielding good results, creating certified rules to check processes against and especially insuring that the fact that Regorus says it's compliant is equivalent to compliance would be huge. Having a \enquote{marquee user} on one side can attract a lot of users on the other side especially if it states its commitment to our platform \autocite{eisenmann2006strategies}. What could bring user on the other side is if regulation agencies recommend Regorus to firms that have been non-compliant. 
+\end{itemize}
 
 
 
@@ -601,6 +666,7 @@ We might consider a classic business model (razor blade ? early bird prices ? Pr
 
 
 \subsection{How does Regorus fits the model}
+\paragraph{platform pricing} Since we are considering Business to Business interactions where neither side is money sensitive a subsidy might not be necessary. On the other hand, businesses are extremely quality sensitive and if we want them to integrate Regorus in their processes they need to have some kind of insurance that it will behave correctly especially because we target the compliance world where an error could cost a lot of money. So to make the penguins jump the price is probably not a problem since these companies are already paying good money for private audits of their processes.
 
 
 
@@ -618,8 +684,9 @@ Regorus is a great tool for companies because it helps them explicit their pract
 
 \section{What can be done to improve market penetration}
 Qualitative market study to discover what our clients are sensible to.\\
-Ask questions about the key points presented in the previous section about two-sided networks
+Ask questions about the key points presented in the previous section about two-sided networks\\
 
+we 
 
 \newpage
 % -------------------------------- %
