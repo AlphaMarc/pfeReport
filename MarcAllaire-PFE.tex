@@ -68,6 +68,10 @@
 
 \usepackage{geometry}% http://ctan.org/pkg/geometry
 
+\usepackage{algorithmicx} % pour écrire les algorithmes
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+
 \usepackage{fancyhdr} % for header and footer custom
 
 \setcounter{secnumdepth}{3}  % to have subsubsections numbered
@@ -75,7 +79,7 @@
 \renewcommand\thesubsubsection{\thesubsection.\alph{subsubsection}}
 
 
-% ---------- Aliales, macros
+% ---------- Aliases, macros
 \newcommand{\ochain}{$\otimes \text{-chain}$}
 %---------------------------
 
@@ -187,6 +191,8 @@ This report presents the work done around the Regorous software at NICTA during 
 \end{itemize}
 
 Most of the code in this report is Java code or pseudo algorithmic code. I will not go into too much details about the exact implementation but rather focus on the methodology and the algorithms I used during the project.
+
+I also contributed to the extension of the theoretical framework of defeasible deontic with time. Previous literature had introduced new concepts and semantics to deal with time in the framework. My work was to formally prove that both theories are equivalent. This work led to a paper that is currently under revision for publication in a conference.
 
 ~\\Second part is more strategy oriented, it is built around reviewing Regorous marketing strategy. Indeed, NICTA is not only working on technological matters but on how they can impact the \enquote{real world} and make it to production use in firms. There has been past attempts to sell the software to companies but all failed. I present an historical review of the work already done and try to build a product strategy based on past feedbacks and marketing studies.
 
@@ -417,8 +423,81 @@ Now that we described the broad range of obligation giving us the necessary voca
 
 We can now create chains of obligations started by a given set of literal and giving the actor a chance to stay compliant even if an obligation was violated. \autocite{NormComplianceinBPModeling}
 
+\subsection{Business Process Model and Notation v2.0 a graphical representation of business processes}
+
+The Business Process Model and Notation version 2.0 is a standard set by the Object Management Group which provides a tool for businesses to model and understand their internal business processes. As it is a graphical notation it helps in the understanding and collaboration between businesses and organisations. \autocite{BPMNWebsite} The 2.0 version of the standard is the version of maturity. It integrates with the Business Process Definition Meta-model, it makes easier the interoperability and exchange of business models amongst different modelling tools, it proposes a XML serialization of the processes and other technical details out of the scope of this document. \autocite{BPMNstandardDocument}
+
+The BPMN language is easy to learn and possesses enough expression power to represent most business processes even the most complex ones. It has a lot of support, is widely accepted and is mature enough to be used by corporations in a production environment. \autocite{powerpointGagne2012} Some of the biggest tech companies have participated in producing the standard (IBM, SAP, Oracle, etc.). \autocite{BPMNexample}
+
+One of the main alternatives is the BPEL language. It was designed to be computationally efficient leads to highly complex and unintuitive documents to describe a complex process. BPMN on the other hand has been made to be inter-operable between humans and not only between XML-based webservices. Thus it acknowledge the importance of the human factor in the business process worlds where most of the people don't understand properly computer systems and are used to handle business processes as flow charts. BPMN aims to reduce the gap between the specification of the business process and its execution. Therefore BPMN is a good choice for Regorus as this software targets people that are not familiar with complex information systems and successfully hides the complexity of the implementation from the end user. \autocite{BPMNstandardDocument}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.85\textwidth]{BPMNex.png}
+\caption{A simple example of a business process using BPMN from \autocite{BPMNexample}}
+\end{figure}
+
+Above is a small example of the BPMN reprensentation of a business process. You can see how clear and straightforward this is. You don't need to understand the BPMN standard or have read the six hundred pages specification to grasp the meaning of this flow chart.
+
+Another reason for using BPMN as a business process modelling tool is the Apromore a java API already developed that allows us to store, represent and compute models of business processes. Furthermore Apromore is a mature, well written library that facilitates the management of large business processes and models. It also includes a presentation part which is integrated with graphiti (the eclipse plug-in library for presentation) in Regorus. With this library we can use only one memory model for business processes from graphical specification to compliance checking. \autocite{ApromoreWebsite}
+
+
+
 \subsection{An algorithm for business process compliance}
-Business process are 
+In the previous sections we described the framework used to express laws and regulations in a proper logical way. We also presented BPMN 2.0 as a way to graphically represent business models. Now that we have a standardized formalism on both sides we can put them together and let the magic happen. In the following we will present the business process compliance algorithm as it is implemented in Regorus and as featured in \autocite{ConceptuallyRichModelofBPC}.
+
+For a given business process the algorithm starts by computing all the possible traces, all possible executions of the business process. In order to do so a reachability graph is computed first using the method described in \autocite{sweepline2004}. From this are drawn all possible executions of the process. 
+
+Now that we have all possible traces we will focus on one. For each task in the trace several actions are accomplished. First a call is made to the rule engine with the informations about the task. It will return the new obligations generated by these antecedents. These new rules are added to the Current set which contains all rules in-force at a given task. We consider $C$ as an \ochain of obligations $C= B_{1} \otimes B_{2} \otimes A_{1} \otimes A_{2} \otimes$. The Unfulfilled set contains all achievement and maintenance rules that were triggered but not fulfilled yet.
+
+The terminated set contains rules that were terminated according to the following definition from \autocite{ConceptuallyRichModelofBPC}. A chain $C$ is terminated by a task n if $C$ was active at task n and that another rule $r$ triggered at task n derives the opposite of $C$. The rule $r$ must not be weaker than the rule that originally yielded $C$.
+
+\begin{algorithmic}
+\ForAll{C $\in$ Current} 
+	\If{$A_{1}$ = $O^{p}B$}
+		\If{$B \in S$}
+			\State remove([T,R, $A_{1} \otimes A_{2}$], Current)
+			\If{[T,R, $B_{1} \otimes B_{2} \otimes A_{1} \otimes A_{2} \otimes$, $B_{2}] \in$ Violated}
+				\State add([T,R, $B_{1} \otimes B_{2} \otimes A_{1} \otimes A_{2} \otimes$, $B_{2}]$, Compensated)
+			\EndIf
+		\Else 
+			\State remove([T,R, $A_{1} \otimes A_{2} $], Current)
+			\State add([T,R, $A_{1} \otimes A_{2}$, $B$], Violated)
+			\State add([T,R, $A_{2}$], Current)
+		\EndIf
+	\EndIf
+	\If{$A_{1}$ = $O^{a,x}B$}
+		\If{$B \in S$}
+			\State remove([T,R, $A_{1} \otimes A_{2}$], Current)
+			\State remove([T,R, $A_{1} \otimes A_{2}$], Unfulfilled)
+			\If{[T,R, $B_{1} \otimes B_{2} \otimes A_{1} \otimes A_{2} \otimes$, $B_{2}] \in$ Violated}
+				\State add([T,R, $B_{1} \otimes B_{2} \otimes A_{1} \otimes A_{2} \otimes$, $B_{2}]$, Compensated)
+			\EndIf
+		\Else
+			\State add([T,R, $A_{1} \otimes A_{2} \otimes$], Unfulfilled)
+		\EndIf
+	\EndIf
+	
+	\If{$A_{1}$ = $O^{m}B$}
+		\If{$b \notin S$ or $\neg B \in S$}
+			\State add([T,R, $A_{1} \otimes A_{2}$, $B$], Violated)
+			\State add([T,R, $A_{2}$], Current)
+		\EndIf
+	\EndIf
+\EndFor
+
+\State
+
+\ForAll{$C \in$ Terminated}
+	\If{$C \in$ Unfulfilled}
+		\State add([T,R, $A_{1} \otimes A_{2}$, $B$], Violated)
+		\State add([T,R, $A_{2}$], Current)
+	\EndIf
+	\If{$A_{1} = O^{a,\tau}$}
+		\State remove([T,R,$A_{1} \otimes A_{2}$], Current)
+	\EndIf
+\EndFor
+\end{algorithmic}
 
 
 
@@ -525,7 +604,7 @@ Moreover time in our framework would dramatically improve the computational comp
 
 \subsection{Temporal formalism for deontic defeasible logic}
 
-\autocite{JusticeDelayed2011} introduces new notations and concepts to deal with time in deontic defeasible logic. Time is represented as a discrete linear order of instants $ \mathscr{T} = (t_{1}, t_{2} ... t_{n})$.
+\autocite{JusticeDelayed2011} introduces new notations, semantics and concepts to deal with time in deontic defeasible logic. Time is represented as a discrete linear order of instants $ \mathscr{T} = (t_{1}, t_{2} ... t_{n})$.
 \begin{itemize}
 \item if $l$ is a literal then $l^{t}$ is a temporal literal. We will refer to the set of temporal literal as $\text{TLit}$. We also introduce $\top$ and $\bot$ which are also temporal literals, they are propositions that are respectively always complied with and never complied with
 \item if $l^{t}$ is a temporal literal then $Ol^{t}$ and its negation are deontic literals meaning that the obligation to do $l$ holds at time $t$. We will refer to the set of deontic literals as $DLit$
@@ -567,10 +646,16 @@ Or, the conditions on the Antecedents for a rule to be applicable are :
 \end{itemize}
 Both conditions are met so the rule would also trigger in temporal defeasible logic. Now we have to see if it would trigger at the right index in the \ochain.
 
-If $q=Ol$ is part of an \ochain like $A_{1}\otimes .. \otimes A_{n} \otimes q \otimes B_{1} \otimes .. \otimes B_{n}$ and if $q$ is in current that means that for all obligation $A_{i}$, $-\partial A_{i}$ has been proven for a previous task $(1..k-1)$. Which translates into :
+If $q=Ol$ is part of an \ochain like $A_{1}\otimes .. \otimes A_{n} \otimes q \otimes B_{1} \otimes .. \otimes B_{n}$ and if $q$ is in current that means that for all obligation $A_{i}$, $-\partial A_{i}$ has been proven for a previous task $(1..k-1)$. Let $m$ be the task where the rule was triggered first. Which translates into :
 \begin{itemize}
 \item for punctual obligations this means we either have $\neg l$ at task k when the obligation was triggered or that $l$ was not in the State set at task k.
+\item for achievement obligations this means that we have $\neg l$ at a task between $m$ and $k-1$
+\item for maintenance obligations this means that we either have $\neg l$ at a task between $m$ and $k-1$ or that $l$ was not in the State set at a given task between $m$ and $k$ 
 \end{itemize}
+
+Whatever the obligation this means that at some point we were able to conclude $-\partial A_{i}$ for all the obligations before $q$ which means that the rule $r$ is also applicable at the index where it triggers $q$ implying that $q$ is also in the set of Current obligations in the temporal formalism.
+
+We can easily translate this reflexion to the Violated set. If a obligation $Ol$ is in the violated set this means that at some task between $1..n$ we have one of the three conditions aforementioned for each type of obligation. Which trivially translates into being able to prove $-\partial l$ at some task $(1..n)$ implying that the obligation is also in the Violated set in the temporal formalism.
 
 \newpage
 \chapter{Strategic reflection on Regorus}
@@ -582,9 +667,18 @@ What are the challenges of business process management and compliance ?\\
 In which way Business processes foster innovation ?
 
 \section{A critical summary of the work done}
-Historical analysis of what have been done, what failed...
+Historical analysis of what have been done, what failed... \\
+They tried to go to the market without any market study \\
 
-They tried to go to the market without any market study
+Since the product was ready for production use in mid 2012, several companies have expressed an interest in integrating regorus in their compliance teams. Unfortunately, all these attempts have failed so far. In the following section we will present the previous tries to market Regorus and for each of them try to understand what failed and what are the key strength of Regorus from a business point of view.
+
+The first and real contact was with an Australian telecommunication company (later referred as telco). The telecommunication business in Australia is very large. There are more than 2000 firms ranging from Vodafone or Optus who are huge businesses that reach 95+\% of the population to small service providers or system integrators that have 20 or so clients. All these businesses are under the obligation to comply with regulation written by Communication Alliance and enforced by Communication Compliance under the supervision of the Australian Communication and Media Authority.
+
+If Communication Compliance finds a business that is not compliant then it can be put under the scrutiny of the ACMA and be fined or even have its license removed. Therefore compliance is a serious matter for telcos in Australia. The biggest ones are required to be audited by a private third-party auditor when the smaller ones have to ensure compliance by themselves. This is a hard task with very little help from the compliance body apart from some spreadsheets. Thus lot if not all telcos are operating in a grey area where they do not know if their processes are compliant or not, most of them don't even have explicit processes.
+
+A medium size telco CEO visiting a NICTA showcase interested in a compliance system to make up for this less than ideal system. After a demonstration of Regorus she was convinced enough to ask for a trial in her company. The trial was organized around three workshops. The first one was a presentation of Regorus and the underlying theory. The audience was composed mainly of people from the complaint department. Although it was the first time they were exposed to this kind of software the reception was good. The second workshop was focused on helping the staff to model their current processes as they were. In the meantime people at NICTA were implementing a subset of the regulation regarding complaints to check the processes against. During the third and last workshop compliance of processes was tested and yielded interesting results. Some errors were due to incorrect annotations, implementation errors but it also revealed some compliance issues where a redesign of the process was needed.
+
+This workshop was a great opportunity to showcase the power of Regorus on the very same processes these people were working on. This training was a fast and effective introduction, in only three afternoons they were able to understand the basics about the software, how to model their processes and check compliance.
 
 \section{Find a business model for Regorus}
 
@@ -681,6 +775,9 @@ With the increasing use of information technologies by firms and the escalation 
 Knowledge management was introduced in popular press in the early nineties mainly through the work of Nonaka. \autocite{nonaka1991knowledge} He is the one who later popularized the concept of Ba in his famous article \autocite{Nonaka_Konno_1998}. In this article he introduces the SECI model aiming to give a framework for knowledge creation within a firm. This model is based on the interactions between explicit and tacit knowledge through four main phases : Socialization, Externalization, Combination, Internalization. Business process explicitation through Regorus editor can be seen as part of the externalization phase where one's knowledge is expressed using the BPMN formalism. Later on this new material can be used in the Internalization phase where this explicit knowledge is used and put into practice as formely formalizes business processes can help in the training of new employees for example.
 
 Regorus is a great tool for companies because it helps them explicit their practices and internal knowledge into a new figurative language such as BPMN. This translates personal, sticky knowledge to be translated into an explicit, normative form leading to a better understanding and transmission of know-how. In this sense Regorous is more than just a tool to check the compliance of processes it is also a powerful way of managing knowledge in the firm and therefore leading to better results.
+
+
+\textbf{ADD THAT BPMN WAS DESIGNED TO INTEGRATE AND EXPRESS BUSINESS PROCESSES}
 
 \section{What can be done to improve market penetration}
 Qualitative market study to discover what our clients are sensible to.\\

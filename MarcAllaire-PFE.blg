@@ -17,50 +17,51 @@ Database file #1: MarcAllaire-PFE-blx.bib
 Database file #2: biblio.bib
 Warning--I'm ignoring mcnamara_deontic_2014's extra "keywords" field
 --line 79 of file biblio.bib
+Reallocated field_info (elt_size=4) to 10032 items from 5000.
 Warning--I'm ignoring Nonaka_Konno_1998's extra "keywords" field
---line 231 of file biblio.bib
+--line 296 of file biblio.bib
 Biblatex version: 1.7
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
-You've used 31 entries,
+You've used 37 entries,
             6019 wiz_defined-function locations,
-            1341 strings with 15781 characters,
-and the built_in function-call counts, 111635 in all, are:
-= -- 3826
-> -- 6007
-< -- 1083
-+ -- 3544
-- -- 3668
-* -- 7750
-:= -- 8603
+            1374 strings with 16687 characters,
+and the built_in function-call counts, 135797 in all, are:
+= -- 4518
+> -- 7872
+< -- 1315
++ -- 4860
+- -- 5007
+* -- 9079
+:= -- 10929
 add.period$ -- 0
-call.type$ -- 31
-change.case$ -- 490
-chr.to.int$ -- 262
-cite$ -- 60
-duplicate$ -- 11596
-empty$ -- 10872
-format.name$ -- 1914
-if$ -- 23037
+call.type$ -- 37
+change.case$ -- 557
+chr.to.int$ -- 382
+cite$ -- 72
+duplicate$ -- 13929
+empty$ -- 13017
+format.name$ -- 2236
+if$ -- 27426
 int.to.chr$ -- 0
-int.to.str$ -- 90
+int.to.str$ -- 107
 missing$ -- 0
-newline$ -- 875
-num.names$ -- 1445
-pop$ -- 9519
+newline$ -- 1018
+num.names$ -- 1714
+pop$ -- 11412
 preamble$ -- 1
-purify$ -- 558
+purify$ -- 633
 quote$ -- 0
-skip$ -- 5898
+skip$ -- 7008
 stack$ -- 0
-substring$ -- 2679
-swap$ -- 4097
-text.length$ -- 913
-text.prefix$ -- 30
+substring$ -- 3291
+swap$ -- 4880
+text.length$ -- 1113
+text.prefix$ -- 36
 top$ -- 1
-type$ -- 1166
+type$ -- 1390
 warning$ -- 0
-while$ -- 777
+while$ -- 977
 width$ -- 0
-write$ -- 843
+write$ -- 980
 (There were 2 warnings)
