@@ -6,10 +6,11 @@
 \usepackage[LGR,T1]{fontenc} % this is to be able to output greek 
 
 %\renewcommand*\rmdefault{stix} % change the font
-% \usepackage{times} % use times font for report
+%\usepackage{times} % use times font for report
 
 \usepackage{setspace} % pour agrandir l'interligne
-%\doublespacing % pour double espace sinon \onehalfspacing pour 1.5
+%\doublespacing % pour double espace sinon 
+\onehalfspacing % pour 1.5
 
 \usepackage{array} % pour avoir des tableaux multilignes
 \usepackage{tabularx}
@@ -161,25 +162,15 @@ IAE - Master Management Stratégique,\\\hspace{.5cm}Spécialité Management de l
 \textbf{\displaydate{date}}
 \end{flushright}
 \end{minipage}
-
-
 \end{titlepage}
-
-
-
-
 \newpage
 \pagenumbering{gobble} % no page numbering until otherwise set by \pagenumbering{arabic}
 % -------------------------------- %
 %              REPORT              %
 % -------------------------------- %
+
 \restoregeometry
 \renewcommand{\thesection}{\Roman{section}} 
-
-% Pour des tableaux plus aérés
-\renewcommand{\arraystretch}{1.5}
-\setlength{\tabcolsep}{0.5cm}
-
 %executive summary
 \renewcommand{\abstractname}{Executive Summary}
 \begin{abstract}
@@ -201,8 +192,6 @@ I also investigate what are the side effects of Regorous and aim to link these w
 The report finds that the lack of a proper marketing study for Regorus is leading to a lot of approximations and guesses when it comes to targeted market or individuals within the firm. There is an urgent need to pinpoint who are the decision makers in corporations when it comes to buying software and what are their motivation, who they listen to, what is important to them. In short, we must know who are our clients. I suggest a that a focus group should be done once the targeted audience is well defined and propose a collection of subjects that could be worked on.
 
 \end{abstract}
-
-
 
 \newpage
 
@@ -235,6 +224,10 @@ Then, I would like to thank all the members of the Business Process Compliance g
 \fancyfoot[C]{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0 pt}
+
+% Pour des tableaux plus aérés
+\renewcommand{\arraystretch}{1.5}
+\setlength{\tabcolsep}{0.5cm}
 
 \chapter{Presenting the context of the Project}
 \section{A brief presentation of NICTA}
@@ -503,7 +496,14 @@ The terminated set contains rules that were terminated according to the followin
 
 \subsection{Tools already developed : Regorus and SPINdle}
 What are they and what are they doing ?\\
-Areas of improvement ?
+Areas of improvement ? \\
+
+The business process compliance project takes its roots back about five years ago when the first papers were published \autocite{journeyToBPC}, \autocite{isf09compliance}. During this time research in both the theoretical framework and its implementation have been conducting leading today to two main tools : SPINdle the rule engine and Regorus the business process compliance tool. In the following section we will portray both software, their functionalities, their use and what improvement could be made.
+
+\subsubsection{SPINdle}
+
+\subsubsection{Regorus}
+We already mentioned Regorus a few times before but never detailed its functionalities. We will describe what are the main components in it and how they interact.
 
 
 \newpage
@@ -553,7 +553,6 @@ First let see how XOR nodes behave in business process modelling with a little e
 \includegraphics[height=3.4cm]{XOR.png} %ou image.png, .jpeg etc.
 \caption{A simple example of XOR split} %la légende
 \end{center}
-\label{image_soleil} %l'étiquette pour faire référence à cette image
 \end{figure} %on ferme l'environnement figure 
 
 This sample shows an important feature of the XOR nodes : annotations on the edges. When checking compliance all the possible executions of a given business process are computed which mean in one case we will have \textit{Existing Customer} as an effect and in another thread we will have \textit{New Customer} as effect. The issue is in the way we take these effects into account to check compliance in the following tasks.
@@ -564,7 +563,6 @@ For now Regorus puts \enquote{dummy nodes} between the XOR split and the first t
 \includegraphics[height=4cm]{XOR2.png} %ou image.png, .jpeg etc.
 \caption{Illustration of the \enquote{dummy nodes} added by regorus} %la légende
 \end{center}
-\label{image_soleil} %l'étiquette pour faire référence à cette image
 \end{figure} %on ferme l'environnement figure
 
 But a better behaviour would be to take these directly into account without the need for dummy nodes. Indeed punctual and cooccurrent obligations cannot be handled properly in this case. If the node before the XOR split yields an punctual obligation like this one $\text{p} \rightarrow \text{[Op]q}$ then with the actual implementation the obligation will be checked in the dummy nodes when it should be checked for compliance in the first \enquote{real} node following the XOR split.
@@ -661,7 +659,9 @@ We can easily translate this reflexion to the Violated set. If a obligation $Ol$
 \chapter{Strategic reflection on Regorus}
 
 \section{Business Process Management and Compliance}
-Business process compliance is a growing concern for any company and it is seen most of the time as a burden.  They are at the cross road of very different parts of a company that usually don't interact much.
+Business process compliance is a growing concern for any company and it is seen most of the time as a burden.  They are at the cross road of very different parts of a company that usually don't interact much usually.
+
+Most businesses don't have explicit business processes.
 
 What are the challenges of business process management and compliance ?\\
 In which way Business processes foster innovation ?
@@ -679,6 +679,7 @@ If Communication Compliance finds a business that is not compliant then it can b
 A medium size telco CEO visiting a NICTA showcase interested in a compliance system to make up for this less than ideal system. After a demonstration of Regorus she was convinced enough to ask for a trial in her company. The trial was organized around three workshops. The first one was a presentation of Regorus and the underlying theory. The audience was composed mainly of people from the complaint department. Although it was the first time they were exposed to this kind of software the reception was good. The second workshop was focused on helping the staff to model their current processes as they were. In the meantime people at NICTA were implementing a subset of the regulation regarding complaints to check the processes against. During the third and last workshop compliance of processes was tested and yielded interesting results. Some errors were due to incorrect annotations, implementation errors but it also revealed some compliance issues where a redesign of the process was needed.
 
 This workshop was a great opportunity to showcase the power of Regorus on the very same processes these people were working on. This training was a fast and effective introduction, in only three afternoons they were able to understand the basics about the software, how to model their processes and check compliance.
+
 
 \section{Find a business model for Regorus}
 
@@ -756,7 +757,9 @@ On the other side we have
 
 
 \subsection{Alternative business models for Regorus}
-We might consider a classic business model (razor blade ? early bird prices ? Provide a web service where they could compute the compliance since this is a resource hungry process, web application would be easier also for updates and maintenance that would be a monthly fee to pay to have access to computation resource and rules or pay for the compliance test, we could even deploy in-house for our greatest customers)
+We might consider a classic business model (razor blade ? early bird prices ? Provide a web service where they could compute the compliance since this is a resource hungry process, web application would be easier also for updates and maintenance that would be a monthly fee to pay to have access to computation resource and rules or pay for the compliance test, we could even deploy in-house for our greatest customers)\\
+
+Business model canvas ? SWOT ? Porter ? 
 
 
 \subsection{How does Regorus fits the model}

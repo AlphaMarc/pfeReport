@@ -6,64 +6,68 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {II}The Business Process Compliance Group}{2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {II}Technical work on Regorus}{3}
+\contentsline {chapter}{\numberline {II}Technical work on Regorus}{4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {I}Introducing the project's theoretical framework}{3}
+\contentsline {section}{\numberline {I}Introducing the project's theoretical framework}{4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1}A short introduction to defeasible logic}{3}
+\contentsline {subsection}{\numberline {1}A short introduction to defeasible logic}{4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2}Using defeasible deontic logic to represent legal norms and regulations}{5}
+\contentsline {subsection}{\numberline {2}Using defeasible deontic logic to represent legal norms and regulations}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.a}Different types of obligations}{6}
+\contentsline {subsubsection}{\numberline {2.a}Different types of obligations}{8}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.b}Expressing chain of obligation with the $\otimes $ operator}{7}
+\contentsline {subsubsection}{\numberline {2.b}Expressing chain of obligation with the $\otimes $ operator}{9}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3}Business Process Model and Notation v2.0 a graphical representation of business processes}{7}
+\contentsline {subsection}{\numberline {3}Business Process Model and Notation v2.0 a graphical representation of business processes}{9}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4}An algorithm for business process compliance}{8}
+\contentsline {subsection}{\numberline {4}An algorithm for business process compliance}{11}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5}Tools already developed : Regorus and SPINdle}{10}
+\contentsline {subsection}{\numberline {5}Tools already developed : Regorus and SPINdle}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {II}Adding features to Regorus}{11}
+\contentsline {subsubsection}{\numberline {5.a}SPINdle}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1}Implementing Cooccurrent Obligations}{11}
+\contentsline {subsubsection}{\numberline {5.b}Regorus}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2}XOR splits and the condition associated to them}{12}
+\contentsline {section}{\numberline {II}Adding features to Regorus}{14}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3}Porting the eclipse plug-in to the Kepler version of Eclipse}{13}
+\contentsline {subsection}{\numberline {1}Implementing Cooccurrent Obligations}{14}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {III}Extending the theoretical model by adding time}{13}
+\contentsline {subsection}{\numberline {2}XOR splits and the condition associated to them}{15}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1}Motivation for adding time in defeasible logic}{14}
+\contentsline {subsection}{\numberline {3}Porting the eclipse plug-in to the Kepler version of Eclipse}{16}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2}Temporal formalism for deontic defeasible logic}{14}
+\contentsline {section}{\numberline {III}Extending the theoretical model by adding time}{17}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3}Proving that defeasible logic and temporal defeasible logic reach the same conclusions}{14}
+\contentsline {subsection}{\numberline {1}Motivation for adding time in defeasible logic}{17}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Translate \enquote {classic} rules into temporal ones}{14}
+\contentsline {subsection}{\numberline {2}Temporal formalism for deontic defeasible logic}{18}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{consider sets of obligations}{15}
+\contentsline {subsection}{\numberline {3}Proving that defeasible logic and temporal defeasible logic reach the same conclusions}{18}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {III}Strategic reflection on Regorus}{17}
+\contentsline {paragraph}{Translate \enquote {classic} rules into temporal ones}{18}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {I}Business Process Management and Compliance}{17}
+\contentsline {paragraph}{consider sets of obligations}{19}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {II}A critical summary of the work done}{17}
+\contentsline {chapter}{\numberline {III}Strategic reflection on Regorus}{21}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {III}Find a business model for Regorus}{18}
+\contentsline {section}{\numberline {I}Business Process Management and Compliance}{21}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1}Two-sided markets}{18}
+\contentsline {section}{\numberline {II}A critical summary of the work done}{21}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.a}A definition for two-sided market and its dynamics}{19}
+\contentsline {section}{\numberline {III}Find a business model for Regorus}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.b}Possible users of the platform and strategies}{21}
+\contentsline {subsection}{\numberline {1}Two-sided markets}{23}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2}Alternative business models for Regorus}{21}
+\contentsline {subsubsection}{\numberline {1.a}A definition for two-sided market and its dynamics}{23}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3}How does Regorus fits the model}{21}
+\contentsline {subsubsection}{\numberline {1.b}Possible users of the platform and strategies}{26}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{platform pricing}{21}
+\contentsline {subsection}{\numberline {2}Alternative business models for Regorus}{27}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4}How Business Process Modelling is integrated in knowledge management}{22}
+\contentsline {subsection}{\numberline {3}How does Regorus fits the model}{27}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {IV}What can be done to improve market penetration}{22}
+\contentsline {paragraph}{platform pricing}{27}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4}How Business Process Modelling is integrated in knowledge management}{27}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {IV}What can be done to improve market penetration}{28}

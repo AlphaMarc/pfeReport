@@ -475,6 +475,38 @@
   \field{year}{2011}
 \endentry
 
+\entry{isf09compliance}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Hoffmann}{H.}%
+     {Jörg}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Weber}{W.}%
+     {Ingo}{I.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Governatori}{G.}%
+     {Guido}{G.}%
+     {}{}%
+     {}{}}%
+  }
+  \keyw{tech}
+  \strng{namehash}{HJWIGG1}
+  \strng{fullhash}{HJWIGG1}
+  \field{labelyear}{2009}
+  \field{sortinit}{H}
+  \verb{doi}
+  \verb http://dx.doi.org/10.1007/s10796-009-9179-7
+  \endverb
+  \field{title}{On Compliance Checking for Clausal Constraints in Annotated
+  Process Models}
+  \field{journaltitle}{Information Systems Frontieres}
+  \field{year}{2009}
+\endentry
+
 \entry{Koenig08}{article}{}
   \name{author}{2}{}{%
     {{}%
