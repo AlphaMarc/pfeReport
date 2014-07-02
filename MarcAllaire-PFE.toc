@@ -88,7 +88,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {1.b}Interpretation and Reliability of Qualitative Research Results}{37}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2}what are we researching ?}{37}
+\contentsline {subsection}{\numberline {2}what are we researching ?}{38}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3}The Focus Group (or Interviews), Methodology, Goals and Progress}{38}
 \defcounter {refsection}{0}\relax 
