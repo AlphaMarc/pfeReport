@@ -13,19 +13,20 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated field_info (elt_size=4) to 11392 items from 5000.
+Reallocated field_info (elt_size=4) to 11528 items from 5000.
 Database file #1: MarcAllaire-PFE-blx.bib
 Database file #2: biblio.bib
 Warning--I'm ignoring mcnamara_deontic_2014's extra "keywords" field
 --line 89 of file biblio.bib
 Warning--I'm ignoring Nonaka_Konno_1998's extra "keywords" field
 --line 348 of file biblio.bib
+Warning--I didn't find a database entry for "keynoteBae"
 Biblatex version: 1.7
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 You've used 50 entries,
             6019 wiz_defined-function locations,
-            1455 strings with 19231 characters,
+            1457 strings with 19251 characters,
 and the built_in function-call counts, 183523 in all, are:
 = -- 6607
 > -- 9637
@@ -64,4 +65,4 @@ warning$ -- 0
 while$ -- 1231
 width$ -- 0
 write$ -- 1355
-(There were 2 warnings)
+(There were 3 warnings)

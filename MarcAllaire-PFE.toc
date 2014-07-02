@@ -62,7 +62,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2}Comments}{30}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {III}Find a business model for Regorus}{30}
+\contentsline {section}{\numberline {III}Find a business model for Regorus}{31}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1}Two-sided markets}{31}
 \defcounter {refsection}{0}\relax 
@@ -82,9 +82,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {IV}What can be done to improve market penetration : Qualitative Marketing Research}{36}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1}Qualitative Marketing Research Explained}{36}
+\contentsline {subsection}{\numberline {1}Qualitative Marketing Research Explained}{37}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.a}Definition and Objectives}{36}
+\contentsline {subsubsection}{\numberline {1.a}Definition and Objectives}{37}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {1.b}Interpretation and Reliability of Qualitative Research Results}{37}
 \defcounter {refsection}{0}\relax 
@@ -92,4 +92,6 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3}The Focus Group (or Interviews), Methodology, Goals and Progress}{38}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Methods of Questioning in Focus Group}{38}
+\contentsline {subsection}{\numberline {4}Raw Data Analysis : Tools and Methodology}{39}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Methods of Questioning in Focus Group}{39}
