@@ -157,6 +157,98 @@
   \field{year}{2013}
 \endentry
 
+\entry{belk2007handbook}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Belk}{B.}%
+     {Russell~W}{R.~W.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Edward Elgar Publishing}%
+  }
+  \keyw{strat}
+  \strng{namehash}{BRW1}
+  \strng{fullhash}{BRW1}
+  \field{labelyear}{2007}
+  \field{sortinit}{B}
+  \field{title}{Handbook of qualitative research methods in marketing}
+  \field{year}{2007}
+\endentry
+
+\entry{telcoIndustryStats}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Budde}{B.}%
+     {Paul}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {McNamara}{M.}%
+     {Stephen}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {{Paul Budde Communication Pty. Ltd}}{P.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \list{language}{1}{%
+    {English}%
+  }
+  \list{publisher}{1}{%
+    {Bucketty, N.S.W. : Paul Budde Communications}%
+  }
+  \keyw{strat}
+  \strng{namehash}{BPMSP1}
+  \strng{fullhash}{BPMSP1}
+  \field{labelyear}{2012}
+  \field{sortinit}{B}
+  \field{edition}{25th ed}
+  \field{note}{At head of title: A Buddecomm report}
+  \field{title}{Australia, telecoms industry : statistics and forecasts /
+  researcher: Paul Budde, Stephen Mcnamara}
+  \field{type}{Article; Article/Report}
+  \field{year}{2012}
+\endentry
+
+\entry{carson2001}{book}{}
+  \name{author}{4}{}{%
+    {{}%
+     {Carson}{C.}%
+     {David}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gilmore}{G.}%
+     {Audrey}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Perry}{P.}%
+     {Chad}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gronhaug}{G.}%
+     {Kjell}{K.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Sage}%
+  }
+  \keyw{strat}
+  \strng{namehash}{CD+1}
+  \strng{fullhash}{CDGAPCGK1}
+  \field{labelyear}{2001}
+  \field{sortinit}{C}
+  \field{title}{Qualitative marketing research}
+  \field{year}{2001}
+\endentry
+
 \entry{Choudary2014}{online}{}
   \name{author}{1}{}{%
     {{}%
@@ -181,6 +273,41 @@
   \field{urlday}{13}
   \field{urlmonth}{06}
   \field{urlyear}{2014}
+\endentry
+
+\entry{dumas2013}{book}{}
+  \name{author}{4}{}{%
+    {{}%
+     {Dumas}{D.}%
+     {Marlon}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {La~Rosa}{L.~R.}%
+     {Marcello}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Mendling}{M.}%
+     {Jan}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Reijers}{R.}%
+     {Hajo~A}{H.~A.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Springer}%
+  }
+  \keyw{strat}
+  \strng{namehash}{DM+1}
+  \strng{fullhash}{DMLRMMJRHA1}
+  \field{labelyear}{2013}
+  \field{sortinit}{D}
+  \field{title}{Fundamentals of business process management}
+  \field{year}{2013}
 \endentry
 
 \entry{economides2006}{article}{}
@@ -266,6 +393,34 @@
   \field{urlday}{19}
   \field{urlmonth}{06}
   \field{urlyear}{2014}
+\endentry
+
+\entry{goedertier2006}{inproceedings}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Goedertier}{G.}%
+     {Stijn}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Vanthienen}{V.}%
+     {Jan}{J.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{organization}{1}{%
+    {Springer}%
+  }
+  \keyw{strat}
+  \strng{namehash}{GSVJ1}
+  \strng{fullhash}{GSVJ1}
+  \field{labelyear}{2006}
+  \field{sortinit}{G}
+  \field{booktitle}{Business Process Management Workshops}
+  \field{pages}{5\bibrangedash 14}
+  \field{title}{Designing compliant business processes with obligations and
+  permissions}
+  \field{year}{2006}
 \endentry
 
 \entry{JusticeDelayed2011}{inproceedings}{}
@@ -507,6 +662,62 @@
   \field{year}{2009}
 \endentry
 
+\entry{IBT2011}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{International Business Times}}{I.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \keyw{strat,tech}
+  \strng{namehash}{I1}
+  \strng{fullhash}{I1}
+  \field{labelyear}{2011}
+  \field{sortinit}{I}
+  \field{abstract}{%
+  The latest Australian Industry {Group/Deloitte} {CEO} survey released on
+  Tuesday, {"Business} Regulation," points to the high and rising cost of
+  complying with regulation for Australian businesses.%
+  }
+  \field{titleaddon}{International Business Times}
+  \field{title}{Businesses Complain on Rising Costs of Australian Regulations}
+  \verb{url}
+  \verb http://au.ibtimes.com/articles/220313/20110927/businesses-complain-on-r
+  \verb ising-costs-of-compliance-to-australian-regulations-business-regulation
+  \verb -ai-g.htm
+  \endverb
+  \field{year}{2011}
+  \field{urlday}{24}
+  \field{urlmonth}{06}
+  \field{urlyear}{2014}
+\endentry
+
+\entry{jeston2014}{book}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Jeston}{J.}%
+     {John}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Nelis}{N.}%
+     {Johan}{J.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Routledge}%
+  }
+  \keyw{strat}
+  \strng{namehash}{JJNJ1}
+  \strng{fullhash}{JJNJ1}
+  \field{labelyear}{2014}
+  \field{sortinit}{J}
+  \field{title}{Business process management}
+  \field{year}{2014}
+\endentry
+
 \entry{Koenig08}{article}{}
   \name{author}{2}{}{%
     {{}%
@@ -595,6 +806,113 @@
     {IAE Toulouse}%
   }
   \field{year}{2013}
+\endentry
+
+\entry{spindleUserManual}{manual}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Lam}{L.}%
+     {Ho-Pun}{H.-P.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{organization}{1}{%
+    {NICTA Business Process Compliance Group}%
+  }
+  \keyw{tech}
+  \strng{namehash}{LHP1}
+  \strng{fullhash}{LHP1}
+  \field{labelyear}{2014}
+  \field{sortinit}{L}
+  \field{title}{SPINdle User Guide}
+  \field{version}{2.2.4}
+  \field{year}{2014}
+\endentry
+
+\entry{LamSPINdle}{incollection}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Lam}{L.}%
+     {Ho-Pun}{H.-P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Governatori}{G.}%
+     {Guido}{G.}%
+     {}{}%
+     {}{}}%
+  }
+  \name{editor}{4}{}{%
+    {{}%
+     {Dean}{D.}%
+     {Mike}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hall}{H.}%
+     {John}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Rotolo}{R.}%
+     {Antonino}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Tabet}{T.}%
+     {Said}{S.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{language}{1}{%
+    {English}%
+  }
+  \list{publisher}{1}{%
+    {Springer Berlin Heidelberg}%
+  }
+  \keyw{tech}
+  \strng{namehash}{LHPGG1}
+  \strng{fullhash}{LHPGG1}
+  \field{labelyear}{2010}
+  \field{sortinit}{L}
+  \field{booktitle}{Semantic Web Rules}
+  \verb{doi}
+  \verb 10.1007/978-3-642-16289-3_11
+  \endverb
+  \field{isbn}{978-3-642-16288-6}
+  \field{pages}{119\bibrangedash 127}
+  \field{series}{Lecture Notes in Computer Science}
+  \field{title}{On the Problem of Computing Ambiguity Propagation and
+  Well-Founded Semantics in Defeasible Logic}
+  \verb{url}
+  \verb http://dx.doi.org/10.1007/978-3-642-16289-3_11
+  \endverb
+  \field{volume}{6403}
+  \field{year}{2010}
+\endentry
+
+\entry{MaherSPINdle}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Maher}{M.}%
+     {Michael~J}{M.~J.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Cambridge Univ Press}%
+  }
+  \keyw{tech}
+  \strng{namehash}{MMJ1}
+  \strng{fullhash}{MMJ1}
+  \field{labelyear}{2001}
+  \field{sortinit}{M}
+  \field{number}{06}
+  \field{pages}{691\bibrangedash 711}
+  \field{title}{Propositional defeasible logic has linear complexity}
+  \field{volume}{1}
+  \field{journaltitle}{Theory and Practice of Logic Programming}
+  \field{year}{2001}
 \endentry
 
 \entry{sweepline2004}{incollection}{}
@@ -727,6 +1045,28 @@
   \field{urlday}{29}
   \field{urlmonth}{05}
   \field{urlyear}{2014}
+\endentry
+
+\entry{mintzberg1979}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Mintzberg}{M.}%
+     {Henry}{H.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {JSTOR}%
+  }
+  \keyw{strat}
+  \strng{namehash}{MH1}
+  \strng{fullhash}{MH1}
+  \field{labelyear}{1979}
+  \field{sortinit}{M}
+  \field{pages}{582\bibrangedash 589}
+  \field{title}{An emerging strategy of" direct" research}
+  \field{journaltitle}{Administrative science quarterly}
+  \field{year}{1979}
 \endentry
 
 \entry{PresentationBooklet}{booklet}{}
@@ -1048,6 +1388,29 @@
   \field{urlday}{19}
   \field{urlmonth}{06}
   \field{urlyear}{2014}
+\endentry
+
+\entry{van1979reclaiming}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Van~Maanen}{V.~M.}%
+     {John}{J.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {JSTOR}%
+  }
+  \keyw{strat}
+  \strng{namehash}{VMJ1}
+  \strng{fullhash}{VMJ1}
+  \field{labelyear}{1979}
+  \field{sortinit}{V}
+  \field{pages}{520\bibrangedash 526}
+  \field{title}{Reclaiming qualitative methods for organizational research: A
+  preface}
+  \field{journaltitle}{Administrative Science Quarterly}
+  \field{year}{1979}
 \endentry
 
 \entry{Wiig19971}{article}{}

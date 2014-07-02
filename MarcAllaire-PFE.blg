@@ -13,55 +13,55 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated field_info (elt_size=4) to 11392 items from 5000.
 Database file #1: MarcAllaire-PFE-blx.bib
 Database file #2: biblio.bib
-Reallocated field_info (elt_size=4) to 10032 items from 5000.
 Warning--I'm ignoring mcnamara_deontic_2014's extra "keywords" field
 --line 89 of file biblio.bib
 Warning--I'm ignoring Nonaka_Konno_1998's extra "keywords" field
---line 306 of file biblio.bib
+--line 348 of file biblio.bib
 Biblatex version: 1.7
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
-You've used 38 entries,
+You've used 50 entries,
             6019 wiz_defined-function locations,
-            1379 strings with 16903 characters,
-and the built_in function-call counts, 139160 in all, are:
-= -- 4614
-> -- 8012
-< -- 1349
-+ -- 4903
-- -- 5071
-* -- 9404
-:= -- 11139
+            1455 strings with 19231 characters,
+and the built_in function-call counts, 183523 in all, are:
+= -- 6607
+> -- 9637
+< -- 1872
++ -- 5628
+- -- 5731
+* -- 12520
+:= -- 13733
 add.period$ -- 0
-call.type$ -- 38
-change.case$ -- 567
-chr.to.int$ -- 382
-cite$ -- 74
-duplicate$ -- 14299
-empty$ -- 13351
-format.name$ -- 2326
-if$ -- 28189
+call.type$ -- 50
+change.case$ -- 902
+chr.to.int$ -- 406
+cite$ -- 98
+duplicate$ -- 19241
+empty$ -- 17825
+format.name$ -- 3125
+if$ -- 38218
 int.to.chr$ -- 0
-int.to.str$ -- 109
+int.to.str$ -- 147
 missing$ -- 0
-newline$ -- 1049
-num.names$ -- 1755
-pop$ -- 11740
+newline$ -- 1406
+num.names$ -- 2488
+pop$ -- 15565
 preamble$ -- 1
-purify$ -- 648
+purify$ -- 1011
 quote$ -- 0
-skip$ -- 7202
+skip$ -- 9866
 stack$ -- 0
-substring$ -- 3310
-swap$ -- 5009
-text.length$ -- 1149
-text.prefix$ -- 37
+substring$ -- 4746
+swap$ -- 6702
+text.length$ -- 1482
+text.prefix$ -- 49
 top$ -- 1
-type$ -- 1428
+type$ -- 1880
 warning$ -- 0
-while$ -- 994
+while$ -- 1231
 width$ -- 0
-write$ -- 1010
+write$ -- 1355
 (There were 2 warnings)

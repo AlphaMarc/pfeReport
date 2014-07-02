@@ -5,6 +5,13 @@
 \usepackage[utf8]{inputenc}
 \usepackage[LGR,T1]{fontenc} % this is to be able to output greek 
 
+\usepackage{listings} 												% for java code snippets
+\lstset{language=Java,												% for java code snippets
+                basicstyle=\footnotesize\ttfamily,					% for java code snippets
+                keywordstyle=\footnotesize\color{blue}\ttfamily,	% for java code snippets
+}
+
+
 %\renewcommand*\rmdefault{stix} % change the font
 %\usepackage{times} % use times font for report
 
@@ -18,12 +25,12 @@
 \usepackage{geometry} % Required to change the page size to A4
 \geometry{a4paper} % Set the page size to be A4 as opposed to the default US Letter
 
-\usepackage{graphicx} % Required for including pictures
-
 \usepackage{float} % Allows putting an [H] in \begin{figure} to specify the exact location of the figure
 \usepackage{wrapfig} % Allows in-line images
 
 \usepackage{parskip}
+
+\usepackage[raggedright]{titlesec}
 
 \usepackage{amsmath} % Package to use the \text in equation environement
 \usepackage{amssymb} %Package for fancy math symbols
@@ -75,13 +82,31 @@
 
 \usepackage{fancyhdr} % for header and footer custom
 
+
 \setcounter{secnumdepth}{3}  % to have subsubsections numbered
 \renewcommand\thesubsection{\arabic{subsection}}
 \renewcommand\thesubsubsection{\thesubsection.\alph{subsubsection}}
 
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{ %
+  backgroundcolor=\color{white},   % choose the background color
+  %basicstyle=\footnotesize,        % size of fonts used for the code
+  breaklines=true,                 % automatic line breaking only at whitespace
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  keywordstyle=\color{blue},       % keyword style
+  stringstyle=\color{mymauve},     % string literal style
+}
 
 % ---------- Aliases, macros
-\newcommand{\ochain}{$\otimes \text{-chain}$}
+\newcommand{\ochain}{$\otimes$-chain}
+\DeclareMathOperator{\tempop}{\mathscr{T}}
+\providecommand{\inlinecode}[1]{\lstinline$#1$} % for java inline code
+\newcommand{\String}{\inlinecode{String}}
 %---------------------------
 
 \begin{document}
@@ -102,7 +127,7 @@
 \includegraphics[width=1.5cm]{IAE-logo.jpg} 
 
 \vspace{3cm}
-\textsc{\LARGE \textit{\textbf{\uppercase{End of studies project report}}}}
+\textsc{\LARGE \textit{\textbf{\uppercase{End-of-studies project report}}}}
 \vspace{1.5cm}
 
 \begin{framed}
@@ -126,7 +151,7 @@ Master Management de l'Innovation de l'IAE de Toulouse
 \begin{center}
 \textbf{INSA Tutor}\\
 Nawal Guermouche\\
-Researcher at the LAAS\\
+Researcher at LAAS\\
 nguermouche@laas.fr
 \end{center}
 \end{minipage}
@@ -134,7 +159,7 @@ nguermouche@laas.fr
 \begin{center}
 \textbf{NICTA Tutor}\\
 Guido Governatori\\
-Principal Researcher at the NICTA\\
+Principal Researcher at NICTA\\
 governatori@nicta.com
 \end{center}
 \end{minipage}
@@ -158,8 +183,9 @@ IAE - Master Management Stratégique,\\\hspace{.5cm}Spécialité Management de l
 \end{minipage}
 \begin{minipage}{0.4\textwidth}
 \begin{flushright}
-\newdate{date}{30}{08}{2014}
-\textbf{\displaydate{date}}
+%\newdate{date}{21}{07}{2014}
+%\textbf{\displaydate{date}}
+\textbf{\today}
 \end{flushright}
 \end{minipage}
 \end{titlepage}
@@ -173,8 +199,9 @@ IAE - Master Management Stratégique,\\\hspace{.5cm}Spécialité Management de l
 \renewcommand{\thesection}{\Roman{section}} 
 %executive summary
 \renewcommand{\abstractname}{Executive Summary}
-\begin{abstract}
-This report presents the work done around the Regorous software at NICTA during my final year internship. It is divided in two main parts. First a technical one that presents the new features that were added to the code-base. After a short but thorough introduction to the theoretical work underlying you will find an in-depth presentation of the new components that were implemented. My main contributions are : 
+\begin{center}
+\begin{minipage}{\textwidth}
+\textbf{\large Executive Summary}\\\\ This report presents the work done around the Regorous software at NICTA during my final year internship. It is divided in two main parts. First a technical one that presents the new features that were added to the code-base. After a short but thorough introduction to the theoretical work underlying you will find an in-depth presentation of the new components that were implemented. My main contributions are : 
 \begin{itemize}
 \item Implementation of Co-occurrence obligation to extend the \enquote{vocabulary} available to translate regulation into defeasible rules. This necessitated a rewrite of the core library to introduce this new type and modify the compliance checking algorithm to take into account the special behaviour of this obligation.
 \item Modifications of the implementation of the compliance checking algorithm to check compliance of compensation chains in the same task they were triggered in instead of waiting for the next task. 
@@ -191,7 +218,8 @@ I also investigate what are the side effects of Regorous and aim to link these w
 
 The report finds that the lack of a proper marketing study for Regorus is leading to a lot of approximations and guesses when it comes to targeted market or individuals within the firm. There is an urgent need to pinpoint who are the decision makers in corporations when it comes to buying software and what are their motivation, who they listen to, what is important to them. In short, we must know who are our clients. I suggest a that a focus group should be done once the targeted audience is well defined and propose a collection of subjects that could be worked on.
 
-\end{abstract}
+\end{minipage}
+\end{center}
 
 \newpage
 
@@ -495,22 +523,37 @@ The terminated set contains rules that were terminated according to the followin
 
 
 \subsection{Tools already developed : Regorus and SPINdle}
-What are they and what are they doing ?\\
-Areas of improvement ? \\
 
 The business process compliance project takes its roots back about five years ago when the first papers were published \autocite{journeyToBPC}, \autocite{isf09compliance}. During this time research in both the theoretical framework and its implementation have been conducting leading today to two main tools : SPINdle the rule engine and Regorus the business process compliance tool. In the following section we will portray both software, their functionalities, their use and what improvement could be made.
 
+\subsubsection{Regorus}
+We already mentioned Regorus a few times before but never detailed its functionalities. In this section we will describe what are the main components in it and how they interact
+
+Regorus is a business process compliance suite that contains multiple software providing a complete environment for compliance officers. First, the rule editor that offers a web interface to write defeasible rule. It is very easy to use and provides lots of features (auto-completion, English translation of defeasible rule, etc.) making the rule edition clear and effortless even for people not familiar with defeasible logic. Second, the eclipse plug-in focuses on the business process modelling part. It is possible to create and annotate business processes and check for compliance. It uses the broad APIs of eclipse for graphical modelling and the Apromore library to integrate BPMN 2.0 shapes. Finally the core library is where the business part is happening. It has multiple point of entry for the other software in the suite to interact with it. It offers a complete and comprehensive list of functions for business process compliance checking.
+
+Regorus is a complex software written in Java and using multiple third-party libraries. It is hard to get a global understanding of all its components. Some of the external libraries don't get much support or are breaking their APIs leading to an ever ending effort of keeping the software up to date with the major releases. This contributes to the complexity of Regorus especially when trying to build it from source. I will explain in more details the work of porting the eclipse plug-in to the new major release of the Eclipse API in a ulterior section.
+
+Regorus is about to undergo major changes in its core and eclipse plug-in parts to implement temporal defeasible logic in the code. New notations and semantics will have to be added to the code-base. At a smaller level I contributed to the extension of Regorus by implementing cooccurrent obligations in both the core libraries and the rule editor.
+
 \subsubsection{SPINdle}
 
-\subsubsection{Regorus}
-We already mentioned Regorus a few times before but never detailed its functionalities. We will describe what are the main components in it and how they interact.
+SPINdle is the rule engine that computes the consequences of a defeasible theory. It derives obligations and facts from literals that can be obtained from annotation on a business process. It is a free software distributed under the GNU general public license and can be used by in any project that want to leverage the power of defeasible logic.  \autocite{spindleUserManual}
+
+SPINdle offers multiple interfaces to interact with it. This allows other programs to rely on this for the logical inference part as we do with Regorus. SPINdle is implemented in Java and therefore integrates mostly with JVM based languages. Although a web-service implementation would increase interoperability with other software it is not an implemented feature yet. 
+
+Theories can be submitted and conclusions retrieved using XML or DFL (a specific formalism to describe theories and conclusions). It also gives interfaces for users interested in implementing their own parsers. Using this loosely coupled setup adds makes the use of SPINdle very agile as when there is a change in regulation you only need to change your DFL of XML file and not touch the SPINdle code.
+
+In the specific use case of Regorus and business process compliance, SPINdle is called to get conclusions at each task of all the traces for a given business process. Consequently, SPINdle is highly optimized using algorithms proposed in \autocite{MaherSPINdle} in versions 1.X.X and an improved version \autocite{LamSPINdle} in versions 2.X.X leading to better performance.
+
+The next major release of SPINdle will include support for temporal defeasible logic. This leads to sizeable changes in the core algorithm computing the conclusions of a theory but also in the input method as it needs to include new notations and semantics.
 
 
 \newpage
 \section{Adding features to Regorus}
 \subsection{Implementing Cooccurrent Obligations}
-As introduced earlier there is different types of obligation in defeasible logic. This wide range allows us to model precisely and accurately a large number of business processes and rules. However some shortcomings have been spotted leading to imprecise modelling.
+As introduced earlier there is different types of obligation in defeasible logic. This wide range allows us to model precisely and accurately a large number of business processes and rules. However some shortcomings have been spotted leading to imprecise modelling and the need for a new obligation.
 
+\subsubsection{Presentation of the Problem}
 Let's first introduce an example to underline the lack of appropriate obligation. Taken from the Australian \textbf{INSERT THE PROPER ACT HERE} act when needing personal information from someone it must be given by the person himself. We could model this rule with a punctual obligation like this :
 \begin{equation}
 r1 : \text{Need Personal Information} \Rightarrow \text{[Op] Get it in person}
@@ -540,6 +583,35 @@ As we said before cooccurrent obligations are close relatives of punctual obliga
 \end{enumerate}
 
 Now we need to take into account violation and compensation. If a cooccurrent obligation is violated and if it is part of a compensation chain we will check the rest of the chain in the very same task it was activated.
+
+\subsubsection{Implementation in the codebase}
+
+The implementation of the compliance checking algorithm is located in the core library of Regorus in \inlinecode{AbstractSessionImpl.java}. The implementation was fairly straightforward as the existing code was very close to the theoretical algorithm presented earlier. The logic is to identify cooccurrent obligations in the results of SPINdle then put those in the current obligation set so that they are checked in the same task and then add an \texttt{if} statement to handle the cooccurrent logic as explained above.
+
+Also I added cooccurrent obligations to the types of obligations already implemented in \inlinecode{ObligationType.java}. All obligations types are created using a single private constructor : 
+\begin{lstlisting}
+private ObligationType( final boolean aAchievement, final boolean aPersistent,
+                        final boolean aPreEmptive,  final boolean aMaintenance,
+                        final boolean aPunctual,    final boolean aCooccurrent,
+                        final String aDisplayName,  final String aModeName);
+\end{lstlisting}
+This constructor only sets the associated fields with the value given in parameters.
+
+Static final shortcuts are provided that return any type of obligation. For example in the cooccurrent case : 
+\begin{lstlisting}
+public static final ObligationType COOCCURRENT = 
+	new ObligationType(false, false, false, false ,false, true, 
+                           "Co-occurrent Obligation", COOCCURRENT_MODE_NAME);
+\end{lstlisting}
+
+Is also featured some helper functions that had to be modified to include cooccurrent obligations. These are : 
+\begin{itemize}
+\item \String identifiers for different types of obligation (\inlinecode{"0C"} for cooccurrent, \inlinecode{"OANPNP"} for non-persistent, non-preemptive achievement obligations, etc.),
+\item An array of \String containing all the obligation modes names
+\item \inlinecode{public static ObligationType fromModeName(final String aModeString)} which returns an obligation from the \String representing the obligation's mode.  
+\end{itemize}
+
+Changes were also made in the rule editor to be able to create rules using cooccurrent obligations. I added cooccurrent obligations to the auto-completion feature so that this new type is proposed to the user when drafting rules. I also added cooccurrent obligation in the part that interfaces with the core library of Regorus. The work done was mostly, as shown above, searching how features were implemented, understand the algorithms and add the new type of obligation. This was not an easy task since multiple programming languages were involved (Java, Groovy, JavaScript, Scala). I had to adapt to very different situations and train myself on these languages in order to gain a basic understanding of them.
 
 
 
@@ -572,9 +644,11 @@ Again for cooccurrent obligations if the effect associated with the edge of the 
 We chose to follow these steps to implement this desired behaviour :
 \begin{enumerate}
 \item Identify the XOR splits in the business process graph
-\item When on a XOR split make a call to SPINdle to generate the obligations triggered by the effect associated with the edge
-\item Forward the new obligations to the next node without calling the compliance checking algorithm
+\item When on a XOR split make a call to SPINdle to generate the obligations triggered by the effect associated with the edge,forward the new obligations to the next node without calling the compliance checking algorithm
 \end{enumerate}
+
+\paragraph{Just Thinking about stuff} 
+So if XOR splits conditions are not implemented in the code, how are they taken into account. I think they are put in by the eclipse plugin maybe using some special apromore feature. If that is the case we need to see if it translates to a kind of dummy task. How is that implemented in the core library. Wouldn't it be better if the core library could handle that rather than leaving this to the eclipse plug-in ?
 
 
 \subsection{Porting the eclipse plug-in to the Kepler version of Eclipse}
@@ -591,39 +665,179 @@ These are very important concerns and even more difficult to enforce in a Java e
 
 \section{Extending the theoretical model by adding time}
 
-%Shitty paragraphs needs to be rephrased
-We have seen before that obligations in regulations are often closely related to the notion of deadlines for example \textit{Pay before ten days}. Defeasible Deontic Logic with BPMN 2.0 as implemented in Regorous are a powerful tool to deal with business process compliance. However defeasible deontic logic does not features time by design. Sure it is possible to use facts as ersatz for time for example the rule introduced before can be modelled as : $r: \neg \text{moreThan10Days} \Rightarrow O_{a}Pay$ and this could translate in a task of the business process having the literal $ \neg \text{moreThan10Days}$ attached but there is room for improvement.
+We have seen before that obligations in regulations are often closely related to the notion of deadlines for example the obligation \textit{Pay before ten days} holds a deadline information. Defeasible Deontic Logic with BPMN 2.0 as implemented in Regorous is a powerful tool to deal with business process compliance. However defeasible deontic logic does not handles time and deadlines by design. Sure it is possible to use facts as ersatz for time for example the rule introduced before can be modelled as : $r: \neg \text{moreThan10Days} \Rightarrow O_{a}Pay$ and this could translate in a task of the business process having the literal $ \neg \text{moreThan10Days}$ attached but there is room for improvement.
 
 \subsection{Motivation for adding time in defeasible logic}
 
-Adding time in defeasible deontic logic is a much anticipated feature because it implements at the source the essence of deadline allowing us, as we will see later on, to represent obligation types elegantly. In \autocite{TemporalExtension2007} extensions to include time in the logic are proposed.
+Adding time in defeasible deontic logic is a much anticipated feature because it implements at the source the essence of deadline allowing us, as we will see later on, to represent obligation types elegantly. In \autocite{TemporalExtension2007} extensions to include time in the logic are proposed and we will use these semantics and notations.
 
-Moreover time in our framework would dramatically improve the computational complexity of the system. For now we check compliance at each task of the business process collecting the new rules and forwarding them to the next task. With time we could do all of this at once. With temporal rules we would only need to create traces which would yield a set of temporal literals and check this set against the set of temporal rules. Let's take the following little example : %how adding time liberate us from doing this? need a clear example and maybe some images.
+Moreover time in the framework is expected to improve the computational efficiency of the system. For now we check compliance at each task of the business process collecting the new rules and forwarding them to the next task. With time we could do all of this at once. With temporal rules we would only need to create traces which would yield a set of temporal literals and check this set against the set of temporal rules. Let's take the following little example : 
+
+\begin{figure}[!h] %on ouvre l'environnement figure
+\begin{center}
+\includegraphics[width=0.85\textwidth]{temporalExample1.png} %ou image.png, .jpeg etc.
+\caption{A simple Business Process example to highlight the advantages of adding time} %la légende
+\end{center}
+\end{figure} %on ferme l'environnement figure
+
+For this example we would first compute all the possible traces which gives us two possibilities either $A \rightarrow B \rightarrow C \rightarrow D$ or $A \rightarrow C \rightarrow B \rightarrow D$. Now that we have linear processes we go though each task, accumulate effects, derive rules in force, check for compliance and then forward effects and obligations to the next task. For a trace of size $n$ we have to do each operation $n$ times.
+
+If we add time though, we only need to do the computation once for any process size, this is a huge win for scalability. This time we can annotate effects attached to task with the task number in the trace or let the user use its own annotations, we then go through the process once to accumulate all the effects, finally we check compliance against temporal rules using temporal defeasible logic.
+
+%how adding time liberate us from doing this? need a clear example and maybe some images.
 
 \subsection{Temporal formalism for deontic defeasible logic}
 
-\autocite{JusticeDelayed2011} introduces new notations, semantics and concepts to deal with time in deontic defeasible logic. Time is represented as a discrete linear order of instants $ \mathscr{T} = (t_{1}, t_{2} ... t_{n})$.
+\autocite{JusticeDelayed2011} introduces new notations, semantics and concepts to deal with time in deontic defeasible logic. They represent time as a discrete linear order of instants $ \mathscr{T} = (t_{1}, t_{2} ... t_{n})$.
+
+The following list sums up the notations introduced in \autocite{JusticeDelayed2011} and their semantic :
 \begin{itemize}
 \item if $l$ is a literal then $l^{t}$ is a temporal literal. We will refer to the set of temporal literal as $\text{TLit}$. We also introduce $\top$ and $\bot$ which are also temporal literals, they are propositions that are respectively always complied with and never complied with
 \item if $l^{t}$ is a temporal literal then $Ol^{t}$ and its negation are deontic literals meaning that the obligation to do $l$ holds at time $t$. We will refer to the set of deontic literals as $DLit$
 \item if $a^{t_{a}}$ and $b^{t_{b}}$ are temporal literals, $t \in \mathscr{T}$ and $x \in \{a,m,p\}$ then $a^{t_{a}} \otimes^{x}_{t} b^{t_{b}}$ is an \ochain used to express chain of reparation in laws
-\item 
+\item if $\alpha$ is an \ochain, $t$ and $t_a \in \mathscr{T}$  and $a^{t_{a}}$ is a temporal literal then $\alpha \otimes^x_t a^{t_{a}}$ is an \ochain . A deontic expression is an \ochain\ composed of temporal literals or sub-\ochain and finishing with $\bot$
 \end{itemize} 
 
 
 An \ochain like $\alpha \otimes^{a}_{t} a^{t_{a}} \otimes^{y}_{t'} b^{t_{b}}$ means that the violation of $\alpha$ triggers an achievement obligation from $t_{a}$ to $t'$.
 
+Temporal defeasible logic also defines new defeasible proof conditions. \ref{def-temporal-applicable} shows when a rule is applicable at index $i$, meaning that the obligation at index $i$ in the \ochain\ is in force.
+
+\begin{mydef} \label{def-temporal-applicable}
+A rule $r$ is applicable at index $i$ in a proof $P$ at line $P(n+1)$ iff
+\begin{enumerate}
+\item $\forall a \in A(r)$
+      \begin{enumerate}
+      \item if $a \in \mbox{TLit}$, then $a \in F$ and
+      \item \begin{enumerate}
+            \item if $a = Ol^t$ then $+\partial l^t \in P(1..n)$
+            \item if $a = \neg Ol^t$ then $-\partial l^t \in P(1..n)$ and
+            \end{enumerate}
+      \end{enumerate}
+\item $\forall c_j \in C(r)$, $1 \leq j \leq i$
+      \begin{enumerate}
+      \item if mode($c_j$) = punctual, then $c_j \notin F$ or $\sim c_j \in F$
+      \item if mode($c_j$) = achievement, then $\forall t$, start($c_j$) $\leq t \leq$ end($c_j$), $c^t_j \notin F$ or $\sim c^t_j \in F$
+      \item if mode($c_j$) = maintenance, then $\exists t$, start($c_j$) $\leq t \leq$ end($c_j$), $c^t_j \notin F$ or $\sim c^t_j \in F$
+      \end{enumerate}
+\end{enumerate}
+\end{mydef}
+
+In \autocite{JusticeDelayed2011} different proof conditions are defined for each obligation type. In \ref{def-temporal-proof} we present them in a condensed form. $x$ is used to represent the mode of the obligation, it can be replace by one of ${a,m,p}$.
+
+\begin{mydef} \label{def-temporal-proof}
+If $P(n+1) = +\partial p^t$ then
+\begin{enumerate}
+\item $\exists r \in R^{x}_{\Rightarrow}\left[p^t,i\right]$ , $r$ is applicable at index $i$
+\item $\forall s \in R[\sim p^t, j]$ either
+      \begin{enumerate}
+      \item $s$ is discarded at index $j$
+      \item $\exists w \in R^{x}_{\Rightarrow}\left[p^t,k\right]$, w is applicable at index $k$ and $w\succ s$
+      \end{enumerate}
+\item $\exists x \in R^{a,m}_{\Rightarrow}\left[p^{t'},i'\right]$, $t' < t$, end($t'$) $\geq t$
+      \begin{enumerate}
+      \item $x$ is applicable at index $i'$, and
+      \item $\forall y \in R\left[\sim p^{t''},j'\right]$, $t' \leq t'' < t$ either
+            \begin{enumerate}
+            \item $y$ is discarded at index $j'$ or
+            \item $\exists z \in R\left[\sim p^{t''},k'\right]$, $z$ is applicable at $k'$ and $z\succ y$; and for $+\partial^a$
+            \end{enumerate}
+      \item $\forall t'''$, $t''<t'''\leq t$, $p^{t'''} \notin F$.
+      \end{enumerate}
+\end{enumerate}
+\end{mydef}
+
+Conditions (1) and (2) are enough to defeasibly prove a punctual obligation. (3) only applies for maintenance and achievement obligations. The final line (3.c) only applies to achievement obligations where fulfilment terminates the obligation.
+
 \subsection{Proving that defeasible logic and temporal defeasible logic reach the same conclusions}
 
-It is important to prove that given the same process and rules both versions of defeasible deontic logic with and without time reach the same conclusions about compliance.
+It is important to prove that given the same process and rules both versions of defeasible deontic logic with and without time reach the same conclusions about compliance. This allows us to confidently move on to the implementation of the compliance checking algorithm in temporal defeasible logic.
 
-\paragraph{Translate \enquote{classic} rules into temporal ones}
+A defeasible theory is defined by the tuple $(F, R, >)$ where $F$ is a finite set of literals, $R$ a finite set of rules and $>$ a superiority relation on $R$. In the context of business process compliance we consider $S_{1}..S_{n}$ sets of literals representing the literals attached to every task. Therefore for each task we have a different theory. At task $n$ we have $F = \bigcup \limits _{i=1}^n S_{i}$, the set of rules stays the same although the obligations in force can change from one task to another.
 
-For each task in every possible trace we define a set of temporal rules corresponding to the body of \enquote{classic} rules. All of the antecedents and effects of the rules are annotated with the task number which will play the role of time as the set of task numbers is isomorphic to $\mathbb{N}$ which is a perfect candidate for time. We therefore define :
+A temporal defeasible theory is not so different from its classical counterpart. It is defined by the tuple $(F^{t}, R^{t}, \succ)$ where $F^{t}$ is a finite set of temporal literals, $R^{t}$ is a finite set of temporal rules and $\succ$ is a superiority relation on $R^{t}$. The Facts and Rule sets are dependent of the current task in a given trace. We highlight this dependence in the following.
 
-\[ R(\text{trace}, \text{task}) = \{r\text{ | }r_{i} (\text{trace}, \text{task}) : a_{1}^{task}, ..., a_{n}^{task} \Rightarrow^{\pi} p^{task} \}\]
+We are defining the $\tempop$ operator which takes a defeasible theory and a point in time and returns the temporal equivalent, formally defined as : 
+\begin{gather}
+\tempop : \mathbb{N}, (F, R, >) \rightarrow (F^{t}, R^{t}, \succ)
+\end{gather}
 
-\paragraph{consider sets of obligations}
+Every literal in $F$ is temporally annotated with the task number it is attached to. We know that at a given task F is the union of the previous $S_{i}$ therefore at a given task $t$ we have. 
+
+\begin{gather}
+F^{t} = \{q^{t} \quad | \quad \forall q \in S_{t} \}
+\end{gather}
+
+Every rule in $R$ is translated by annotating temporally with the current task number all its antecedent and consequent. The temporal rule arising from a classical rule depends on the task number in a given trace. For each task in every possible trace we define a set of temporal rules corresponding to the body of \enquote{classic} rules. All of the antecedents and effects of the rules are annotated with the task number which will play the role of time as the set of task numbers is isomorphic to $\mathbb{N}$ which is a perfect candidate for time. Since defeasible deontic logic does not include deadlines we transform achievement and maintenance obligations to permanent ones defining an \enquote{infinite} deadline and we translate punctual one with a deadline set to the next task.
+
+Let's introduce the mode function that returns the mode of a given obligation :
+
+\begin{gather}
+mode(O) = \begin{cases}
+a & \text{if $O$ is an achievement obligation}\\
+p & \text{if $O$ is a punctual obligation}\\
+m & \text{if $O$ is a maintenance obligation}\\
+\end{cases}
+\end{gather}
+
+Here we will show how the set of temporal rules $R^{t}$ is derived from the set of classical rules $R$. First in \ref{defGeneralRule} we define a general form for classical rules we will use to define how we translate to temporal rules.
+
+\begin{equation} \label{defGeneralRule}
+\forall r \in R, \quad r :  a_{1}, ..., a_{n} \Rightarrow p_{1} \otimes ... \otimes p_{m} \\
+\end{equation}
+
+Let me introduce in \ref{defNuf} one of the tools we will need for this demonstration the $naf$ operator. It stand for negation as failure which means that we failed to prove an element. It is defined practically as : 
+\begin{equation}\label{defnaf}
+\begin{aligned} 
+&r_{1} :& &\Rightarrow naf\,p \\
+&r_{2} :& \neg p &\Rightarrow naf\,p \\
+&r_{3} :& p &\Rightarrow naf\,p \\
+& & &r_{3} > r_{2} > r_{1} 
+\end{aligned}
+\end{equation}
+
+In other words we have $naf\,p$ either when $p$ has not been concluded or $\neg p$ has been concluded. If $p$ is concluded then this rule is stronger than the other two and we conclude $\neg naf\,p$
+
+For demonstration purposes we introduce in \ref{defViol} the $viol$ function which takes an obligation and returns the index of the task where it was violated. If the obligation is never violated it returns the index of the last task. This will allow us to express chain of reparation from the classical framework where no deadlines are defined into the temporal one where we need deadlines. This $viol$ operator will create artificial parametrized deadlines for chain of obligations as it will be presented next.
+
+\begin{equation}\label{defViol}
+\begin{split} 
+viol(X) : Obligations \rightarrow \mathbb{N}\\
+\end{split}
+\end{equation}
+
+\begin{itemize}
+
+\item For a maintenance obligation $O^{m}p$, $viol$ will return the index of the first task where the obligation is applicable and we can conclude $naf\,p$. 
+\begin{equation} 
+\begin{aligned}
+& \text{At task i if we have : } O^{m}p \text{, } naf\,p \in Facts\\
+& \text{then : } viol(O^{m}p) = i\\
+\end{aligned}
+\end{equation}
+
+\item For an achievement obligation $O^{a}p$, $viol$ will return the index of the first task where the obligation is applicable, we can conclude $naf\,p$, and the obligation is lifted at the next task (this can be done with defeaters).
+\begin{equation} 
+\begin{aligned}
+& \text{At task i if we have : } O^{a}p \text{, } naf\,p \text{, } \neg O^{a}p \in Facts\\
+& \text{then : } viol(O^{a}p) = i\\
+\end{aligned}
+\end{equation}
+
+\item It is not necessary to define $viol$ for punctual obligations since they are always violated or fulfilled at the task after they were triggered. For example $O^{p}p$ is triggered at task $i$ then it is either complied with or $viol$ will return $i+1$.
+\end{itemize}
+
+
+Now we will show how we translate temporally each of these rules, given a classical rule $r$ in the form defined in \ref{defGeneralRule} at a given task $t$ the set of temporal rules is composed of rules.
+
+\begin{equation} \label{ruleClassicToTemp}
+\begin{aligned}
+&r_{i} :& a_{1}, ..., a_{n} &\Rightarrow p_{1} \otimes ... \otimes p_{m} \\
+&r_{i} (task) :& a_{1}^{task}, ..., a_{n}^{task}  &\Rightarrow^{mode(p_{1})} p_{1}^{task} \otimes^{mode(p_{2})}_{viol(p_{1})} p_{2}^{viol(p_{1})}  ...      \otimes^{mode(p_{m})}_{viol(p_{m-1})} p_{m}^{viol(p_{m-1})} \otimes \bot
+\end{aligned}
+\end{equation}
+
+\paragraph{Consider sets of obligations from the algo}
 Now we are considering the sets of obligation we find in the algorithm for business process compliance checking. In this we find at each task three main sets of obligations and literals : Current, Violated and State. They contain respectively obligations in force at the given task, obligations that were violated in previous tasks and deontic literals attached to the current or previous tasks. We aim to prove that the transformation of these sets from \enquote{classical} formalism to temporal is isomorphic and our transformation bijective. All these set are depending on the current task we consider, they will be referred as : $\text{Set}(n)$
 
 First let's proove that $$\text{if}\ p \in \text{State}(n)\ \text{then}\ +\partial p^{n} $$
@@ -653,22 +867,34 @@ If $q=Ol$ is part of an \ochain like $A_{1}\otimes .. \otimes A_{n} \otimes q \o
 
 Whatever the obligation this means that at some point we were able to conclude $-\partial A_{i}$ for all the obligations before $q$ which means that the rule $r$ is also applicable at the index where it triggers $q$ implying that $q$ is also in the set of Current obligations in the temporal formalism.
 
-We can easily translate this reflexion to the Violated set. If a obligation $Ol$ is in the violated set this means that at some task between $1..n$ we have one of the three conditions aforementioned for each type of obligation. Which trivially translates into being able to prove $-\partial l$ at some task $(1..n)$ implying that the obligation is also in the Violated set in the temporal formalism.
+We can easily translate this reflection to the Violated set. If a obligation $Ol$ is in the violated set this means that at some task between $1..n$ we have one of the three conditions aforementioned for each type of obligation. Which trivially translates into being able to prove $-\partial l$ at some task $(1..n)$ implying that the obligation is also in the Violated set in the temporal formalism.
+
+We have proved that the sets we have in the algorithm for business process compliance stays the same when we translate a theory from the classical to the temporal defeasible logic. This means that a business process that was (non-)compliant in the classical framework is also (non-)compliant in the temporal one. We have a consistent 
 
 \newpage
-\chapter{Strategic reflection on Regorus}
+\chapter{ Strategic reflection on Regorus}
 
 \section{Business Process Management and Compliance}
-Business process compliance is a growing concern for any company and it is seen most of the time as a burden.  They are at the cross road of very different parts of a company that usually don't interact much usually.
 
-Most businesses don't have explicit business processes.
+Business processes are at the center of any corporation. They have an influence on everything the company produce or services. They model the work of every employee by determining tasks, jobs and responsibilities. A firm that is aware of its processes can adapt faster and painlessly to change in the market or to new regulations. Despite these clear advantages, business processes have been overlooked for a long time by both the academic literature and the businesses. \autocite{dumas2013}
 
-What are the challenges of business process management and compliance ?\\
-In which way Business processes foster innovation ?
+Global markets more competitive than ever, the need to communicate in a scattered market of technologies and the will for any organization to innovate lead to a reflection on the corporate world to try, adjust and optimize the organizations. This ultimately highlighted the importance of business processes and to the creation of Business Process Management to unify and strengthen previous approaches from different disciplines. \autocite{dumas2013}
+
+Compliance is a growing concern for any company, it represents on average 4\% of the annual costs \autocite{IBT2011}. From the same source CEOs of surveyed companies admit that compliance is a major cost centre, that has been expanding in the past years. We are in a situation where businesses have to comply with new regulations that are changing more often. But they are still to find an agile, effective and flexible way to do so. Business process management could help a great deal in this matter. \autocite{goedertier2006}, \autocite{dumas2013}, \autocite{jeston2014}
+
+Revision of regulations is a game changing factor for all companies in a given industry. If we add more flexibility and agility in the compliance world with tools such as Regorus that encourage a compliant by design approach for business processes and provides powerful algorithms to check compliance of existing processes, then, corporations could take advantage of this change in rules to gain a strategic advantage over their competitors.
+
+Also most business don't have explicit business processes when, as we exposed in the previous paragraph, it could help them be more efficient and flexible. We will develop the power of explicit business processes for any institution later when we draw a parallel with knowledge management.Business processes, although often seen as rigid are a real opportunity for any company to be more reactive to change in an always-evolving world.
+
+Finally by releasing companies from the burden and high cost of compliance, money can be better invested especially in innovative activities. Therefore a better management of business processes and compliance contributes to innovation.
+
+
+
 
 \section{A critical summary of the work done}
-Historical analysis of what have been done, what failed... \\
-They tried to go to the market without any market study \\
+
+\subsection{Historic}
+In this section we will aim to summarize previous attempts to commercialize Regorus and to penetrate the compliance market. Multiple opportunities have presented themselves but non of them have succeeded yet. For each of them we will briefly expose the strategic decisions that were made and expose areas for improvement. Though, we will not cite any names for confidentiality reasons.
 
 Since the product was ready for production use in mid 2012, several companies have expressed an interest in integrating regorus in their compliance teams. Unfortunately, all these attempts have failed so far. In the following section we will present the previous tries to market Regorus and for each of them try to understand what failed and what are the key strength of Regorus from a business point of view.
 
@@ -678,7 +904,22 @@ If Communication Compliance finds a business that is not compliant then it can b
 
 A medium size telco CEO visiting a NICTA showcase interested in a compliance system to make up for this less than ideal system. After a demonstration of Regorus she was convinced enough to ask for a trial in her company. The trial was organized around three workshops. The first one was a presentation of Regorus and the underlying theory. The audience was composed mainly of people from the complaint department. Although it was the first time they were exposed to this kind of software the reception was good. The second workshop was focused on helping the staff to model their current processes as they were. In the meantime people at NICTA were implementing a subset of the regulation regarding complaints to check the processes against. During the third and last workshop compliance of processes was tested and yielded interesting results. Some errors were due to incorrect annotations, implementation errors but it also revealed some compliance issues where a redesign of the process was needed.
 
-This workshop was a great opportunity to showcase the power of Regorus on the very same processes these people were working on. This training was a fast and effective introduction, in only three afternoons they were able to understand the basics about the software, how to model their processes and check compliance.
+This workshop was a great opportunity to showcase the power of Regorus on the very same processes these people were working on. This training was a fast and effective introduction, in only three afternoons they were able to understand the basics about the software, how to model their processes and check compliance. These meetings were another indicator that the technology was ready to be shipped into production environment. It also showed that the software was usable by end users with no prior experience with that type of application, they were able to annotate processes, check for compliance, understand the informations and errors thrown at them, etc.
+
+On a strategic point of view it seems that the end users are particularly interested in the product and that the set-up cost is low, only three half-day seminar were enough to launch a team and teach them how to use the product. Although it is hard to conclude anything from one point of data, it seems fair to say that the low set-up cost is an advantage for the product penetration. 
+
+After that, a decision was pending from the certification body, communication compliance, to use Regorus as the compliance checking tool for all small to medium telcos, this represents 90\% of the market in number and around 20\% in value \autocite{telcoIndustryStats}. This was a great idea to target a certification body and have our product advertised by them or even more in that case, a mandatory use of the product. Indeed, the system used at that time was obsolete, it consisted of simple questionnaires on excel spreadsheets to be filled by all telcos. This is a reactive method far from the proactive, compliant-by-design approach of Regorus. Once again, the people who would be actually using Regorus on a regular basis were very happy with the software and were pushing for its adoption. They were also tired and rejected the actual system.
+
+At this point everything seems good for Regorus, end-users are happy with the product, the technology is ready, present systems are obsolete and far less effective than ours and end-users are craving it.
+
+Unfortunately the final decision from the certification body was a no go. The reason given by Communication Compliance was that they were not willing to invest time and money in training all the telcos. I think that one strategical mistake was made here. Instead of targeting the decision makers in the company, it was end-users that NICTA tried to seduce hoping that adoption from them would pressure decision takers. This kind of strategy might work in a technological or research environment where end-users have more skills than the managers and therefore are trusted for decisions concerning the use of one's product. But in this case, even though we had a great success with the end-users and even with their direct management, the real decision makers were not satisfied as they have very different objectives. The question is how to seduce, convince these people to change for our software ? We will discuss this further in the section dedicated to market penetration.
+
+After the telcos, a few other contacts were exploited but lead to nothing concrete. Until a big Australian insurance company showed interest in Regorus. A few meetings were organised with the people on the field, that would actually use the software. Once again, they were very interested in it, saying that it would save them a lot of time and solve some of their problems. However when NICTA asked for a few man-hours to conduct trainings like it had been done with the telco, the upper management refused to. The height of all this is that this very company was fined tens of millions of dollar for non compliance by the regulation authority a few weeks after this.
+
+Lastly, an important consulting firm also showed interest in Regorus and was given an instance to play with. 
+
+\subsection{Comments}
+A lot of thinking have been put into this. I found on the intranet lot of documentation from the dev team to try and find possible customer, competitors and strategies. What is missing ? (right person to target) Also working in a very different environment than the technological world. Need to adapt. Need to seek advices from people in this sector (marketing study).
 
 
 \section{Find a business model for Regorus}
@@ -740,8 +981,9 @@ Finally some other assets can help to win the war for platform domination \autoc
 \item Because once the tipping point is reached user base will increase exponentially we need to make sure our solution is scalable and wont crumble when stressed with too many requests.
 \end{itemize}
 
+\subsection{How does Regorus fits the model}
+
 \subsubsection{Possible users of the platform and strategies}
-clients are not really money sensitive - (absolutely not)\\
 On one side we have :
 \begin{itemize}
 \item big firms that already check the compliance of their processes with expensive audits by private firms. They want absolute certainty that this tool will give us reliable results and they want to be able to come back to us if it does not. They don't care about the price because they are already paying lots of money on private audits.
@@ -755,21 +997,16 @@ On the other side we have
 \end{itemize}
 
 
+\subsubsection{Platform Pricing} Since we are considering Business to Business interactions where neither side is money sensitive a subsidy might not be necessary. On the other hand, businesses are extremely quality sensitive and if we want them to integrate Regorus in their processes they need to have some kind of insurance that it will behave correctly especially because we target the compliance world where an error could cost a lot of money. So to make the penguins jump the price is probably not a problem since these companies are already paying good money for private audits of their processes but quality and certification is highly appreciated. Therefore the pricing strategy is not so difficult but need to be though of as this was never properly done before. Once again a study of the market could tell us how much money companies are investing in competitors' software and more broadly in compliance.
 
-\subsection{Alternative business models for Regorus}
-We might consider a classic business model (razor blade ? early bird prices ? Provide a web service where they could compute the compliance since this is a resource hungry process, web application would be easier also for updates and maintenance that would be a monthly fee to pay to have access to computation resource and rules or pay for the compliance test, we could even deploy in-house for our greatest customers)\\
-
-Business model canvas ? SWOT ? Porter ? 
-
-
-\subsection{How does Regorus fits the model}
-\paragraph{platform pricing} Since we are considering Business to Business interactions where neither side is money sensitive a subsidy might not be necessary. On the other hand, businesses are extremely quality sensitive and if we want them to integrate Regorus in their processes they need to have some kind of insurance that it will behave correctly especially because we target the compliance world where an error could cost a lot of money. So to make the penguins jump the price is probably not a problem since these companies are already paying good money for private audits of their processes.
 
 
 
 \subsection{How Business Process Modelling is integrated in knowledge management}
 
 We think that one of the ways to promote Regorus and improve its market penetration is to research the ways it can be useful for a company. Apart from its main purpose of asserting compliance of business processes Regorus can be useful at higher levels by being a part of the knowledge management plan of the firm.
+
+\subsubsection{Presentation of knowledge management and its advantages}
 
 Knowledge Management is a relatively new field of study born in the early eighties when researchers in management looked into the importance of knowledge in organization.\autocite{Wiig19971}
 
@@ -779,14 +1016,52 @@ Knowledge management was introduced in popular press in the early nineties mainl
 
 Regorus is a great tool for companies because it helps them explicit their practices and internal knowledge into a new figurative language such as BPMN. This translates personal, sticky knowledge to be translated into an explicit, normative form leading to a better understanding and transmission of know-how. In this sense Regorous is more than just a tool to check the compliance of processes it is also a powerful way of managing knowledge in the firm and therefore leading to better results.
 
-
+\subsubsection{Regorus uses BPMN which is designed to make knowledge explicit}
 \textbf{ADD THAT BPMN WAS DESIGNED TO INTEGRATE AND EXPRESS BUSINESS PROCESSES}
 
-\section{What can be done to improve market penetration}
+\section{What can be done to improve market penetration : Qualitative Marketing Research}
+
+As we saw before, a lot of thinking has already been put into strategical reflection for Regorus by the development team. Possible customers and competitors have been identified and the business model have been refined by the previous sections. This is a necessary step in any marketing strategy but it should have been continued by at least a qualitative marketing research to verify if the hypothesis made are right and maybe incorporate new ideas. 
+
+\subsection{Qualitative Marketing Research Explained}
+
+\subsubsection{Definition and Objectives}
+Qualitative marketing research main goal is to gather as much information as possible from very different sources, it focuses on the \emph{how} and \emph{why} of the subject under investigation. During the research process it is necessary to adopt an inductive reasoning to build knowledge around what is collected in the different methods put in place. This research method is seeking understanding the reality around marketing and not providing only data without interpretation. \autocite{carson2001}
+
+Qualitative researches can be used to answer questions about \emph{how} and \emph{why} things happen within an organization. They seek a deep understanding of the matter. The profound reasons that lead to a given phenomenon. They are used to uncover the sense behind a \emph{what}. For example a politician may lose 5 points in quantitative polls but it's the qualitative research that will clarify the feelings of the voters. Then another quantitative research can be conducted to see how many people in the population share these perceptions.
+
+\autocite{mintzberg1979} argues that to be effective in real organizations a marketing research must be conducted in the field. It is the very complex and dynamic nature of organizations that make laboratory counterproductive because by simplifying we are excluding the actual thing we should be studying. It is therefore necessary to have contacts with companies and not just only rely on views of the mind.
+
+\autocite{van1979reclaiming} defines qualitative methods as 
+\begin{quote}
+an array of interpretive techniques which seek to describe, decode, translate and otherwise come to terms with the meaning not the frequency of certain more or less naturally occurring phenomena in the social world.
+\end{quote}
+This is particularly adapted to our case where we want to understand more about the environment in which decisions are taken in specific markets. It is important that the research is conducted without any judgement with an open mind. We will see that this is a key to have good results and it will be the main focus when conducting focus groups or interviews.
+
+\subsubsection{Interpretation and Reliability of Qualitative Research Results}
+We can question ourselves about the credibility of results from qualitative research. After all it is defined as a very subjective methodology and challenges the objective standard of general research results. If another research is conducted will it reach the same conclusions ? Would the theory hold for another environment ? In other word can we generalize it ? These questions can be addressed by following a rigorous methodology throughout the research. The quality of a research is endorsed by three factors : credibility, dependability and conformability \autocite{carson2001}. The same reference proposes a summary of methods and best practices to create high-quality results.
+
+
+
+
+
+
+
+\subsection{what are we researching ?}
+We also want to know more about the expectations of the upper management of our software.\\
+What are their current state of mind, how do they make decisions. what are their concerns ? what is important for them ? Who do they pay attention to ?
+
+
+\subsection{The Focus Group (or Interviews), Methodology, Goals and Progress}
+
+\paragraph{Methods of Questioning in Focus Group}
+What represent the best/worst compliance software ?
+What do you expect from it ?
+
+
+Markets and consumers represent a complex variety of views and perspectives\\
 Qualitative market study to discover what our clients are sensible to.\\
 Ask questions about the key points presented in the previous section about two-sided networks\\
-
-we 
 
 \newpage
 % -------------------------------- %
