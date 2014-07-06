@@ -196,12 +196,14 @@ IAE - Master Management Stratégique,\\\hspace{.5cm}Spécialité Management de l
 % -------------------------------- %
 
 \restoregeometry
+%\newgeometry{bottom=1in}
+
 \renewcommand{\thesection}{\Roman{section}} 
 %executive summary
 \renewcommand{\abstractname}{Executive Summary}
 \begin{center}
 \begin{minipage}{\textwidth}
-\textbf{\large Executive Summary}\\\\ This report presents the work done around the Regorous software at NICTA during my final year internship. It is divided in two main parts. First a technical one that presents the new features that were added to the code-base. After a short but thorough introduction to the theoretical work underlying you will find an in-depth presentation of the new components that were implemented. My main contributions are : 
+\textbf{\large Executive Summary}\\\\ This report presents the work done around the Regorous software at NICTA during my final year internship. It is divided in two main parts. First a technical one that presents the new features that were added to the code-base and theoretical work on the extension of the model. After a short but thorough introduction to the theory you will find an in-depth presentation of the new components that were implemented. My main contributions are : 
 \begin{itemize}
 \item Implementation of Co-occurrence obligation to extend the \enquote{vocabulary} available to translate regulation into defeasible rules. This necessitated a rewrite of the core library to introduce this new type and modify the compliance checking algorithm to take into account the special behaviour of this obligation.
 \item Modifications of the implementation of the compliance checking algorithm to check compliance of compensation chains in the same task they were triggered in instead of waiting for the next task. 
@@ -210,13 +212,13 @@ IAE - Master Management Stratégique,\\\hspace{.5cm}Spécialité Management de l
 
 Most of the code in this report is Java code or pseudo algorithmic code. I will not go into too much details about the exact implementation but rather focus on the methodology and the algorithms I used during the project.
 
-I also contributed to the extension of the theoretical framework of defeasible deontic with time. Previous literature had introduced new concepts and semantics to deal with time in the framework. My work was to formally prove that both theories are equivalent. This work led to a paper that is currently under revision for publication in a conference.
+I also contributed to the extension of the theoretical framework of defeasible deontic with time. Previous literature had introduced new concepts and semantics to deal with time in the framework. My work was to formally prove that both theories are equivalent. This work led to a paper that is currently under revision for publication in the PRIMA 2014 conference.
 
-~\\Second part is more strategy oriented, it is built around reviewing Regorous marketing strategy. Indeed, NICTA is not only working on technological matters but on how they can impact the \enquote{real world} and make it to production use in firms. There has been past attempts to sell the software to companies but all failed. I present an historical review of the work already done and try to build a product strategy based on past feedbacks and marketing studies.
+~\\Second part is more strategy oriented, it is built around reviewing Regorous marketing strategy. Indeed, NICTA is not only working on technological matters but on how they can impact the \enquote{real world} and make it to production use in firms. There has been past attempts to sell the software to companies but all failed. I present an historical review of the work already done and try to build a product strategy and business model based on past feedbacks and academic literature.
 
-I also investigate what are the side effects of Regorous and aim to link these with existing work taking its roots from both research and the corporate world. I present how Regorus is a great tool of knowledge management within the firm and back my argument with research papers.
+I also investigate what are the side effects of Regorous and aim to link these with existing work from both research and the corporate world. I present how Regorus is a great tool of knowledge management within the firm and back my argument with research papers.
 
-The report finds that the lack of a proper marketing study for Regorus is leading to a lot of approximations and guesses when it comes to targeted market or individuals within the firm. There is an urgent need to pinpoint who are the decision makers in corporations when it comes to buying software and what are their motivation, who they listen to, what is important to them. In short, we must know who are our clients. I suggest a that a focus group should be done once the targeted audience is well defined and propose a collection of subjects that could be worked on.
+The report finds that the lack of a proper marketing study for Regorus is leading to a lot of approximations and hypothesis when it comes to target a  market or individuals within the firm. There is an urgent need to pinpoint who are the decision makers in corporations when it comes to buying software and what are their motivation, who they listen to, what is important to them. In short, we must know who are our clients and how they think. I suggest a that a qualitative marketing research should be done and propose a collection of subjects that could be worked on. 
 
 \end{minipage}
 \end{center}
@@ -228,11 +230,11 @@ The report finds that the lack of a proper marketing study for Regorus is leadin
 \begin{center}
 \begin{minipage}{.8\textwidth}
 \textbf{\large Acknowledgement}\\\\
-I would like to take this opportunity to thank all the people who have contributed in some way to this reports particularly Mr Guido Governatori who initiated the project, for his attention, and for all the time he awarded to me, his advice was really useful and appreciated.\\
+I would like to take this opportunity to thank all the people who have contributed in some way to this report particularly Mr Guido Governatori who initiated the project, for his attention and for trusting me making this extraordinary experience possible. \\
 
-I also thank all the member of NICTA QRL who were always ready to help me. It was an amazing experience both humanely and professionally \\
+I also thank all the member of NICTA QRL who were always ready to help me. It was an amazing adventure both humanely and professionally \\
 
-Then, I would like to thank all the members of the Business Process Compliance group for their patience and the time they spent to explain their work to me.\\
+Finally, I would like to thank all the members of the Business Process Compliance group for their patience and the time they spent to explain their work to me.\\
 
 \end{minipage}
 \end{center}
@@ -257,22 +259,22 @@ Then, I would like to thank all the members of the Business Process Compliance g
 \renewcommand{\arraystretch}{1.5}
 \setlength{\tabcolsep}{0.5cm}
 
-\chapter{Presenting the context of the Project}
-\section{A brief presentation of NICTA}
-NICTA is Australia's Information and Communication Technologies centre of excellence.\footnotemark It was created in 2002 within the framework of the Backing Australia's Ability initiative a government plan to foster innovation in Australia. NICTA won the selection process to become Australia's ICT centre of excellence. It is supported and funded by the Australian federal government as well as states governments where laboratories are running (New South Wales, Victoria, Queensland, Australian Capital Territory). Major universities in each of the previously cited states also participate in the funding.\\
+\chapter{Presenting the Context of the Project}
+\section{A Brief Presentation of NICTA}
+NICTA is Australia's Information and Communication Technologies centre of excellence\footnotemark . It was created in 2002 within the framework of the Backing Australia's Ability initiative, a governmental plan to foster innovation in Australia. NICTA won the selection process to become Australia's ICT centre of excellence. It is supported and funded by the Australian federal government as well as states governments where laboratories are running (New South Wales, Victoria, Queensland, Australian Capital Territory). Major universities in each of the previously cited states also participate in the funding.
 
 \footnotetext{Centre of Excellence are a common term used by Australian government to qualify prestigious centre of expertise where researchers collaborate to maintain Australia's international standing in research areas of national priority \autocite{ARCCentreExcellence}}
 
-NICTA has 5 laboratories around Australia and employs over 700 people representing the largest research organisation dedicated to ICT in Australia. Since its foundation it has developed many collaboration with the industry especially via joint projects and company creation. NICTA not only focuses on research excellence but is actively looking for business opportunities to capture the value created by its research group. Hence an organisation divided in two main centres \autocite{PresentationBooklet}.
+NICTA has 5 laboratories around Australia and employs over 700 people representing the largest research organisation dedicated to ICT in Australia. Since its foundation it has developed many collaboration with the industry, especially via joint projects and company creation. NICTA not only focuses on research excellence but is actively looking for business opportunities to capture the value created by its research group. Hence an organisation divided in two main groups \autocite{PresentationBooklet}.
 
 \begin{description}
 \item[Research Groups] are aiming to become leaders in their own domain of expertise with a long-term vision for ICT-innovation producing cutting edge results. Each operating in a different areas, they cover a large part of information and communication technologies. They are (in no particular order) :
 \begin{itemize}
 \item \textbf{Software Systems} is aiming to provide secure, reliable and safe systems that are proven to achieve \enquote{real world} enterprise performance and objectives. 
 \item \textbf{Computer Vision} mainly work at a fundamental level in order to provide tools to better analyse the world through 2D videos. Their key areas of research are using the existing mathematics of multiple view geometry with new techniques such as machine learning and optimization.
-\item \textbf{Control and Signal Processing} produces theoretical and algorithmic work leading to innovative methods and systems. The focus is set on two main domain of application decentralized control and estimation for large distributed systems as well as the convergence between computing science and biology.
+\item \textbf{Control and Signal Processing} produces theoretical and algorithmic work leading to innovative methods and systems. The focus is set on two main domain of application decentralized control and estimation for large distributed systems as well as the convergence between computer science and biology.
 \item \textbf{Optimization} is working on a new generation of optimization systems that will be operating in dynamic and noisy environment involving huge amounts of data.
-\item \textbf{Machine Learning} develops new algorithms and technologies to make sense of the skyrocketing amount of data gathered in all areas of human endeavour. 
+\item \textbf{Machine Learning} develops new algorithms and technologies to make sense of the skyrocketing amount of data generated in all areas of human endeavour. 
 \item \textbf{Networks} is improving the user experience in current and next generation networked environment by developing new theories, models and methods.
 \end{itemize}
 
@@ -287,31 +289,31 @@ NICTA has 5 laboratories around Australia and employs over 700 people representi
 
 \section{The Business Process Compliance Group}
 
-The Business Process Compliance group in which I am working is part of the Software Systems group, one of the six research groups. The interest in business process compliance starts from a simple observation. ICT systems are costly and hard to develop because of the constantly evolving framework of norms and requirement within which they operate leading to less agility and slower development cycles especially in domains with strict legal obligations. Business process compliance is becoming an increasing area of concern in both public and private sectors because of the complexity of regulations and the lack of automated tools. The compliance market is worth tenth of billions of dollars in Australia.\autocite{BPCWebsite}
+The Business Process Compliance group in which I am working is part of the Software Systems group, one of the six research groups. The interest in business process compliance starts from a simple observation. ICT systems are costly and hard to develop because of the constantly evolving framework of norms and requirement within which they operate, leading to less agility and slower development cycles especially in domains with strict legal obligations. Business process compliance is becoming an increasing area of concern in both public and private sectors because of the complexity of regulations and the lack of automated tools. The compliance market is worth tenth of billions of dollars in Australia \autocite{BPCWebsite}.
 
-From this observation, the BPC group started by selecting a framework to represent both business processes and the laws they must comply to. These research lead to numerous articles aiming to build a model of rules and business processes that would give the end user the most flexibility and the possibility to accurately translate existing body of law. This theoretical work led to more concrete projects. As of today the group in undergoing three main projects~: Regorous, SPINdle and the Rule Editor. These provide a powerful platform for compliance officers in companies.
+From this observation, the BPC group started by selecting a framework to represent both business processes and the laws they must comply to. These research lead to numerous articles aiming to build a model for rules and business processes that would give the end user the most flexibility and the possibility to accurately translate existing body of law. This theoretical work led to more concrete projects. As of today the group in undergoing three main projects~: Regorous, SPINdle and extensions to the theoretical framework. These provide a powerful platform for compliance officers in companies.
 
 
 \newpage
-\chapter{Technical work on Regorus}
-\section{Introducing the project's theoretical framework}
-\subsection{A short introduction to defeasible logic}
+\chapter{Technical Work on Regorus}
+\section{Introducing the Project's Theoretical Framework}
+\subsection{A Short Introduction to Defeasible Logic}
 
-Defeasible reasoning as presented in \autocite{koons_defeasible_2005} is a non-demonstrative type of reasoning where one cannot reach a full, undoubted conclusion and where a conclusion can be defeated if further evidence of the contrary is demonstrated. Both computer scientists and philosophers has shown an interest in this field. The philosophical interest can be traced back to ancient Greece and Aristotle. Although the scientific reasoning is built on deductive logic, for everyday life we rely on a defeasible reasoning. We try to make general statements out of personal experience, for example we could say that all birds fly. This proposition would be true until we experience a bird that cannot fly such as a penguin. This would defeat the first rule.
+Defeasible reasoning as presented in \autocite{koons_defeasible_2005} is a non-demonstrative type of reasoning where one cannot reach a full, undoubted conclusion and where a conclusion can be defeated if further evidence of the contrary is demonstrated. Both computer scientists and philosophers has shown an interest in this field. The philosophical interest can be traced back to ancient Greece and Aristotle. Although the scientific reasoning is built on deductive logic, for everyday life, we rely on a defeasible reasoning. We try to make general statements out of personal experience, for example, after seeing a few birds fly, one could say that all birds fly. This proposition would be true until we experience a bird that cannot fly such as a penguin. This would defeat the first rule.
 
-Computer scientist interest in defeasible logic has grown during the last 40 years especially in the field of artificial intelligence. An intelligent program needs a formal representation of the world, a formal language to represent knowledge, causality and ability in order to achieve its given goal. This requirement was first introduced in \autocite{mccarthy1968some}.
+Computer scientist interest in defeasible logic has grown during the last 40 years especially in the field of artificial intelligence. An intelligent program needs a formal representation of the world, a formal language to represent knowledge, causality and ability in order to achieve its given goal. This requirement was first presented in \autocite{mccarthy1968some}.
 
 Defeasible Logic was first introduced by Donal Nute in \autocite{nute1994defeasible} as a proposition to represent defeasible reasoning in a logical way. As stated in \autocite{ecai2000} defeasible logic is a flexible non-monotonic formalism able to represent a large set of non-monotonic reasoning. Also several powerful implementations have been proposed with good complexity properties allowing a correct computational time. This has been made possible by the design of defeasible logic that makes implementation easy yet efficient.
 
-Let's introduce the basics of Defeasible Logic as in \autocite{RepresentationResultsDefeasibleLogic}. A defeasible theory gives us five different ways of representing knowledge \textit{facts}, \textit{strict rules}, \textit{defeasible rules}, \textit{defeaters} and a \textit{superiority relation}. 
+Let's describe the basics of Defeasible Logic as in \autocite{RepresentationResultsDefeasibleLogic}. A defeasible theory gives us five different ways of representing knowledge \textit{facts}, \textit{strict rules}, \textit{defeasible rules}, \textit{defeaters} and a \textit{superiority relation}. 
 
 \begin{description}
-\item[Facts] are indisputable statements for example Tux is a penguin which could be written formally as $penguin(Tux)$
+\item[Facts] are indisputable statements for example Tux is a penguin. This can be written formally as $penguin(Tux)$.
 \item[Strict rules] are rules as in deductive logic. It's the kind of rule we find in scientific reasoning. The conclusion is irrefutable if the premises also are. These are formally represented as : 
 $$penguin(X) \rightarrow bird(X)$$
 \item[Defeasible rules] are the ones that can be defeated by evidence of the contrary. To draw a parallel with everyday reasoning one could generalize from experience that "Birds fly" a statement that would be true until the opposite is deducted. These rules are formally represented as :
 $$bird(X) \Rightarrow flies(X)$$
-\item[defeaters] are weaker rules that cannot be used to draw any conclusion but can prevent one. They are used to defeat other rules (hence the name) because they produce evidence of the contrary. 
+\item[Defeaters] are weaker rules that cannot be used to draw any conclusion but can prevent one. They are used to defeat other rules (hence the name) because they produce evidence of the contrary. 
 $$heavy(X) \leadsto \neg flies(X)$$
 From this defeater we cannot conclude that because someone or something is heavy it cannot fly, it is only here to prevent the conclusion of $flies(X)$.
 \item[Superiority relation] is used to create an order in a rule set. It is important to note that this relation does not have the properties of a proper superiority relation. When we have two different rules which derive something and its negation we cannot draw a conclusion since defeasible logic is sceptical. The superiority relation allows us to come to a conclusion. For example :
@@ -324,7 +326,7 @@ From this defeater we cannot conclude that because someone or something is heavy
 \end{aligned}
 \]
 
-In this case we cannot reach a conclusion since $r$ and $r'$ reach opposite conclusions. By introducing the superiority relation we say that $r'$ is strictly stronger than $r$ and therefore we can conclude that the bird cannot fly. Please note that there is no cyclical 
+In this case we cannot reach a conclusion since $r$ and $r'$ reach opposite conclusions. By introducing the superiority relation we say that $r'$ is strictly stronger than $r$ and therefore we can conclude that the bird cannot fly.
 \end{description}
 
 Now that we are more familiar with the concepts of defeasible logic we can show how we can reach a defeasible conclusion using proof theory. It exists four proof types for a conclusion D.
@@ -337,7 +339,7 @@ We won't get into details about how to definitely prove a literal since the focu
 
 In \autocite{RepresentationResultsDefeasibleLogic} provability is defined using the concept of \emph{derivation} in a conclusion D which is a set of facts rules and superiority relations ($D=(F,R,>)$). A derivation P can be seen as several steps in a demonstration. At the step $P(i)$ of the proof we have a given set $(F,R,>)$ from this we can prove $P(i+1)$ either definitely or defeasibly.
 
-In order to reach a definitive conclusion $\pm\Delta q$ we need to have a rule that deduce $(\neg)q$ or have $(\neg)q$ as a fact. 
+In order to reach a definitive conclusion $\pm\Delta q$ we need to have a strict rule that concludes $(\neg)q$ or have $(\neg)q$ as a fact. 
 
 The following definitions exposes how to defeasibly conclude a literal $q$ at $P(i+1)$.
 \newtheorem{mydef}{Definition}
@@ -361,8 +363,8 @@ If $P(i+1)$ = $+\partial q$ then either
 
 In less mathematical terms this definition means that in order to defeasibly prove $q$ we can follow two paths. Either prove that $q$ is definitely provable or work the defeasible part. Three conditions apply :
 \begin{enumerate}
-\item there is a rule r that concludes $q$ for every literal $a$ such as $a$ has been defeasibly proven in a previous step $P(1..i)$.
-\item $\neg q$ has not been definitively proven in a previous step $P(1..i)$
+\item there is a rule r that concludes $q$ for every literal $a$ such as $a$ has been defeasibly proven in a previous step $P(1..i)$ and,
+\item $\neg q$ has not been definitively proven in a previous step $P(1..i)$ and,
 \item for every rule $s$ that conclude $\neg q$ for a literal $a$ either
   \begin{enumerate}
   \item $\neg a$ has been defeasibly proven in a previous step $P(1..i)$ or
@@ -370,41 +372,42 @@ In less mathematical terms this definition means that in order to defeasibly pro
   \end{enumerate}
 \end{enumerate}
 
+Please not that the proof for $-\partial q$ is the exact negation of \ref{def-defeasible-proof}.
 
-\subsection{Using defeasible deontic logic to represent legal norms and regulations}
+\subsection{Using Defeasible Deontic Logic to Represent Legal Norms and Regulations}
 
-Regulations and legal norms are an important concern for government and businesses. They are complex and hard to reason about especially when multiple regulations written separately are applied to a given situation. In a world where compliance to regulation is becoming both harder and more important because of their growing number and sanctions applied for non compliance, a normative logical framework is needed to be able to reason about regulations.
+Regulations and legal norms are an important concern for government and businesses. They are complex and hard to study especially when multiple regulations written separately are applied to a given situation. In a world where compliance to regulation is becoming both harder and more important because of their growing number and the sanctions applied for non compliance, a normative logical framework is needed to be able to reason about regulations.
 
 Deontic logic (from ancient Greek \textgreek{deontos} meaning duty, what must be done) is a branch of symbolic logic concerned with the logic of obligations and permissions \autocite{mcnamara_deontic_2010}. Therefore it is exactly the kind of logical framework we want to be able to express regulations. Unfortunately standard deontic logic is unable to represent simple notions of normative reasoning such as prima-facie obligations or contrary-to-duty obligation. This lack of expressibility has driven away the very people that would have used deontic logic the most\autocite{nute1997defeasible}.
 
-Let's take a closer look at prima-facie obligation for example and see how we can express these in the light of defeasible logic. Prima-facie means \enquote{at first sight} hence a prima-facie obligation is an obligation that stands at first sight, one that can be defeated if new facts can prove otherwise. We can see that this type of obligation can easily be expressed using defeasible logic, it is defeasible. Furthermore regulations contain feature exceptions that are easily represented using defeasible logic.
+Let's take a closer look at prima-facie obligation for example and see how we can express these in the light of defeasible logic. Prima-facie means \enquote{at first sight} hence a prima-facie obligation is an obligation that stands at first sight, one that can be defeated if new facts can prove otherwise. We can see that this type of obligation can easily be expressed using defeasible logic, it is defeasible by definition. Furthermore regulations contain exceptions that are easily represented using defeasible logic.
 
 There are many benefits to use a logical framework to represent regulations, some of those are presented in \autocite{ModellingAndAnalysisOfRegulations}. They are subdivided into two main area of application :
 \begin{itemize}
-\item \textbf{the understanding and application of regulations} for users not familiar with legal writing and don't want to study a regulation yet being under the obligation to comply.
+\item \textbf{The understanding and application of regulations} for users not familiar with legal writing and don't want to study a regulation yet being under the obligation to comply.
    \begin{description}
    \item \textit{Decision support} : If I make this decision, is it compliant ? You can run your process against a set of regulations and see if it complies. This is one of the situations where Regorous is actually effective. A formal framework for expressing processes is needed too in this case.
-   \item \textit{Explanation} : We can return to the user the complete reasoning chain that lead to the given answer. It is therefore easier for the user to understand what cause this answer for their request.
+   \item \textit{Explanation} : We can return to the user the complete reasoning chain that lead to the given answer. It is therefore easier for the user to understand what cause this answer for their request or what caused non-compliance.
    \end{description}
-\item \textbf{the creation of regulation} for assisting legal professional in their work.
+\item \textbf{The creation of regulation} for assisting legal professional in their work.
    \begin{description}
-   \item \textit{Anomaly detection} Having a formal logical framework backing the drafting of regulation allows us to easily detect anomalies such as inconsistencies or loops.
+   \item \textit{Anomaly detection} Having a formal logical framework backing the drafting of regulation allows for an easy detection of anomalies such as inconsistencies or loops.
    \item \textit{Hypothetical reasoning} It is possible, like for decision support, to inspect the effects of a regulation on the entire system.
    \item \textit{Debugging} When a regulation is not yielding the expected answer to a given query it is possible to debug it.
    \end{description}    
 \end{itemize}
 
-\subsubsection{Different types of obligations}
-Now that we explained the need for a logical framework for legal reasoning and how good deontic defeasible logic is we can introduce the different types of obligations. Indeed to accurately represent the complexity of norms and regulations it is necessary to have a range of different types of obligations to be able to translate legal text into an equivalent logical representation as explained in \autocite{ConceptuallyRichModelofBPC}. There is three main types of obligations :
+\subsubsection{Different Types of Obligations}
+Now that we explained the need for a logical framework for legal reasoning and how good deontic defeasible logic is, we can introduce the different types of obligations. Indeed, to accurately represent the complexity of norms and regulations, it is necessary to have a range of different types of obligations to be able to translate legal text into an equivalent logical representation as explained in \autocite{ConceptuallyRichModelofBPC}. There are three main types of obligations :
 \begin{itemize}
 \item \textbf{Achievement Obligation} : There is an obligation to meet once before the deadline. For example \textit{You must change your tires before they are worn out}
 \item \textbf{Maintenance Obligation} : There is an obligation to meet at all instant before the deadline. For example \textit{You must provide for your children until they are 18}
 \item \textbf{Punctual Obligation} : There is an obligation to meet at one instant. They must be fulfilled at the same moment they were triggered.
 \end{itemize}
 
-Achievement obligations can be further detailed to be able to express what happens if a violation of the obligation occurs. Does the obligation persists ? (\textit{You must pay the fine within 90 days otherwise you must pay a 15\% tax.} In this case it is obvious that the obligation to pay the fine is persistent after the deadline, after it was violated.) We therefore introduce a new concept that can apply to an achievement obligation : \textbf{Persistent or non Persistent}
+Achievement obligations can be further detailed to be able to express what happens if a violation of the obligation occurs. Does the obligation persists ? (\textit{You must pay the fine within 90 days otherwise you must pay a 15\% tax.} In this case it is obvious that the obligation to pay the fine is persistent after the deadline ; after it was violated.) We therefore introduce a new concept that can apply to an achievement obligation : \textbf{Persistent or non Persistent}
 
-We still lack vocabulary to express another subtlety of achievement obligations. Let's consider the following obligation \textit{When shopping for an item a consumer must pay for it after receiving the invoice and no later than 30 days after receiving it.} Now if the customer by mistake or for any other reason transfers the due amount before receiving the invoice. Then it is obvious that the obligation has been fulfilled even though the action was take outside of the time frame allocated to it. We will call this type of obligation \textbf{Pre-emptive and non-Pre-emptive}. 
+We still lack vocabulary to express another subtlety of achievement obligations. Let's consider the following obligation \textit{When shopping for an item a consumer must pay for it after receiving the invoice and no later than 30 days after receiving it.} Now if the customer by mistake or for any other reason transfers the due amount before receiving the invoice. Then it is obvious that the obligation has been fulfilled even though the action was taken outside of the time frame allocated to it. We will call this type of obligation \textbf{Pre-emptive and non-Pre-emptive}. 
 
 Also, please note that these concepts cannot apply to maintenance or punctual obligations.
 
@@ -424,9 +427,9 @@ $O^{p}$               & [OP]  & Punctual                                     \\
 \end{tabular}
 \end{center}
 
-\subsubsection{Expressing chain of obligation with the $\otimes$ operator}
+\subsubsection{Expressing Chains of Reparation with the $\otimes$ Operator}
 
-Now that we described the broad range of obligation giving us the necessary vocabulary to translate regulations into our logical framework. Still we are missing one critical point of regulations : reparation chains. If an obligation is violated, you are not complying with the regulation unless there is a reparation chain that kicks in and leaves you in an unoptimal situation compliance wise but still compliant.
+Now that we described the broad range of obligation giving us the necessary vocabulary to translate regulations into our logical framework. We are still missing one critical point of regulations : reparation chains. If an obligation is violated, you are not complying with the regulation unless there is a reparation chain that kicks in and leaves you in an unoptimal but still compliant situation.
 
  For example let's consider the following rules : 
  \[
@@ -435,22 +438,22 @@ Now that we described the broad range of obligation giving us the necessary voca
    & r': &\neg \text{pay} & \Rightarrow O^{p}\text{pay fine}
  \end{aligned}
  \]
- Well it can be reduced to be expresses as a $\otimes$-expression such as these two obligation cannot be seen any more as independent. 
+ They can be reduced and be expressed as a $\otimes$-expression such as these two obligation cannot be seen any more as independent. 
   \[
  \begin{aligned}
    & r : &\text{invoice} & \Rightarrow O^{a, \pi}_{pr}\text{pay} \otimes O^{p}\text{pay fine}\\
  \end{aligned}
  \]
 
-We can now create chains of obligations started by a given set of literal and giving the actor a chance to stay compliant even if an obligation was violated. \autocite{NormComplianceinBPModeling}
+We can now create chains of obligations started by a given set of literal and giving the actor a chance to stay compliant even if an obligation was violated \autocite{NormComplianceinBPModeling}.
 
-\subsection{Business Process Model and Notation v2.0 a graphical representation of business processes}
+\subsection{Business Process Model and Notation v2.0 a Graphical Representation of Business Processes}
 
-The Business Process Model and Notation version 2.0 is a standard set by the Object Management Group which provides a tool for businesses to model and understand their internal business processes. As it is a graphical notation it helps in the understanding and collaboration between businesses and organisations. \autocite{BPMNWebsite} The 2.0 version of the standard is the version of maturity. It integrates with the Business Process Definition Meta-model, it makes easier the interoperability and exchange of business models amongst different modelling tools, it proposes a XML serialization of the processes and other technical details out of the scope of this document. \autocite{BPMNstandardDocument}
+The Business Process Model and Notation version 2.0 is a standard set by the Object Management Group which provides a tool for businesses to model and understand their internal business processes. As it is a graphical notation it helps in the understanding and collaboration between businesses and organisations \autocite{BPMNWebsite}. The 2.0 version of the standard is the version of maturity. It integrates with the Business Process Definition Meta-model, it makes easier the interoperability and exchange of business models amongst different modelling tools, it proposes a XML serialization of the processes and other technical details out of the scope of this document \autocite{BPMNstandardDocument}.
 
-The BPMN language is easy to learn and possesses enough expression power to represent most business processes even the most complex ones. It has a lot of support, is widely accepted and is mature enough to be used by corporations in a production environment. \autocite{powerpointGagne2012} Some of the biggest tech companies have participated in producing the standard (IBM, SAP, Oracle, etc.). \autocite{BPMNexample}
+The BPMN language is easy to learn and possesses enough expression power to represent most business processes even the most complex ones. It has a lot of support, is widely accepted and is mature enough to be used by corporations in a production environment \autocite{powerpointGagne2012}. Some of the biggest tech companies have participated in producing the standard (IBM, SAP, Oracle, etc.) \autocite{BPMNexample}.
 
-One of the main alternatives is the BPEL language. It was designed to be computationally efficient leads to highly complex and unintuitive documents to describe a complex process. BPMN on the other hand has been made to be inter-operable between humans and not only between XML-based webservices. Thus it acknowledge the importance of the human factor in the business process worlds where most of the people don't understand properly computer systems and are used to handle business processes as flow charts. BPMN aims to reduce the gap between the specification of the business process and its execution. Therefore BPMN is a good choice for Regorus as this software targets people that are not familiar with complex information systems and successfully hides the complexity of the implementation from the end user. \autocite{BPMNstandardDocument}
+One of the main alternatives is the BPEL language. It was designed to be computationally efficient but leads to highly complex and unintuitive documents to describe complex processes. BPMN on the other hand has been made to be inter-operable between humans and not only between XML-based webservices. Thus it acknowledge the importance of the human factor in the business process worlds where most of the people don't understand properly computer systems and are used to handle business processes as flow charts. BPMN aims to reduce the gap between the specification of the business process and its execution. Therefore BPMN is a good choice for Regorus as it targets people that are not familiar with complex information systems and successfully hides the complexity of the implementation from the end user. \autocite{BPMNstandardDocument}
 
 \begin{figure}[h!]
 \centering
@@ -460,18 +463,18 @@ One of the main alternatives is the BPEL language. It was designed to be computa
 
 Above is a small example of the BPMN reprensentation of a business process. You can see how clear and straightforward this is. You don't need to understand the BPMN standard or have read the six hundred pages specification to grasp the meaning of this flow chart.
 
-Another reason for using BPMN as a business process modelling tool is the Apromore a java API already developed that allows us to store, represent and compute models of business processes. Furthermore Apromore is a mature, well written library that facilitates the management of large business processes and models. It also includes a presentation part which is integrated with graphiti (the eclipse plug-in library for presentation) in Regorus. With this library we can use only one memory model for business processes from graphical specification to compliance checking. \autocite{ApromoreWebsite}
+Another reason for using BPMN as a business process modelling tool is the Apromore a java API already developed that allows us to store, represent and compute models of business processes. Furthermore Apromore is a mature, well written library that facilitates the management of large business processes and models. It also includes a presentation part which is integrated with graphiti (the eclipse plug-in library for presentation) in Regorus. With this library we can use only one memory model for business processes from graphical specification to compliance checking \autocite{ApromoreWebsite}.
 
 
 
-\subsection{An algorithm for business process compliance}
-In the previous sections we described the framework used to express laws and regulations in a proper logical way. We also presented BPMN 2.0 as a way to graphically represent business models. Now that we have a standardized formalism on both sides we can put them together and let the magic happen. In the following we will present the business process compliance algorithm as it is implemented in Regorus and as featured in \autocite{ConceptuallyRichModelofBPC}.
+\subsection{An Algorithm for Business Process Compliance}
+In the previous sections we described the framework used to express laws and regulations in a proper logical way. We also presented BPMN 2.0 as a tool to graphically represent business processes. Now that we have a standardized formalism on both sides we can put them together and let the magic happen. In the following we will present the business process compliance algorithm as it is implemented in Regorus and as featured in \autocite{ConceptuallyRichModelofBPC}.
 
 For a given business process the algorithm starts by computing all the possible traces, all possible executions of the business process. In order to do so a reachability graph is computed first using the method described in \autocite{sweepline2004}. From this are drawn all possible executions of the process. 
 
-Now that we have all possible traces we will focus on one. For each task in the trace several actions are accomplished. First a call is made to the rule engine with the informations about the task. It will return the new obligations generated by these antecedents. These new rules are added to the Current set which contains all rules in-force at a given task. We consider $C$ as an \ochain of obligations $C= B_{1} \otimes B_{2} \otimes A_{1} \otimes A_{2} \otimes$. The Unfulfilled set contains all achievement and maintenance rules that were triggered but not fulfilled yet.
+Now that we have all possible traces we will focus on one. For each task in the trace several actions are accomplished. First a call is made to the rule engine with the informations about the task. It will return the new obligations generated by these antecedents. These new rules are added to the Current set which contains all rules in-force at a given task. We consider $C$ as an \ochain of obligations $C= B_{1} \otimes B_{2} \otimes A_{1} \otimes A_{2}$. The Unfulfilled set contains all achievement and maintenance rules that were triggered but not fulfilled yet.
 
-The terminated set contains rules that were terminated according to the following definition from \autocite{ConceptuallyRichModelofBPC}. A chain $C$ is terminated by a task n if $C$ was active at task n and that another rule $r$ triggered at task n derives the opposite of $C$. The rule $r$ must not be weaker than the rule that originally yielded $C$.
+The Terminated set contains rules that were terminated according to the following definition from \autocite{ConceptuallyRichModelofBPC}. A chain $C$ is terminated by a task $n$ if $C$ was active at task n and that another rule $r$ triggered at task $n$ derives the opposite of $C$. The rule $r$ must not be weaker than the rule that originally yielded $C$.
 
 \begin{algorithmic}
 \ForAll{C $\in$ Current} 
@@ -522,16 +525,16 @@ The terminated set contains rules that were terminated according to the followin
 
 
 
-\subsection{Tools already developed : Regorus and SPINdle}
+\subsection{Tools Already Developed : Regorus and SPINdle}
 
-The business process compliance project takes its roots back about five years ago when the first papers were published \autocite{journeyToBPC}, \autocite{isf09compliance}. During this time research in both the theoretical framework and its implementation have been conducting leading today to two main tools : SPINdle the rule engine and Regorus the business process compliance tool. In the following section we will portray both software, their functionalities, their use and what improvement could be made.
+The business process compliance project takes its roots back about five years ago when the first papers were published \autocite{journeyToBPC}, \autocite{isf09compliance}. During this time research in both the theoretical framework and its implementation have been conducted leading today to two main tools : SPINdle the rule engine and Regorus the business process compliance tool. In the following section we will portray both software, their functionalities, their use and what improvement could be made.
 
 \subsubsection{Regorus}
-We already mentioned Regorus a few times before but never detailed its functionalities. In this section we will describe what are the main components in it and how they interact
+We already mentioned Regorus a few times before but never detailed its functionalities. In this section we will describe what are its main components and how they interact.
 
-Regorus is a business process compliance suite that contains multiple software providing a complete environment for compliance officers. First, the rule editor that offers a web interface to write defeasible rule. It is very easy to use and provides lots of features (auto-completion, English translation of defeasible rule, etc.) making the rule edition clear and effortless even for people not familiar with defeasible logic. Second, the eclipse plug-in focuses on the business process modelling part. It is possible to create and annotate business processes and check for compliance. It uses the broad APIs of eclipse for graphical modelling and the Apromore library to integrate BPMN 2.0 shapes. Finally the core library is where the business part is happening. It has multiple point of entry for the other software in the suite to interact with it. It offers a complete and comprehensive list of functions for business process compliance checking.
+Regorus is a business process compliance suite that contains multiple software providing a complete environment for compliance officers. First, the rule editor that offers a web interface to write defeasible rule. It is very easy to use and provides lots of features (auto-completion, English translation of defeasible rule, export rules in XML or DFL) making the rule edition clear and effortless even for people not familiar with defeasible logic. Second, the eclipse plug-in focuses on the business process modelling part. It is possible to create and annotate business processes and check for compliance. It uses the broad APIs of eclipse for graphical modelling and the Apromore library to integrate BPMN 2.0 shapes. Finally the core library is where the business part is happening. It has multiple point of entry for the other software in the suite to interact with it. It offers a complete and comprehensive list of functions for business process compliance checking.
 
-Regorus is a complex software written in Java and using multiple third-party libraries. It is hard to get a global understanding of all its components. Some of the external libraries don't get much support or are breaking their APIs leading to an ever ending effort of keeping the software up to date with the major releases. This contributes to the complexity of Regorus especially when trying to build it from source. I will explain in more details the work of porting the eclipse plug-in to the new major release of the Eclipse API in a ulterior section.
+Regorus is a complex software written in Java and uses multiple third-party libraries. It is hard to get a global understanding of all its components. Some of the external libraries don't get much support or are breaking their APIs leading to an ever ending effort of keeping the software up to date with the major releases. This contributes to the complexity of Regorus especially when trying to build it from source. I will explain in more details the work of porting the eclipse plug-in to the new major release of the Eclipse API in a ulterior section.
 
 Regorus is about to undergo major changes in its core and eclipse plug-in parts to implement temporal defeasible logic in the code. New notations and semantics will have to be added to the code-base. At a smaller level I contributed to the extension of Regorus by implementing cooccurrent obligations in both the core libraries and the rule editor.
 
@@ -539,7 +542,7 @@ Regorus is about to undergo major changes in its core and eclipse plug-in parts 
 
 SPINdle is the rule engine that computes the consequences of a defeasible theory. It derives obligations and facts from literals that can be obtained from annotation on a business process. It is a free software distributed under the GNU general public license and can be used by in any project that want to leverage the power of defeasible logic.  \autocite{spindleUserManual}
 
-SPINdle offers multiple interfaces to interact with it. This allows other programs to rely on this for the logical inference part as we do with Regorus. SPINdle is implemented in Java and therefore integrates mostly with JVM based languages. Although a web-service implementation would increase interoperability with other software it is not an implemented feature yet. 
+SPINdle offers multiple interfaces to interact with it. This allows other programs to rely on this for the logical inference part as we do with Regorus. SPINdle is implemented in Java and therefore integrates smoothly with most JVM based languages. Although a web-service implementation would increase interoperability with other software, it is not an implemented feature yet. 
 
 Theories can be submitted and conclusions retrieved using XML or DFL (a specific formalism to describe theories and conclusions). It also gives interfaces for users interested in implementing their own parsers. Using this loosely coupled setup adds makes the use of SPINdle very agile as when there is a change in regulation you only need to change your DFL of XML file and not touch the SPINdle code.
 
@@ -549,16 +552,16 @@ The next major release of SPINdle will include support for temporal defeasible l
 
 
 \newpage
-\section{Adding features to Regorus}
+\section{Adding Features to Regorus}
 \subsection{Implementing Cooccurrent Obligations}
 As introduced earlier there is different types of obligation in defeasible logic. This wide range allows us to model precisely and accurately a large number of business processes and rules. However some shortcomings have been spotted leading to imprecise modelling and the need for a new obligation.
 
 \subsubsection{Presentation of the Problem}
-Let's first introduce an example to underline the lack of appropriate obligation. Taken from the Australian \textbf{INSERT THE PROPER ACT HERE} act when needing personal information from someone it must be given by the person himself. We could model this rule with a punctual obligation like this :
+Let's first introduce an example to underline the lack of appropriate obligation. Taken from the Australian privacy act when needing personal information from someone it must be given by the person himself. We could model this rule with a punctual obligation like this :
 \begin{equation}
 r1 : \text{Need Personal Information} \Rightarrow \text{[Op] Get it in person}
 \end{equation}
-In the current implementation of the compliance checking algorithm if the effect of the task triggers the rule $r1$ then the obligation is carried on to the next task where it will be checked in the \textit{Current} obligation set. In our example that does not really make sense since once we get the information we should check \textbf{in the same task} is the information was taken personally or not.
+In the current implementation of the compliance checking algorithm if the effect of the task triggers the rule $r1$ then the obligation is carried on to the next task where it will be checked in the Current obligation set. In our example that does not really make sense since once we get the information we should check \emph{in the same task} is the information was taken personally or not.
 
 To be able to precisely describe this kind of behaviour we need to introduce a new type of obligation, Cooccurrent Obligation. This represent an extension of punctual obligation which must be fulfilled in the same task where it was triggered. The addition of this new obligation forces us to modify the implementation of the software in the core packages to check compliance as well as in the editor part to let the user add this kind of obligation to their implementation of rules.
 
@@ -584,7 +587,7 @@ As we said before cooccurrent obligations are close relatives of punctual obliga
 
 Now we need to take into account violation and compensation. If a cooccurrent obligation is violated and if it is part of a compensation chain we will check the rest of the chain in the very same task it was activated.
 
-\subsubsection{Implementation in the codebase}
+\subsubsection{Implementation in the Codebase}
 
 The implementation of the compliance checking algorithm is located in the core library of Regorus in \inlinecode{AbstractSessionImpl.java}. The implementation was fairly straightforward as the existing code was very close to the theoretical algorithm presented earlier. The logic is to identify cooccurrent obligations in the results of SPINdle then put those in the current obligation set so that they are checked in the same task and then add an \texttt{if} statement to handle the cooccurrent logic as explained above.
 
@@ -615,7 +618,7 @@ Changes were also made in the rule editor to be able to create rules using coocc
 
 
 
-\subsection{XOR splits and the condition associated to them}
+\subsection{XOR Splits and the Condition Associated to Them}
 In order to be able to implement conditional splits in business processes it is necessary to have XOR splits and corresponding XOR join. Unfortunately with this mandatory tool for business process modelling comes some issues, especially with punctual obligations, that we will try to tackle.
 
 First let see how XOR nodes behave in business process modelling with a little example from a demonstration video of Regorus \autocite{regorusVid}.
@@ -651,7 +654,7 @@ We chose to follow these steps to implement this desired behaviour :
 So if XOR splits conditions are not implemented in the code, how are they taken into account. I think they are put in by the eclipse plugin maybe using some special apromore feature. If that is the case we need to see if it translates to a kind of dummy task. How is that implemented in the core library. Wouldn't it be better if the core library could handle that rather than leaving this to the eclipse plug-in ?
 
 
-\subsection{Porting the eclipse plug-in to the Kepler version of Eclipse}
+\subsection{Porting the Eclipse Plug-In to the Kepler Version of Eclipse}
 
 New releases come with their burden of broken APIs and unresolved functions names. Eclipse is not an exception for that matter. The Eclipse plug-in code has not been touched for two years so when I tried to compile and run it on my machine I stumbled upon a lot of errors. Like other complex software the eclipse plug-in depends on some third-party library to work properly. These evolved quite a bit over time to a point where function that once existed where not even referenced in the last version.
 
@@ -663,11 +666,11 @@ This task also trained me on a part of software development we rarely talk about
 These are very important concerns and even more difficult to enforce in a Java environment. %citation needed
 
 
-\section{Extending the theoretical model by adding time}
+\section{Extending the Theoretical Model by Adding Time}
 
 We have seen before that obligations in regulations are often closely related to the notion of deadlines for example the obligation \textit{Pay before ten days} holds a deadline information. Defeasible Deontic Logic with BPMN 2.0 as implemented in Regorous is a powerful tool to deal with business process compliance. However defeasible deontic logic does not handles time and deadlines by design. Sure it is possible to use facts as ersatz for time for example the rule introduced before can be modelled as : $r: \neg \text{moreThan10Days} \Rightarrow O_{a}Pay$ and this could translate in a task of the business process having the literal $ \neg \text{moreThan10Days}$ attached but there is room for improvement.
 
-\subsection{Motivation for adding time in defeasible logic}
+\subsection{Motivation for Adding Time in Defeasible Logic}
 
 Adding time in defeasible deontic logic is a much anticipated feature because it implements at the source the essence of deadline allowing us, as we will see later on, to represent obligation types elegantly. In \autocite{TemporalExtension2007} extensions to include time in the logic are proposed and we will use these semantics and notations.
 
@@ -686,7 +689,7 @@ If we add time though, we only need to do the computation once for any process s
 
 %how adding time liberate us from doing this? need a clear example and maybe some images.
 
-\subsection{Temporal formalism for deontic defeasible logic}
+\subsection{Temporal Formalism for Deontic Defeasible Logic}
 
 \autocite{JusticeDelayed2011} introduces new notations, semantics and concepts to deal with time in deontic defeasible logic. They represent time as a discrete linear order of instants $ \mathscr{T} = (t_{1}, t_{2} ... t_{n})$.
 
@@ -749,7 +752,7 @@ If $P(n+1) = +\partial p^t$ then
 
 Conditions (1) and (2) are enough to defeasibly prove a punctual obligation. (3) only applies for maintenance and achievement obligations. The final line (3.c) only applies to achievement obligations where fulfilment terminates the obligation.
 
-\subsection{Proving that defeasible logic and temporal defeasible logic reach the same conclusions}
+\subsection{Proving that Defeasible Logic and Temporal Defeasible Logic Reach the Same Conclusions}
 
 It is important to prove that given the same process and rules both versions of defeasible deontic logic with and without time reach the same conclusions about compliance. This allows us to confidently move on to the implementation of the compliance checking algorithm in temporal defeasible logic.
 
@@ -872,7 +875,8 @@ We can easily translate this reflection to the Violated set. If a obligation $Ol
 We have proved that the sets we have in the algorithm for business process compliance stays the same when we translate a theory from the classical to the temporal defeasible logic. This means that a business process that was (non-)compliant in the classical framework is also (non-)compliant in the temporal one. We have a consistent 
 
 \newpage
-\chapter{ Strategic reflection on Regorus}
+\addtocontents{toc}{\protect\newpage}
+\chapter{ Strategic Reflection on Regorus}
 
 \section{Business Process Management and Compliance}
 
@@ -891,7 +895,7 @@ Finally by releasing companies from the burden and high cost of compliance, mone
 Current research is business process management is taking the problem from different angles. A first topic of interest is business process mining where business process management is used as an intelligent IT system. Business processes are automatically generated from the ever-growing data generating from working businesses. From these explicit processes researchers are working on intelligent systems that would give guidelines and propose optimizations of these processes. \autocite{keynoteBae} presents a concrete example of how processes can be improved by these techniques. Of course to express all these processes, powerful, efficient modelling languages are needed and this is another subject of research. Finally the field in which I conducted this project, compliance, is making sure that processes are compliant with regulations with the advantages mentioned earlier.
 
 
-\section{A critical summary of the work done}
+\section{A Critical Summary of the Work Done}
 
 \subsection{Historic}
 In this section we will aim to summarize previous attempts to commercialize Regorus and to penetrate the compliance market. Multiple opportunities have presented themselves but non of them have succeeded yet. For each of them we will briefly expose the strategic decisions that were made and expose areas for improvement. Though, we will not cite any names for confidentiality reasons.
@@ -916,17 +920,23 @@ Unfortunately the final decision from the certification body was a no go. The re
 
 After the telcos, a few other contacts were exploited but lead to nothing concrete. Until a big Australian insurance company showed interest in Regorus. A few meetings were organised with the people on the field, that would actually use the software. Once again, they were very interested in it, saying that it would save them a lot of time and solve some of their problems. However when NICTA asked for a few man-hours to conduct trainings like it had been done with the telco, the upper management refused to. The height of all this is that this very company was fined tens of millions of dollar for non compliance by the regulation authority a few weeks after this.
 
-Lastly, an important consulting firm also showed interest in Regorus and was given an instance to play with. 
+Lastly, an important consulting firm also showed interest in Regorus and was given an instance to play with. Unfortunately, once again, this is not followed by a commitment from the management to go with and implement Regorus in their workflow.
 
 \subsection{Comments}
-A lot of thinking have been put into this. I found on the intranet lot of documentation from the dev team to try and find possible customer, competitors and strategies. What is missing ? (right person to target) Also working in a very different environment than the technological world. Need to adapt. Need to seek advices from people in this sector (marketing study).
 
+All this historic part have been written using detailled documentation from the development team who put a lot of thinking into this. They used classical models to try and pinpoint the right customers and the competitors, to analyse the global industries that would be keen on using Regorus, to explicit the business model of Regorus using the business model canvas and many other attempts. What we found was missing is an actual discussion with the people in the industry they were targeting.
 
-\section{Find a business model for Regorus}
+Added to that, the industries targeted by regorus are very different from the ones NICTA teams are working in. We think that a better understanding of the dynamics and habits in these economical sectors would be of great help in the commercialization of Regorus.
+
+Furthermore, we think that a multi-sided platform business model for Regorus would be a great fit. So far this platform way of thinking has not been though of and this model can give better insights on the actual dynamics of the market. We will expand this in the next section.
+
+We think that all of the above points can be addressed by a qualitative marketing research. As we will see in the dedicated section, this kind of marketing is research is focused on the why which is what we want as we are trying to gain a better understanding of these subjects. This research can also highlight points we didn't even knew we were ignoring, these can be further studied later on.
+
+\section{Finding a Business Model for Regorus}
 
 As discussed above, private companies have been keen in the past on integrating Regorus in their processes. Unfortunately it never went through approval from key person in the companies. In the following section we will try to find in which existing business model Regorus could fit and what are the side effects of its use in an organisation. First we will look into Two-sided markets then we will explore how good Regorus is as a knowledge management tool.
 
-\subsection{Two-sided markets}
+\subsection{Two-Sided Markets}
 On two sided market the main sources are \autocite{ParkerA05} \autocite{eisenmann2006strategies} \autocite{rochet2003platform} \autocite{Hagiu2011} \autocite{economides2006}
 
 Which business model ?\\
@@ -937,7 +947,7 @@ Will the market is likely to end up in a winner take all situation ?\\
 
 Two sided markets are found in many industries but they are particularly found in the high-tech industry. As this market is a high growing one two-sided markets have drawn, over the past decade, a particular interest from researchers in strategy and economics \autocite{Hagiu2011}. In the following section we will first try to come up with a definition of two-sided market or platforms, then we will discuss how Regorus can fit this model. Indeed, Regorus in its essence is a tool that unites different business (law, BP management, IT) therefore it seems quite straightforward that this model could fit it. In a last part we propose different actors that could interact around our platform and unfold strategies following from these hypotheses.
 
-\subsubsection{A definition for two-sided market and its dynamics}
+\subsubsection{A Definition for Two-Sided Markets and its Dynamics}
 
 Although there is an extensive literature on the matter a precise definition is yet to emerge. It is not the purpose of this document to propose yet another one, we will try to identify key features of such a market in existing definitions and evaluate their relevance.
 
@@ -981,9 +991,9 @@ Finally some other assets can help to win the war for platform domination \autoc
 \item Because once the tipping point is reached user base will increase exponentially we need to make sure our solution is scalable and wont crumble when stressed with too many requests.
 \end{itemize}
 
-\subsection{How does Regorus fits the model}
+\subsection{How Does Regorus Fits the Model}
 
-\subsubsection{Possible users of the platform and strategies}
+\subsubsection{Possible Users of the Platform and Strategies}
 On one side we have :
 \begin{itemize}
 \item big firms that already check the compliance of their processes with expensive audits by private firms. They want absolute certainty that this tool will give us reliable results and they want to be able to come back to us if it does not. They don't care about the price because they are already paying lots of money on private audits.
@@ -996,6 +1006,8 @@ On the other side we have
 \item regulation authorities that probably want the most possible compliant firms in their industry. In the past Regorus have been validated by one regulation agency (the one for telecommunication companies) which is good because we have a clear positive cross-side network effect here, the more regulation agencies saying that our product is yielding good results, creating certified rules to check processes against and especially insuring that the fact that Regorus says it's compliant is equivalent to compliance would be huge. Having a \enquote{marquee user} on one side can attract a lot of users on the other side especially if it states its commitment to our platform \autocite{eisenmann2006strategies}. What could bring user on the other side is if regulation agencies recommend Regorus to firms that have been non-compliant. 
 \end{itemize}
 
+\textbf{Add something about the importance of early adopters maybe}\\
+\textbf{Add something about the expected outcome of the market (WTA or Cohabitaion)}
 
 \subsubsection{Platform Pricing} 
 Since we are considering Business to Business interactions where neither side is money sensitive a subsidy might not be necessary. On the other hand, businesses are extremely quality sensitive and if we want them to integrate Regorus in their processes they need to have some kind of insurance that it will behave correctly especially because we target the compliance world where an error could cost a lot of money. So to make the penguins jump the price is probably not a problem since these companies are already paying good money for private audits of their processes but quality and certification is highly appreciated. Therefore the pricing strategy is not so difficult but need to be though of as this was never properly done before. Once again a study of the market could tell us how much money companies are investing in competitors' software and more broadly in compliance.
@@ -1003,11 +1015,11 @@ Since we are considering Business to Business interactions where neither side is
 
 
 
-\subsection{How Business Process Modelling is integrated in knowledge management}
+\subsection{How Business Process Modelling is Integrated in Knowledge Management}
 
 We think that one of the ways to promote Regorus and improve its market penetration is to research the ways it can be useful for a company. Apart from its main purpose of asserting compliance of business processes Regorus can be useful at higher levels by being a part of the knowledge management plan of the firm.
 
-\subsubsection{Presentation of knowledge management and its advantages}
+\subsubsection{Presentation of Knowledge Management and its Advantages}
 
 Knowledge Management is a relatively new field of study born in the early eighties when researchers in management looked into the importance of knowledge in organization.\autocite{Wiig19971}
 
@@ -1017,7 +1029,7 @@ Knowledge management was introduced in popular press in the early nineties mainl
 
 Regorus is a great tool for companies because it helps them explicit their practices and internal knowledge into a new figurative language such as BPMN. This translates personal, sticky knowledge to be translated into an explicit, normative form leading to a better understanding and transmission of know-how. In this sense Regorous is more than just a tool to check the compliance of processes it is also a powerful way of managing knowledge in the firm and therefore leading to better results.
 
-\subsubsection{Regorus uses BPMN which is designed to make knowledge explicit}
+\subsubsection{Regorus Uses BPMN Which is Designed to Make Knowledge Explicit}
 \textbf{ADD THAT BPMN WAS DESIGNED TO INTEGRATE AND EXPRESS BUSINESS PROCESSES}
 
 \section{What can be done to improve market penetration : Qualitative Marketing Research}
@@ -1045,7 +1057,7 @@ We can question ourselves about the credibility of results from qualitative rese
 The same reference proposes a summary of methods and best practices to generate high-quality results. Some of these methods are applicable to our case. First the persons are chosen not on statistical basis but more on their relevance to the subject under research. Also the interviewing must be deep and intimate to gather interesting results. Furthermore, comparing the results coming from different contexts can help highlight the differences between different user cases. Finally having a feedback on the results of the research from the original respondents can yield interesting results, we could imagine organising a focus group where the original respondents are asked what they think of the research and capture insight on wether they agree or not with the findings of the research.
 
 
-\subsection{what are we researching ?}
+\subsection{What are we Researching ?}
 Past experiences and field tests of Regorus have shown two main things. On one hand, end-users are very positive about the software and are able to use it smoothly with very little training. Once set-up it saves them a lot of time and they say they are more efficient in their work. On the other hand, the upper management has always rejected any full-scale tests. The reasons arguing the refusal are mostly \enquote{not enough time}, \enquote{not enough money} or \enquote{we are not big enough}. These were taken as the actual reasons but they are obviously just a quick unthought justification and we think there is more to it than they say. Therefore our first interest will be in finding the actual reason that leads upper-management to reject our project.
 
 Once the \enquote{why} of the refusal is sorted out we can actually try to come up with ideas to bypass these roadblocks. But we think that there is more to that therefore the second interest in our research will try to clarify the decision process of these people. More specifically we will try to identify which incentives they are sensitive to, who are the people they listen to when in doubt, what is important for them.
@@ -1056,9 +1068,20 @@ Finally our last subject of interest is on their expectation for a compliance so
 
 \subsection{The Focus Group (or Interviews), Methodology, Goals and Progress}
 
-Focus groups 
+\subsubsection{History and Theoretical Background}
+Focus groups are known to have emerged in the US in the 1930s this trend was fast followed by European countries. The theoretical background have emerged from the work of psychologist. Indeed, after the world war the number of patient exploded and individual session were no longer possible leading to group therapy. These results have shown that a group is more than just the sum of its part. These characteristics can be used to foster the production of ideas during a focus group but can also lead to biased information.
+
+Focus group have been heavily documented by practitioners and have suffered criticism from the academic world. This is because both sides use literature with different conclusion to back their claims. Practitioners argue that group interaction leads to more information being produced and that this information is also more profound and accurate. Whereas academics respond with articles concluding that group interactions lead to biased answers from participants. Both sides have valid arguments and it is very important when conducting a focus group to be able to foster good group interactions and to identify and stop the bad ones. We will later see the very important role of the animator in this, we will also give some insight and good practices to properly animate a focus group.
+
+\subsubsection{Methodology and Objectives of the Focus Group}
+
+
+
+\subsubsection{Proposed Themes for a Focus Group with Open-Questions}
+
 
 \subsection{Raw Data Analysis : Tools and Methodology}
+
 
 
 \paragraph{Methods of Questioning in Focus Group}

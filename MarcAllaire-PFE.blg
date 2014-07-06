@@ -16,53 +16,50 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated field_info (elt_size=4) to 11528 items from 5000.
 Database file #1: MarcAllaire-PFE-blx.bib
 Database file #2: biblio.bib
-Warning--I'm ignoring mcnamara_deontic_2014's extra "keywords" field
---line 89 of file biblio.bib
 Warning--I'm ignoring Nonaka_Konno_1998's extra "keywords" field
---line 348 of file biblio.bib
-Warning--I didn't find a database entry for "keynoteBae"
+--line 345 of file biblio.bib
 Biblatex version: 1.7
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
-You've used 50 entries,
+You've used 51 entries,
             6019 wiz_defined-function locations,
-            1457 strings with 19251 characters,
-and the built_in function-call counts, 183523 in all, are:
-= -- 6607
-> -- 9637
-< -- 1872
-+ -- 5628
-- -- 5731
-* -- 12520
-:= -- 13733
+            1460 strings with 18437 characters,
+and the built_in function-call counts, 186424 in all, are:
+= -- 6733
+> -- 9724
+< -- 1904
++ -- 5653
+- -- 5751
+* -- 12702
+:= -- 13894
 add.period$ -- 0
-call.type$ -- 50
-change.case$ -- 902
+call.type$ -- 51
+change.case$ -- 921
 chr.to.int$ -- 406
-cite$ -- 98
-duplicate$ -- 19241
-empty$ -- 17825
-format.name$ -- 3125
-if$ -- 38218
+cite$ -- 100
+duplicate$ -- 19578
+empty$ -- 18148
+format.name$ -- 3174
+if$ -- 38899
 int.to.chr$ -- 0
-int.to.str$ -- 147
+int.to.str$ -- 150
 missing$ -- 0
-newline$ -- 1406
-num.names$ -- 2488
-pop$ -- 15565
+newline$ -- 1421
+num.names$ -- 2540
+pop$ -- 15883
 preamble$ -- 1
-purify$ -- 1011
+purify$ -- 1031
 quote$ -- 0
-skip$ -- 9866
+skip$ -- 10046
 stack$ -- 0
-substring$ -- 4746
-swap$ -- 6702
-text.length$ -- 1482
-text.prefix$ -- 49
+substring$ -- 4815
+swap$ -- 6806
+text.length$ -- 1506
+text.prefix$ -- 50
 top$ -- 1
-type$ -- 1880
+type$ -- 1918
 warning$ -- 0
-while$ -- 1231
+while$ -- 1249
 width$ -- 0
-write$ -- 1355
-(There were 3 warnings)
+write$ -- 1369
+(There was 1 warning)
