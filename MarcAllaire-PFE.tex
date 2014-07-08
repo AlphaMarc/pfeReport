@@ -5,11 +5,19 @@
 \usepackage[utf8]{inputenc}
 \usepackage[LGR,T1]{fontenc} % this is to be able to output greek 
 
+\usepackage[table]{xcolor} % nice table at the end
+
 \usepackage{listings} 												% for java code snippets
 \lstset{language=Java,												% for java code snippets
                 basicstyle=\footnotesize\ttfamily,					% for java code snippets
                 keywordstyle=\footnotesize\color{blue}\ttfamily,	% for java code snippets
 }
+
+% ****************************************************************
+% A few words on capitalization : 
+% "Capitalize all words in titles of publications and documents, 
+% except a, an, the, at, by, for, in, of, on, to, up, and, as, but, it, or, and nor."
+% ****************************************************************
 
 
 %\renewcommand*\rmdefault{stix} % change the font
@@ -196,7 +204,7 @@ IAE - Master Management Stratégique,\\\hspace{.5cm}Spécialité Management de l
 % -------------------------------- %
 
 \restoregeometry
-%\newgeometry{bottom=1in}
+\newgeometry{bottom=1in}
 
 \renewcommand{\thesection}{\Roman{section}} 
 %executive summary
@@ -294,7 +302,6 @@ The Business Process Compliance group in which I am working is part of the Softw
 From this observation, the BPC group started by selecting a framework to represent both business processes and the laws they must comply to. These research lead to numerous articles aiming to build a model for rules and business processes that would give the end user the most flexibility and the possibility to accurately translate existing body of law. This theoretical work led to more concrete projects. As of today the group in undergoing three main projects~: Regorous, SPINdle and extensions to the theoretical framework. These provide a powerful platform for compliance officers in companies.
 
 
-\newpage
 \chapter{Technical Work on Regorus}
 \section{Introducing the Project's Theoretical Framework}
 \subsection{A Short Introduction to Defeasible Logic}
@@ -971,8 +978,9 @@ An important thing to note is that the value creation in platforms is not in the
 %\paragraph{winner take all}
 Because of these non-linear effects, outcomes from multi-sided platform is hard to predict. However history gives us some insight into what we can expect given networks effects in force, multi-homing costs and users sensitivity to new features. Knowing the most likely scenario for the platform tells us if we need to fight to death because we expect a winner take all scenario or to accept competition. The following table gives predicted outcomes depending of the characteristics of the platform :
 
+\begin{table}[!ht]
 \begin{center}
-\begin{tabularx}{15cm}{|c|p{3.5cm}|X|}
+\begin{tabularx}{\textwidth}{|c|p{3.5cm}|X|}
 \hline
 Likely outcome & Strategy & Platform characteristics \tabularnewline
 \hline
@@ -982,6 +990,9 @@ Cohabitation & Accept competition, Find a niche market & One side at least have 
 \hline
 \end{tabularx}
 \end{center}
+\caption{Outcomes of a multi-sided platform given the platform characteristics}
+\end{table}
+
 
 Finally some other assets can help to win the war for platform domination \autocite{eisenmann2006strategies} :
 \begin{itemize}
@@ -1034,7 +1045,7 @@ Regorus is a great tool for companies because it helps them explicit their pract
 
 \section{What can be done to improve market penetration : Qualitative Marketing Research}
 
-As we saw before, a lot of thinking has already been put into strategical reflection for Regorus by the development team. Possible customers and competitors have been identified and the business model have been refined by the previous sections. This is a necessary step in any marketing strategy but it should have been continued by at least a qualitative marketing research to verify if the hypothesis made are right and maybe incorporate new ideas. 
+As we saw before, a lot of thinking has already been put into strategical reflection for Regorus by the development team. Possible customers and competitors have been identified and the business model have been refined by the previous sections. This is a necessary step in any marketing strategy but it should have been continued by at least a qualitative marketing research to verify if the hypothesis made are right and maybe incorporate new ideas. The following section will show what is a qualitative marketing research and how it can help achieve our goal. After that we focus on one particular technique, the focus group. We explain what it is and provide a comprehensive guide to create one from scratch.
 
 \subsection{Qualitative Marketing Research Explained}
 
@@ -1054,11 +1065,11 @@ This is particularly adapted to our case where we want to understand more about 
 \subsubsection{Interpretation and Reliability of Qualitative Research Results}
 We can question ourselves about the credibility of results from qualitative research. After all it is defined as a very subjective methodology and challenges the objective standard of general research results. If another research is conducted will it reach the same conclusions ? Would the theory hold for another environment ? In other word can we generalize it ? These questions can be addressed by following a rigorous methodology throughout the research. The quality of a research is endorsed by three factors : credibility, dependability and conformability \autocite{carson2001}.
 
-The same reference proposes a summary of methods and best practices to generate high-quality results. Some of these methods are applicable to our case. First the persons are chosen not on statistical basis but more on their relevance to the subject under research. Also the interviewing must be deep and intimate to gather interesting results. Furthermore, comparing the results coming from different contexts can help highlight the differences between different user cases. Finally having a feedback on the results of the research from the original respondents can yield interesting results, we could imagine organising a focus group where the original respondents are asked what they think of the research and capture insight on wether they agree or not with the findings of the research.
+The same reference proposes a summary of methods and best practices to generate high-quality results. Some of these methods are applicable to our case. First the persons are chosen not on statistical basis but more on their relevance to the subject under research. Also the interviewing must be deep and intimate to gather interesting results. Furthermore, comparing the results coming from different contexts can help highlight the differences between different user cases. Finally having a feedback on the results of the research from the original respondents can yield interesting results, we could imagine organising a focus group where the original respondents are asked what they think of the research and capture insight on whether they agree or not with the findings of the research.
 
 
 \subsection{What are we Researching ?}
-Past experiences and field tests of Regorus have shown two main things. On one hand, end-users are very positive about the software and are able to use it smoothly with very little training. Once set-up it saves them a lot of time and they say they are more efficient in their work. On the other hand, the upper management has always rejected any full-scale tests. The reasons arguing the refusal are mostly \enquote{not enough time}, \enquote{not enough money} or \enquote{we are not big enough}. These were taken as the actual reasons but they are obviously just a quick unthought justification and we think there is more to it than they say. Therefore our first interest will be in finding the actual reason that leads upper-management to reject our project.
+Past experiences and field tests of Regorus have shown two main things. On one hand, end-users are very positive about the software and are able to use it smoothly with very little training. Once set-up it saves them a lot of time and they say they are more efficient in their work. On the other hand, the upper management has always rejected any full-scale tests. The reasons arguing the refusal are mostly \enquote{not enough time}, \enquote{not enough money} or \enquote{we are not big enough}. These were taken as the actual reasons but they are obviously just a quick unthoughtful justification and we think there is more to it than they say. Therefore our first interest will be in finding the actual reason that leads upper-management to reject our project.
 
 Once the \enquote{why} of the refusal is sorted out we can actually try to come up with ideas to bypass these roadblocks. But we think that there is more to that therefore the second interest in our research will try to clarify the decision process of these people. More specifically we will try to identify which incentives they are sensitive to, who are the people they listen to when in doubt, what is important for them.
 
@@ -1066,33 +1077,204 @@ Finally our last subject of interest is on their expectation for a compliance so
 
 
 
-\subsection{The Focus Group (or Interviews), Methodology, Goals and Progress}
+\subsection{The Focus Group, Methodology, Goals and Progress}
 
 \subsubsection{History and Theoretical Background}
 Focus groups are known to have emerged in the US in the 1930s this trend was fast followed by European countries. The theoretical background have emerged from the work of psychologist. Indeed, after the world war the number of patient exploded and individual session were no longer possible leading to group therapy. These results have shown that a group is more than just the sum of its part. These characteristics can be used to foster the production of ideas during a focus group but can also lead to biased information.
 
 Focus group have been heavily documented by practitioners and have suffered criticism from the academic world. This is because both sides use literature with different conclusion to back their claims. Practitioners argue that group interaction leads to more information being produced and that this information is also more profound and accurate. Whereas academics respond with articles concluding that group interactions lead to biased answers from participants. Both sides have valid arguments and it is very important when conducting a focus group to be able to foster good group interactions and to identify and stop the bad ones. We will later see the very important role of the animator in this, we will also give some insight and good practices to properly animate a focus group.
 
-\subsubsection{Methodology and Objectives of the Focus Group}
+There are many school when it comes to focus group theories. Classifications have been made by both the academic \autocite{Calder1977} and the practitioners \autocite{Imms2002}. We will focus on one particular approach that is the most applicable to our research : the psychodynamic-humanistic approach as described in \cite{belk2007handbook}. This approach is used when the individuals under scrutiny won't be able to show their real attitudes or behaviours if asked directly. This may be because the subject is not conscious of the real origin of her behaviour or simply because they are too shy. Therefore the researcher has to use indirect methods of questioning and monitor groups dynamics very closely. This theory implies that consumers and individuals behaviours can not be explained only by their conscious actions but that there is a deeper, covert cause.
+
+\subsubsection{The Role of the Moderator}
+
+As we said before, focus group main force and weakness is group interactions. Therefore the role of the moderator is essential to gather meaningful and strong data. He must be able to identify and break bad group habits such as :
+\begin{itemize}
+\item Compliance : respondents may try to answer in a way they think is expected from them. This leads to biased answered and must be avoided. One way to do so is to detach the moderator as pertaining to a company and to foster participants to express their own ideas. The moderator can, for example, repeat multiple times to the audience that it is only their opinion that matters and that they can express it freely.
+\item Groupthink : cohesive groups may tend to maintain consensus on key issues \autocite{Janis1982}. Once again the moderator must challenge this consensus or try to identify dissident opinions and promote them. This can be done using a projective technique with sentences as : \enquote{I see that we reached a consensus here, imagine, what would be the arguments of someone who disagrees ?}
+\end{itemize}
+
+The moderator's behaviour is as important as all the guidelines regarding the line of questioning. In order to let people talk and not influence their answers, the moderator must stay in a friendly open-minded position. He must always bear a kindly smile and show empathy to the participants. Again to get the most from participants, the moderator must not be afraid of silence as it pressure people to keep talking. When a participant is talking the moderator should encourage him to go on without being judgemental with short verbal responses such as \enquote{Uh huh}, \enquote{yes} but not \enquote{excellent}, \enquote{that's good}.
+
+Focus group are bringing together people with different characters, it is important that the moderator quickly pinpoint problematic behaviors and counter them. \autocite{Krueger2000} defines four types of people that can cause problems during the execution of a focus group :
+\begin{itemize}
+\item Experts often self-apointed can lead others to refrain from express an contradictory opinion. The best way to deal with these people is to say that everyone is an expert and to stress that the opinions of everyone is important. They can be spotted before the event as they usually are the ones with the most experience or with dominant positions within a firm.
+\item Dominant Talkers tend to monopolize the discussion and as for experts refrain others to express their opinions. They are usually also experts and therefore be detected before the event or during pre-event smalltalk. To be able to control them they must be sited next to the moderator whom could use body language to discipline them. If that is not enough then the moderator can have a more direct strategy such as \enquote{Thank you A., who would like to comment on the question, maybe you S. ?}.
+\item Shy Participants usually think before they speak and have great insights only it takes more time for them to express those. They should be place across the table from the moderator to maximize eye contact which encourage to speak. If that is not enough the moderator can call them by name and leave them no choice.
+\item Ramblers participants like to talk, a lot ! and they often drift off track. To control them the moderator can stop the eye contact after 30 seconds and use body language (turn towards someone else for example). The moderator must be reasy to trigger another question or a follow up as soon as the rambler leave an opportunity to do so.
+\end{itemize}
 
 
+We saw in this section that the moderator has a very important role in the focus group. He must be a very good character reader and express genuine interest in hearing other people opinions. He must show sympathy and empathy towards the participant but also be firm and strong against some kind of participants or fostering for some others. The moderator must be respected by the group to stay within the tracks but also leave space for interaction and exploration. He is the driver of the focus group and he has the responsibility to take the group to the important points in time and keep up a friendly atmosphere.
 
-\subsubsection{Proposed Themes for a Focus Group with Open-Questions}
+\subsubsection{How to Come up With Good Questions}
 
+Good questions are not an easy thing to come up with. However, there are a few qualities that a good question must have \autocite{Krueger2000}. First of all they must sound conversational to set up and keep on with a casual environment. Also be careful not to use technical jargon or acronyms to not confuse and lose the audience. Furthermore the question must be clear, short and easy to say. The moderator must not stumble over words in the question, the meaning must be straightforward and be given in the least possible number of words. On top of that, the questions must be open-ended, they must beg for explanation, stories, etc. Be careful on the meaning of the word you use too. Words can have multiple dimensions so try not to use synonyms or follow up questions as this might confuse participants.
+
+When faced with extreme point of views always further the discussion with a probing session : Please elaborate on the reasons why you answered ? How ? What make you say that ? Never let a person answer with one word or a short sentence. 
+
+We chose to use a psychodynamic-humanistic approach for our focus group and this means we need to use indirect questions to extract covert, unconscious knowledge from our participants. The use of projective techniques helps respondents project their ideas and opinions on other people or objects. Common projective techniques include : 
+\begin{itemize}
+\item Sentence Completion : participants are asked to complete a sentence. \enquote{People who are responsible of compliance are ...}.
+\item Stereotyping : a person is described to participants (using words or images) who are asked about these imaginary characters. This is usually followed by a probing session to force participants to explicit their answers.
+\item Personification : The brand or another abstract concept is personificated and participants are asked to imagine their reactions are sayings in a particular situation. \enquote{if Regorus was a person how would it dress ?}. This is again only a start that needs to be followed by a probing session to gain more insight on the subconscious reasons.
+\end{itemize}
+
+Another good technique to help participant to dig answers in their subconscious are \enquote{think-back} questions. For example we could ask \enquote{think back to the last time you had to make a decision about adopting a software. What made you decide ?}
+
+It is important to note that good questions must not influence the audience in their answers. Never include hints or suggestions at first even if you think that it would help people understand the question. Once participants have answered with a few terms then the moderator can use these to go further and get more information.
+
+Finally try to avoid \enquote{why} questions because they are often aggressive and make the respondant feel confronted but also because they ask for a rational answer when most of the times we make decisions based on impulses, culture or traditions. This has been particularly true with Regorus strategy. When asking managers for a rational answer to the question \enquote{why did you not integrate Regorus ?} they try to come up with one and often say that they either don't have time or money or both. Indeed the Lazarfeld's principle of specification \autocite{Lazarfeld1935} tells us that when asked why people will answer either what influenced them to make this choice or what attributes led them to make that decision. For the previous question we could, therefore, ask either for influence : \enquote{What (influenced, made) you not integrate Regorus ?} or for attributes \enquote{What features of Regorus do you dislike ?}. In this case we leave no choice to the respondent to give a more meaningful reason.
+
+\subsubsection{Sequence Your Questions to get the Most out of Participants}
+\autocite{tuckman1965} argues that all groups go through the five stages of forming, storming, norming, performing, mourning. This work has been widely accepted and cited. Table \ref{table:groupStagesTable} from \autocite{belk2007handbook} shows the different stages with their characteristics and the associated moderator's task.
+
+\begin{table}[!htbp]
+\begin{center}
+\begin{tabularx}{\textwidth}{|l|X|X|X|}
+\hline
+Stage      & Underlying process & What happens & Moderator task \\
+\hline \hline
+Forming    & Participants feel separate, anxious, relatively powerless. & Awkwardness, caution, light social chit-chat, testing behaviours. & Empower and make safe by explaining the task, encourage interaction, react properly to testing behaviour. \\
+\hline
+Storming   & Share of voice, demanding attention, opting out or rebelling & Challenge moderator or others, question the task, emphasize individuality, dominant and passive participant emerge & Signal all opinions are of equal value, accept negative views but look also for positive, stop potentially dominant respondents being overbearing\\
+\hline
+Norming    &  Sense of harmony, cohesion and support, norms emerge and group take off & People take turn to speak without moderator having to ask, the energy feels positive and harmonious & Notice and enforce norms, deal with any implicit or explicit rule breaking ; time to get into the real work, make plans and set agendas, keep communication channels flexible.  \\
+\hline
+Performing & Individuals are subservient to the group, roles are flexible and task oriented & Sense of concentration and flow, everything seems easy, high energy, group works without being asked to & This is the time to introduce difficult questions, projective techniques \\
+\hline
+\multicolumn{4}{c}{The group slips back into one of the previous stages before it can perform again} \\
+\hline
+Mourning   & Completion of task and disbanding, may be sense of loss and anxiety, need for closure & Signal that the end is coming, summarize to give sense of achievement, ask if there is anything else, thank everyone. &  \\
+\hline
+\end{tabularx}
+\end{center}
+\caption{Stages of a focus group according to \autocite{tuckman1965} as in \autocite{belk2007handbook}.}
+\label{table:groupStagesTable}
+
+\end{table}
+
+This model helps us to sequence our questioning to get the most out of the group. First of all the moderator must make an introduction that needs to contain a few essential elements, this relates to the forming stage. Participants usually don't know each other and might feel a bit anxious or shy. First thank all participant for being present, continue with a presentation of the moderator and its role in the focus group. Stress that opinions of the participants are the only thing that matters and that the moderator won't give his. Be transparent and say that there will be a recording of the focus group and insist that it will be anonymous and that no names will be mentioned in the final report. Finally state how long the focus group will last and inform participants of a possible gathering after the event or how they can receive their incentive. A final thank you and announce the beginning of the focus group.
+
+After the introduction the group is not yet ready to perform so we need to sequence our questioning from the broader, simpler questions to the more specific, intimate, complex questions. The moderator needs to spend some time with simple questions to get the group going. These are usually question about the experience of the audience with the matter. Time management is critical here, spend just as much time as needed on these questions to leave more time for the actual interesting, meaningful questions.
+
+Once again the experience of the moderator plays an important role here. He must be able to \enquote{read} the group and notice when the group is in the performing phase. This is when the important questions must be addressed.
+
+From the previous points we see the need of a well thought-of sequence in the questioning. In order to help the moderator in conducting the focus group we must draft a document containing : the introduction, the main themes that need to be tackled, what are the key or transition questions for each theme and a few conclusion questions. This document will also ensure consistency if multiple focus groups are conducted. In a further section we will provide a draft of such a document.
+
+Group dynamics are complex yet the most important part of the focus group. A good sequence of questions and a well designed questioning route leverage group psychology along with a good moderator will ensure maximum results.
+
+\subsubsection{Implementation of the Focus Group}
+
+Since we sorted out the theoretical background and the progress of the focus group we can direct our attention on the actual implementation. We need to figure out multiple points. First the timing of the focus group, then the number of people attending, next the choice and recruitment of participants and finally logistics matters.
+
+In previous sections we emphasized on the importance of time management by the moderator during the questioning. Indeed, people in general can only be focus on one task for a little time ranging around one hour and forty five minutes plus or minus twenty minutes. Don't plan for a longer focus group and if the discussion lasts longer try to look for the moment where things go out of hand for the next focus group. This timing also has the advantage of permitting two focus groups to be conducted in one half-day \autocite{belk2007handbook}.
+
+In focus group there is group and therefore we need to decide how many people we want around the table. There is a lot of discussion around that subject, some are partisan of mini-focus groups of four to six people, some prefer larger consumer groups of ten to twelve people. The number of participants really depends on what needs to be studied and who are the guests. In our case we attract participants with lot of experience in their fields, people who are keen on talking about their topic for a long time. Therefore we are recommending groups of six to eight people. This can be further adapted. If during a focus group the moderator notices people whispering to the person next to them it means that the group is too big, if the group has trouble talking or sharing experiences that might be because there is not enough participants.
+
+The number of people is important but so is the choice of attendants. This is a tricky part because there are contradicting dynamics here. On one hand we know that people are more prone to express their genuine opinions in front of strangers, especially males (some studies show this is less true for women) \autocite{belk2007handbook}. On the other hand we need an heterogeneous so multiple point of views will be discussed. In our case we advocate that participants should be chosen because they share common professional occupation (they get to chose which software use or changes in methodology). Then it would be great if they were of different ages, different companies, with different background (coming from research, climbed the corporate ladder from the bottom, changed companies a lot), different experiences with computer systems and information technologies.
+
+When recruiting people it is important to think of incentives. Attending a focus group is costly for people in both time and energy, they might not be so excited to spend two hours talk about a topic instead of being with their family or relaxing in their sofa. A reflection has to be made to pinpoint the right incentive for the people we want to invite. A good starter would be to meet, maybe share a meal with some people from the targeted audience and ask them what would make them come. Incentives can be as simple as providing a nice meal after the focus group, but it needs to be validated by the very people we try to attract.
+
+Finally it is also important to think of the logistics before hand. First the focus group will need to be recorded, therefore we will need a room with the proper video and sound recording equipment. The location also needs to be calm and feature a round table so that everyone shares the same setting. 
+Perhaps it might be convenient to organize a little gathering with snacks and drinks at the end to let people talk to each other and deal with the mourning stage of the group.
 
 \subsection{Raw Data Analysis : Tools and Methodology}
 
+After conducting all the focus groups we are left with a considerable amount of data mostly constituted of transcripts and maybe moderator's feedback and impressions. This constitutes our raw database, in order to extract insights from it we can use different tools and approaches. The textual data analysis may be conducted in parallel with the data collection leading to some tweaks in the progress of the focus group \autocite{pope2000}. The researcher must go back and forth from theory-driven techniques that we present in this section to reading the textual data to never lose sight of the context. \autocite{pope2000} and \autocite{magne2014} course on qualitative marketing research give extensive informations on different techniques, the ones we focus on below were chosen because they are the most relevant to our case.
+
+\paragraph{Frequencies} Count the number of occurences of a word
+
+\paragraph{Co-occurence} How different concepts occur in same sentences from the same person. Mappin chi square?
+
+\paragraph{graph-theory driven techniques} Starting from a co-occurrence matrices as input. They provide a bigger picture view of the sample
 
 
-\paragraph{Methods of Questioning in Focus Group}
-What represent the best/worst compliance software ?
-What do you expect from it ?
+\subsection{Proposed Themes and Questioning Route for a Focus Group for Regorus}
 
+The table \ref{proposedRoadmap} is a proposition, a draft of a possible execution of a focus group. It describes principal themes and possible questions for each of them with associated intentions behind it. It can be seen as a starting point for a more thorough reflection on conducting a qualitative marketing research in the light of all the previous material.
 
-Markets and consumers represent a complex variety of views and perspectives\\
-Qualitative market study to discover what our clients are sensible to.\\
-Ask questions about the key points presented in the previous section about two-sided networks\\
+Themes ?
+Motivations (possible incentives)
+Decision making process
+Influences (Reaction to theory, people of influence)
+Features review (anticipated, likes, dislikes)
 
+\definecolor{myBlue}{HTML}{026079}
+\definecolor{blue}{HTML}{1693A5}
+\definecolor{Gray}{gray}{0.85}
+
+\renewcommand{\familydefault}{\sfdefault}
+\renewcommand{\arraystretch}{1.5}
+
+\begin{center}
+\begin{table}
+\begin{tabularx}{\textwidth}[t]{XX}
+\arrayrulecolor{blue}\hline
+\textbf{\textcolor{myBlue}{Goal 1 Eradicate Extreme Poverty}} & \\
+\hline
+Target 1.A Halve, between 1990 and 2015, the proportion of the people whose income is less than \$1 a day. & 
+\begin{minipage}[t]{\linewidth}%
+\begin{itemize}
+\item[1.1] Proportion of population below \$1 purchasing power parity (PPP) a day$^a$
+\item[1.2] Poverty Gap ratio [incidence x depth of poverty]
+\item[1.3] Share of the poorest quintile in national consumption
+\end{itemize} 
+\end{minipage}\\
+
+\arrayrulecolor{black}\hline
+
+Target 1.B Achieve full and productive employment and decent work for all, including women and young people &
+\begin{minipage}[t]{\linewidth}%
+\begin{itemize}
+\item[1.4] Growth of GDP per person employed 
+\item[1.5] Employment to population ratio
+\item[1.6] Proportion of employed people living below \$1 (PP) a day
+\item[1.7] Proportion of own-account and contribution family workers in total employment
+\end{itemize} 
+\end{minipage}\\
+
+\hline
+
+Target 1.C Halve, between 1990 and 2015, the proportion of people who suffer from hunger &
+\begin{minipage}[t]{\linewidth}%
+\begin{itemize}
+\item[1.8] Prevalence of underweight children under five years of age
+\item[1.9] Proportion of population below minimum level of dietary energy consumption
+\end{itemize}
+\end{minipage}\\
+
+\arrayrulecolor{blue}\hline
+\multicolumn{2}{l}{
+\textbf{\textcolor{myBlue}{Goal 2 Achieve universal primary education}}} \\
+\hline
+
+Target 2.A Ensure that by 2015 children everywhere, boy and girls alike, will be able to complete a full course of primary schooling. &
+\begin{minipage}[t]{\linewidth}%
+\begin{itemize}
+\item[2.1] Net enrollment ratio in primary education
+\item[2.2] Proportion of pupils starting grade 1 who reach last grade of primary education
+\item[2.3] Literacy rate of 15- to 24-year-olds, women and men
+\end{itemize}
+\end{minipage}\\
+
+\hline
+\multicolumn{2}{l}{%
+\textbf{\textcolor{myBlue}{Goal 3 Promote gender equality and empower women}}} \\
+\hline
+
+Target 3.A Eliminate gender disparity in primary and secondary education, preferably by 2005, and in all levels of education no later than 2015 &
+\begin{minipage}[t]{\linewidth}%
+\begin{itemize}
+\item[3.1] Ratios of girls to boys in primary, secondary and tertiary education
+\item[3.2] Share of women in wage employment in the non-agricultural sector.
+\end{itemize} 
+\end{minipage}
+\end{tabularx}
+\caption{Proposed themes and questions for a focus group on Regorus}
+\label{proposedRoadmap}
+\end{table}
+\end{center}
 
 
 
@@ -1108,9 +1290,6 @@ Ask questions about the key points presented in the previous section about two-s
 % Here is the bibliography on the last page
 \nocite{*}
 \setlength{\bibitemsep}{5pt}
-% \printbibliography[title={Book references},type=book, heading=subbibliography]
-% \printbibliography[title={Article references},type=article, heading=subbibliography]
-% \printbibliography[title={Online references},type=online, heading=subbibliography]
 
 \printbibliography[title={Technological references},keyword={tech}, heading=subbibliography]
 \printbibliography[title={Strategic references},keyword={strat}, heading=subbibliography]

@@ -12,94 +12,104 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1}A Short Introduction to Defeasible Logic}{4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2}Using Defeasible Deontic Logic to Represent Legal Norms and Regulations}{7}
+\contentsline {subsection}{\numberline {2}Using Defeasible Deontic Logic to Represent Legal Norms and Regulations}{6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.a}Different Types of Obligations}{8}
+\contentsline {subsubsection}{\numberline {2.a}Different Types of Obligations}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.b}Expressing Chains of Reparation with the $\otimes $ Operator}{9}
+\contentsline {subsubsection}{\numberline {2.b}Expressing Chains of Reparation with the $\otimes $ Operator}{8}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3}Business Process Model and Notation v2.0 a Graphical Representation of Business Processes}{9}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4}An Algorithm for Business Process Compliance}{11}
+\contentsline {subsection}{\numberline {4}An Algorithm for Business Process Compliance}{10}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5}Tools Already Developed : Regorus and SPINdle}{12}
+\contentsline {subsection}{\numberline {5}Tools Already Developed : Regorus and SPINdle}{11}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.a}Regorus}{13}
+\contentsline {subsubsection}{\numberline {5.a}Regorus}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {5.b}SPINdle}{13}
+\contentsline {subsubsection}{\numberline {5.b}SPINdle}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {II}Adding Features to Regorus}{15}
+\contentsline {section}{\numberline {II}Adding Features to Regorus}{14}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1}Implementing Cooccurrent Obligations}{15}
+\contentsline {subsection}{\numberline {1}Implementing Cooccurrent Obligations}{14}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.a}Presentation of the Problem}{15}
+\contentsline {subsubsection}{\numberline {1.a}Presentation of the Problem}{14}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.b}Implementation in the Codebase}{16}
+\contentsline {subsubsection}{\numberline {1.b}Implementation in the Codebase}{15}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2}XOR Splits and the Condition Associated to Them}{17}
+\contentsline {subsection}{\numberline {2}XOR Splits and the Condition Associated to Them}{16}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Just Thinking about stuff}{18}
+\contentsline {paragraph}{Just Thinking about stuff}{17}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3}Porting the Eclipse Plug-In to the Kepler Version of Eclipse}{19}
+\contentsline {subsection}{\numberline {3}Porting the Eclipse Plug-In to the Kepler Version of Eclipse}{17}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {III}Extending the Theoretical Model by Adding Time}{19}
+\contentsline {section}{\numberline {III}Extending the Theoretical Model by Adding Time}{18}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1}Motivation for Adding Time in Defeasible Logic}{20}
+\contentsline {subsection}{\numberline {1}Motivation for Adding Time in Defeasible Logic}{18}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2}Temporal Formalism for Deontic Defeasible Logic}{21}
+\contentsline {subsection}{\numberline {2}Temporal Formalism for Deontic Defeasible Logic}{19}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3}Proving that Defeasible Logic and Temporal Defeasible Logic Reach the Same Conclusions}{22}
+\contentsline {subsection}{\numberline {3}Proving that Defeasible Logic and Temporal Defeasible Logic Reach the Same Conclusions}{20}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Consider sets of obligations from the algo}{25}
+\contentsline {paragraph}{Consider sets of obligations from the algo}{22}
 \defcounter {refsection}{0}\relax 
 \newpage 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {III} Strategic Reflection on Regorus}{27}
+\contentsline {chapter}{\numberline {III} Strategic Reflection on Regorus}{25}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {I}Business Process Management and Compliance}{27}
+\contentsline {section}{\numberline {I}Business Process Management and Compliance}{25}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {II}A Critical Summary of the Work Done}{28}
+\contentsline {section}{\numberline {II}A Critical Summary of the Work Done}{26}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1}Historic}{28}
+\contentsline {subsection}{\numberline {1}Historic}{26}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2}Comments}{30}
+\contentsline {subsection}{\numberline {2}Comments}{28}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {III}Finding a Business Model for Regorus}{31}
+\contentsline {section}{\numberline {III}Finding a Business Model for Regorus}{28}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1}Two-Sided Markets}{31}
+\contentsline {subsection}{\numberline {1}Two-Sided Markets}{29}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.a}A Definition for Two-Sided Markets and its Dynamics}{32}
+\contentsline {subsubsection}{\numberline {1.a}A Definition for Two-Sided Markets and its Dynamics}{29}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2}How Does Regorus Fits the Model}{34}
+\contentsline {subsection}{\numberline {2}How Does Regorus Fits the Model}{31}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.a}Possible Users of the Platform and Strategies}{34}
+\contentsline {subsubsection}{\numberline {2.a}Possible Users of the Platform and Strategies}{31}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.b}Platform Pricing}{35}
+\contentsline {subsubsection}{\numberline {2.b}Platform Pricing}{32}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3}How Business Process Modelling is Integrated in Knowledge Management}{36}
+\contentsline {subsection}{\numberline {3}How Business Process Modelling is Integrated in Knowledge Management}{33}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.a}Presentation of Knowledge Management and its Advantages}{36}
+\contentsline {subsubsection}{\numberline {3.a}Presentation of Knowledge Management and its Advantages}{33}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.b}Regorus Uses BPMN Which is Designed to Make Knowledge Explicit}{37}
+\contentsline {subsubsection}{\numberline {3.b}Regorus Uses BPMN Which is Designed to Make Knowledge Explicit}{33}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {IV}What can be done to improve market penetration : Qualitative Marketing Research}{37}
+\contentsline {section}{\numberline {IV}What can be done to improve market penetration : Qualitative Marketing Research}{34}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1}Qualitative Marketing Research Explained}{37}
+\contentsline {subsection}{\numberline {1}Qualitative Marketing Research Explained}{34}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.a}Definition and Objectives}{37}
+\contentsline {subsubsection}{\numberline {1.a}Definition and Objectives}{34}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.b}Interpretation and Reliability of Qualitative Research Results}{38}
+\contentsline {subsubsection}{\numberline {1.b}Interpretation and Reliability of Qualitative Research Results}{35}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2}What are we Researching ?}{38}
+\contentsline {subsection}{\numberline {2}What are we Researching ?}{35}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3}The Focus Group (or Interviews), Methodology, Goals and Progress}{39}
+\contentsline {subsection}{\numberline {3}The Focus Group, Methodology, Goals and Progress}{36}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.a}History and Theoretical Background}{39}
+\contentsline {subsubsection}{\numberline {3.a}History and Theoretical Background}{36}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.b}Methodology and Objectives of the Focus Group}{40}
+\contentsline {subsubsection}{\numberline {3.b}The Role of the Moderator}{36}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.c}Proposed Themes for a Focus Group with Open-Questions}{40}
+\contentsline {subsubsection}{\numberline {3.c}How to Come up With Good Questions}{38}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4}Raw Data Analysis : Tools and Methodology}{40}
+\contentsline {subsubsection}{\numberline {3.d}Sequence Your Questions to get the Most out of Participants}{39}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Methods of Questioning in Focus Group}{40}
+\contentsline {subsubsection}{\numberline {3.e}Implementation of the Focus Group}{41}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4}Raw Data Analysis : Tools and Methodology}{42}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Frequencies}{42}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Co-occurence}{42}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{graph-theory driven techniques}{42}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5}Proposed Themes and Questioning Route for a Focus Group for Regorus}{42}

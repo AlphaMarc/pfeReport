@@ -238,6 +238,28 @@
   \field{year}{2012}
 \endentry
 
+\entry{Calder1977}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Calder}{C.}%
+     {Bobby~J}{B.~J.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {JSTOR}%
+  }
+  \keyw{strat}
+  \strng{namehash}{CBJ1}
+  \strng{fullhash}{CBJ1}
+  \field{labelyear}{1977}
+  \field{sortinit}{C}
+  \field{pages}{353\bibrangedash 364}
+  \field{title}{Focus groups and the nature of qualitative marketing research}
+  \field{journaltitle}{Journal of Marketing research}
+  \field{year}{1977}
+\endentry
+
 \entry{carson2001}{book}{}
   \name{author}{4}{}{%
     {{}%
@@ -686,6 +708,32 @@
   \field{year}{2009}
 \endentry
 
+\entry{Imms2002}{book}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Imms}{I.}%
+     {Mike}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ereaut}{E.}%
+     {Gill}{G.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Sage}%
+  }
+  \keyw{strat}
+  \strng{namehash}{IMEG1}
+  \strng{fullhash}{IMEG1}
+  \field{labelyear}{2002}
+  \field{sortinit}{I}
+  \field{title}{An introduction to qualitative market research}
+  \field{volume}{1}
+  \field{year}{2002}
+\endentry
+
 \entry{IBT2011}{online}{}
   \name{author}{1}{}{%
     {{}%
@@ -715,6 +763,27 @@
   \field{urlday}{24}
   \field{urlmonth}{06}
   \field{urlyear}{2014}
+\endentry
+
+\entry{Janis1982}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Janis}{J.}%
+     {Irving~Lester}{I.~L.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Houghton Mifflin}%
+  }
+  \keyw{strat}
+  \strng{namehash}{JIL1}
+  \strng{fullhash}{JIL1}
+  \field{labelyear}{1982}
+  \field{sortinit}{J}
+  \field{title}{Groupthink: Psychological studies of policy decisions and
+  fiascoes}
+  \field{year}{1982}
 \endentry
 
 \entry{jeston2014}{book}{}
@@ -809,6 +878,30 @@
   \field{urlday}{27}
   \field{urlmonth}{05}
   \field{urlyear}{2014}
+\endentry
+
+\entry{Krueger2000}{book}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Krueger}{K.}%
+     {Richard~A}{R.~A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Casey}{C.}%
+     {Mary~Anne}{M.~A.}%
+     {}{}%
+     {}{}}%
+  }
+  \keyw{strat}
+  \strng{namehash}{KRACMA1}
+  \strng{fullhash}{KRACMA1}
+  \field{labelyear}{2000}
+  \field{sortinit}{K}
+  \field{edition}{3rd ed}
+  \field{title}{Focus groups}
+  \field{journaltitle}{A practical guide for applied research}
+  \field{year}{2000}
 \endentry
 
 \entry{coursKyle}{unpublished}{}
@@ -913,6 +1006,29 @@
   \endverb
   \field{volume}{6403}
   \field{year}{2010}
+\endentry
+
+\entry{Lazarfeld1935}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Lazarsfeld}{L.}%
+     {Paul~F}{P.~F.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {JSTOR}%
+  }
+  \keyw{strat}
+  \strng{namehash}{LPF1}
+  \strng{fullhash}{LPF1}
+  \field{labelyear}{1935}
+  \field{sortinit}{L}
+  \field{pages}{26\bibrangedash 38}
+  \field{title}{The art of asking WHY in marketing research: Three principles
+  underlying the formulation of questionnaires}
+  \field{journaltitle}{National marketing review}
+  \field{year}{1935}
 \endentry
 
 \entry{MaherSPINdle}{article}{}
@@ -1346,6 +1462,40 @@
   \field{year}{2005}
 \endentry
 
+\entry{pope2000}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Pope}{P.}%
+     {Catherine}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ziebland}{Z.}%
+     {Sue}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Mays}{M.}%
+     {Nicholas}{N.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {BMJ}%
+  }
+  \keyw{strat}
+  \strng{namehash}{PCZSMN1}
+  \strng{fullhash}{PCZSMN1}
+  \field{labelyear}{2000}
+  \field{sortinit}{P}
+  \field{number}{7227}
+  \field{pages}{114\bibrangedash 116}
+  \field{title}{Analysing qualitative data}
+  \field{volume}{320}
+  \field{journaltitle}{Bmj}
+  \field{year}{2000}
+\endentry
+
 \entry{rochet2003platform}{article}{}
   \name{author}{2}{}{%
     {{}%
@@ -1395,6 +1545,35 @@
   \field{urlday}{19}
   \field{urlmonth}{06}
   \field{urlyear}{2014}
+\endentry
+
+\entry{tuckman1965}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Tuckman}{T.}%
+     {Bruce~W}{B.~W.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Jensen}{J.}%
+     {Mary Ann~C}{M.~A.~C.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Sage Publications}%
+  }
+  \keyw{strat}
+  \strng{namehash}{TBWJMAC1}
+  \strng{fullhash}{TBWJMAC1}
+  \field{labelyear}{1977}
+  \field{sortinit}{T}
+  \field{number}{4}
+  \field{pages}{419\bibrangedash 427}
+  \field{title}{Stages of small-group development revisited}
+  \field{volume}{2}
+  \field{journaltitle}{Group \& Organization Management}
+  \field{year}{1977}
 \endentry
 
 \entry{van1979reclaiming}{article}{}
