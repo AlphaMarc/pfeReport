@@ -6,6 +6,7 @@
 \usepackage[LGR,T1]{fontenc} % this is to be able to output greek 
 
 \usepackage[table]{xcolor} % nice table at the end
+\usepackage{ltxtable, tabularx, longtable} % multipage table
 
 \usepackage{listings} 												% for java code snippets
 \lstset{language=Java,												% for java code snippets
@@ -1192,7 +1193,7 @@ After conducting all the focus groups we are left with a considerable amount of 
 
 \subsection{Proposed Themes and Questioning Route for a Focus Group for Regorus}
 
-The table \ref{proposedRoadmap} is a proposition, a draft of a possible execution of a focus group. It describes principal themes and possible questions for each of them with associated intentions behind it. It can be seen as a starting point for a more thorough reflection on conducting a qualitative marketing research in the light of all the previous material.
+The table \ref{proposedRoadmap} is a proposition, a draft of a possible execution of a focus group. It describes principal themes and possible questions for each of them with associated intentions behind it. For each questions don't forget the basic rules of questioning and try to get the most out of participants by using probing techniques and follow-up questions. It can be seen as a starting point for a more thorough reflection on conducting a qualitative marketing research in the light of all the previous material.
 
 Themes ?
 Motivations (possible incentives)
@@ -1200,85 +1201,23 @@ Decision making process
 Influences (Reaction to theory, people of influence)
 Features review (anticipated, likes, dislikes)
 
+
 \definecolor{myBlue}{HTML}{026079}
 \definecolor{blue}{HTML}{1693A5}
-\definecolor{Gray}{gray}{0.85}
+\definecolor{Gray}{gray}{0.55}
 
 \renewcommand{\familydefault}{\sfdefault}
 \renewcommand{\arraystretch}{1.5}
 
-\begin{center}
-\begin{table}
-\begin{tabularx}{\textwidth}[t]{XX}
-\arrayrulecolor{blue}\hline
-\textbf{\textcolor{myBlue}{Goal 1 Eradicate Extreme Poverty}} & \\
-\hline
-Target 1.A Halve, between 1990 and 2015, the proportion of the people whose income is less than \$1 a day. & 
-\begin{minipage}[t]{\linewidth}%
-\begin{itemize}
-\item[1.1] Proportion of population below \$1 purchasing power parity (PPP) a day$^a$
-\item[1.2] Poverty Gap ratio [incidence x depth of poverty]
-\item[1.3] Share of the poorest quintile in national consumption
-\end{itemize} 
-\end{minipage}\\
+\newpage
+\LTXtable{\textwidth}{fancy-table.tex}
 
-\arrayrulecolor{black}\hline
 
-Target 1.B Achieve full and productive employment and decent work for all, including women and young people &
-\begin{minipage}[t]{\linewidth}%
-\begin{itemize}
-\item[1.4] Growth of GDP per person employed 
-\item[1.5] Employment to population ratio
-\item[1.6] Proportion of employed people living below \$1 (PP) a day
-\item[1.7] Proportion of own-account and contribution family workers in total employment
-\end{itemize} 
-\end{minipage}\\
-
-\hline
-
-Target 1.C Halve, between 1990 and 2015, the proportion of people who suffer from hunger &
-\begin{minipage}[t]{\linewidth}%
-\begin{itemize}
-\item[1.8] Prevalence of underweight children under five years of age
-\item[1.9] Proportion of population below minimum level of dietary energy consumption
-\end{itemize}
-\end{minipage}\\
-
-\arrayrulecolor{blue}\hline
-\multicolumn{2}{l}{
-\textbf{\textcolor{myBlue}{Goal 2 Achieve universal primary education}}} \\
-\hline
-
-Target 2.A Ensure that by 2015 children everywhere, boy and girls alike, will be able to complete a full course of primary schooling. &
-\begin{minipage}[t]{\linewidth}%
-\begin{itemize}
-\item[2.1] Net enrollment ratio in primary education
-\item[2.2] Proportion of pupils starting grade 1 who reach last grade of primary education
-\item[2.3] Literacy rate of 15- to 24-year-olds, women and men
-\end{itemize}
-\end{minipage}\\
-
-\hline
-\multicolumn{2}{l}{%
-\textbf{\textcolor{myBlue}{Goal 3 Promote gender equality and empower women}}} \\
-\hline
-
-Target 3.A Eliminate gender disparity in primary and secondary education, preferably by 2005, and in all levels of education no later than 2015 &
-\begin{minipage}[t]{\linewidth}%
-\begin{itemize}
-\item[3.1] Ratios of girls to boys in primary, secondary and tertiary education
-\item[3.2] Share of women in wage employment in the non-agricultural sector.
-\end{itemize} 
-\end{minipage}
-\end{tabularx}
-\caption{Proposed themes and questions for a focus group on Regorus}
-\label{proposedRoadmap}
-\end{table}
-\end{center}
 
 
 
 \newpage
+
 % -------------------------------- %
 %           BIBLIOGRAPHY           %
 % -------------------------------- %
