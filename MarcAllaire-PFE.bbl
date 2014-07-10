@@ -1525,6 +1525,36 @@
   \field{year}{2003}
 \endentry
 
+\entry{AFCwebsite}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Technology}{T.}%
+     {Beacon}{B.}%
+     {}{}%
+     {}{}}%
+  }
+  \keyw{strat}
+  \strng{namehash}{TB1}
+  \strng{fullhash}{TB1}
+  \field{labelyear}{2010}
+  \field{sortinit}{T}
+  \field{titleaddon}{Beacon Technology Partners}
+  \field{title}{Correspondence Analysis (Perceptual Mapping)}
+  \verb{url}
+  \verb http://www.beacontech.com/market-research-tools-we-use/quantitative-ana
+  \verb lysis/correspondence-analysis-tools-perceptual-mapping.asp
+  \endverb
+  \verb{file}
+  \verb Correspondence Analysis (Perceptual Mapping):/home/marc/.mozilla/firefo
+  \verb x/08my123y.default/zotero/storage/93VSRAPT/correspondence-analysis-tool
+  \verb s-perceptual-mapping.html:text/html
+  \endverb
+  \field{year}{2010}
+  \field{urlday}{10}
+  \field{urlmonth}{07}
+  \field{urlyear}{2014}
+\endentry
+
 \entry{ApromoreWebsite}{online}{}
   \name{author}{1}{}{%
     {{}%
@@ -1627,6 +1657,36 @@
   \field{volume}{13}
   \field{journaltitle}{Expert Systems with Applications}
   \field{year}{1997}
+\endentry
+
+\entry{yelland2010correspondence}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Yelland}{Y.}%
+     {Phillip}{P.}%
+     {}{}%
+     {}{}}%
+  }
+  \keyw{strat}
+  \strng{namehash}{YP1}
+  \strng{fullhash}{YP1}
+  \field{labelyear}{2010}
+  \field{sortinit}{Y}
+  \verb{doi}
+  \verb 10.3888/tmj.12-4
+  \endverb
+  \field{issn}{10971610}
+  \field{title}{An Introduction to Correspondence Analysis}
+  \verb{url}
+  \verb http://www.mathematica-journal.com/2010/09/an-introduction-to-correspon
+  \verb dence-analysis/
+  \endverb
+  \field{volume}{12}
+  \field{journaltitle}{The Mathematica Journal}
+  \field{year}{2010}
+  \field{urlday}{10}
+  \field{urlmonth}{07}
+  \field{urlyear}{2014}
 \endentry
 
 \lossort

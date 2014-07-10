@@ -38,19 +38,17 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2}XOR Splits and the Condition Associated to Them}{16}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Just Thinking about stuff}{17}
+\contentsline {subsection}{\numberline {3}Porting the Eclipse Plug-In to the Kepler Version of Eclipse}{18}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3}Porting the Eclipse Plug-In to the Kepler Version of Eclipse}{17}
+\contentsline {section}{\numberline {III}Extending the Theoretical Model by Adding Time}{19}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {III}Extending the Theoretical Model by Adding Time}{18}
+\contentsline {subsection}{\numberline {1}Motivation for Adding Time in Defeasible Logic}{19}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1}Motivation for Adding Time in Defeasible Logic}{18}
+\contentsline {subsection}{\numberline {2}Temporal Formalism for Deontic Defeasible Logic}{20}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2}Temporal Formalism for Deontic Defeasible Logic}{19}
+\contentsline {subsection}{\numberline {3}Proving that Defeasible Logic and Temporal Defeasible Logic Reach the Same Conclusions}{21}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3}Proving that Defeasible Logic and Temporal Defeasible Logic Reach the Same Conclusions}{20}
-\defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Consider sets of obligations from the algo}{22}
+\contentsline {paragraph}{Consider sets of obligations from the algo}{23}
 \defcounter {refsection}{0}\relax 
 \newpage 
 \defcounter {refsection}{0}\relax 
@@ -104,12 +102,6 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.e}Implementation of the Focus Group}{41}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4}Raw Data Analysis : Tools and Methodology}{42}
+\contentsline {subsection}{\numberline {4}Textual Data Analysis : Tools and Methodology}{42}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Frequencies}{42}
-\defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Co-occurence}{42}
-\defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{graph-theory driven techniques}{42}
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5}Proposed Themes and Questioning Route for a Focus Group for Regorus}{42}
+\contentsline {subsection}{\numberline {5}Proposed Themes and Questioning Route for a Focus Group for Regorus}{43}

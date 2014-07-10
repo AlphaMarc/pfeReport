@@ -143,10 +143,8 @@
 \LARGE \uppercase{Extension of a Business Process Compliance tool\\Revision of the Product's Strategy}
 \end{framed}
 
-\vspace{1cm}
-\large En vue de l'obtention des diplomes \\
-Ingénieur Informatique et Réseaux de l'INSA de Toulouse\\
-Master Management de l'Innovation de l'IAE de Toulouse
+\vspace{2cm}
+
 
 \end{center}
 \vspace{1.5cm}
@@ -155,6 +153,7 @@ Master Management de l'Innovation de l'IAE de Toulouse
 \end{flushright}
 
 \vspace{1.3cm}
+
 \begin{center}
 \begin{minipage}{.3\textwidth}
 \begin{center}
@@ -182,6 +181,8 @@ margaret.kyle@iae-toulouse.fr
 \end{minipage}
 \end{center}
 
+
+
 \vfill
 \begin{minipage}{0.55\textwidth}
 \begin{flushleft}
@@ -203,6 +204,10 @@ IAE - Master Management Stratégique,\\\hspace{.5cm}Spécialité Management de l
 % -------------------------------- %
 %              REPORT              %
 % -------------------------------- %
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
 
 \restoregeometry
 \newgeometry{bottom=1in}
@@ -239,9 +244,9 @@ The report finds that the lack of a proper marketing study for Regorus is leadin
 \begin{center}
 \begin{minipage}{.8\textwidth}
 \textbf{\large Acknowledgement}\\\\
-I would like to take this opportunity to thank all the people who have contributed in some way to this report particularly Mr Guido Governatori who initiated the project, for his attention and for trusting me making this extraordinary experience possible. \\
+I would like to take this opportunity to thank all the people who have contributed in some way to this report particularly Mr Guido Governatori who initiated the project, for his attention and for trusting me, making this extraordinary experience possible. \\
 
-I also thank all the member of NICTA QRL who were always ready to help me. It was an amazing adventure both humanely and professionally \\
+I also thank all the member of NICTA QRL who were always ready to help me and keen on sharing their experiences. It was an amazing adventure both humanely and professionally \\
 
 Finally, I would like to thank all the members of the Business Process Compliance group for their patience and the time they spent to explain their work to me.\\
 
@@ -469,9 +474,9 @@ One of the main alternatives is the BPEL language. It was designed to be computa
 \caption{A simple example of a business process using BPMN from \autocite{BPMNexample}}
 \end{figure}
 
-Above is a small example of the BPMN reprensentation of a business process. You can see how clear and straightforward this is. You don't need to understand the BPMN standard or have read the six hundred pages specification to grasp the meaning of this flow chart.
+Above is a small example of the BPMN representation of a business process. You can see how clear and straightforward this is. You don't need to understand the BPMN standard or have read the six hundred pages specification to grasp the meaning of this flow chart.
 
-Another reason for using BPMN as a business process modelling tool is the Apromore a java API already developed that allows us to store, represent and compute models of business processes. Furthermore Apromore is a mature, well written library that facilitates the management of large business processes and models. It also includes a presentation part which is integrated with graphiti (the eclipse plug-in library for presentation) in Regorus. With this library we can use only one memory model for business processes from graphical specification to compliance checking \autocite{ApromoreWebsite}.
+Another reason for using BPMN as a business process modelling tool is the Apromore a Java API already developed that allows us to store, represent and compute models of business processes. Furthermore Apromore is a mature, well written library that facilitates the management of large business processes and models. It also includes a presentation part which is integrated with graphiti (the eclipse plug-in library for presentation) in Regorus. With this library we can use only one memory model for business processes from graphical specification to compliance checking \autocite{ApromoreWebsite}.
 
 
 
@@ -654,24 +659,35 @@ Again for cooccurrent obligations if the effect associated with the edge of the 
 
 We chose to follow these steps to implement this desired behaviour :
 \begin{enumerate}
-\item Identify the XOR splits in the business process graph
-\item When on a XOR split make a call to SPINdle to generate the obligations triggered by the effect associated with the edge,forward the new obligations to the next node without calling the compliance checking algorithm
+\item Identify the XOR splits in the business process graph.
+\item When on a XOR split make a call to SPINdle to generate the obligations triggered by the effect associated with the edge.
+\item Forward the new obligations to the next node without calling the compliance checking algorithm.
 \end{enumerate}
 
-\paragraph{Just Thinking about stuff} 
-So if XOR splits conditions are not implemented in the code, how are they taken into account. I think they are put in by the eclipse plugin maybe using some special apromore feature. If that is the case we need to see if it translates to a kind of dummy task. How is that implemented in the core library. Wouldn't it be better if the core library could handle that rather than leaving this to the eclipse plug-in ?
+The problem is that neither the XOR splits or arcs as represented in the bpc core libraries include fields to store conditions. It's therefore impossible that the information about the condition is stored in the core. This leads me to think that the dummy node thing is done in the eclipse plug-in then a business process graph with dummy nodes is handed to the core library. 
+
+I was unsuccessful in locating the part of the eclipse plug-in that was doing what I described just before. What would be interesting is to follow the trace of a business process from the design in the plug-in interface to its translation with the Apromore library to its handling by the core libraries. This could help us understand where these dummy nodes appear and where we should implement the desired behaviour.
+
+Unfortunately, I didn't have the time to finish solving this problem. I laid down possible tracks to follow in order to find a solution above. I think I lacked experience searching through huge code and not enough practice going trough classes to find a special behaviour. What makes it even harder with Java and other imperative languages is that the name of the function gives absolutely no guarantee whatsoever about the actual implementation of the function. Maybe going towards a more functional and strongly typed language such as Haskell for the core library could reduce dramatically the size of it and definitely improve readability. Sadly this would be done at the expense of interoperability with pre-existing Java libraries.
+
+Nevertheless I gained a lot of practical experience trying to solve this problem and discovered new features of the eclipse IDE that I didn't know of before. This is a very valuable first encounter with production software and it highlighted the importance of clean, modular code for future projects of my own.
 
 
 \subsection{Porting the Eclipse Plug-In to the Kepler Version of Eclipse}
 
 New releases come with their burden of broken APIs and unresolved functions names. Eclipse is not an exception for that matter. The Eclipse plug-in code has not been touched for two years so when I tried to compile and run it on my machine I stumbled upon a lot of errors. Like other complex software the eclipse plug-in depends on some third-party library to work properly. These evolved quite a bit over time to a point where function that once existed where not even referenced in the last version.
 
-First let me tell you about the \textit{graphiti} library. It's a component of the \enquote{Eclipse Modelling Framework}. As one of the main feature of the plug-in is to be able to draw business process, it relies on this library. Really this hasn't been too much of a hassle since like other eclipse core libraries it is pretty well documented and the javadoc is easily available online. One of the methods the code was using wasn't referenced any more in the Kepler version of the library and the type calling this method was marked as deprecated. 
+From the moment when Regorus was modified for the last time and the moment I took it back two years had passed. Most of the third party libraries had changed versions. At first I wanted to get everything to work with the latest versions but seeing the number of errors this yielded I reduced my objective to only port the plug-in to the new eclipse libraries. This was already a challenge.
 
-I eventually found a workaround for my problem but it taught me a great lesson for future software documentation I may write : always not only document what you changed but also why or to what purpose you changed the library.
+I won't get into much details about the what I had to change to make the plug-in compile again. I will rather explain what this experience taught me as a software engineer.
 
-This task also trained me on a part of software development we rarely talk about in class : production environment and dependency management. Developing a software that is portable is really important and it must be a very important concern. Will the libraries I use be available for future developers ? Are the maintainers of these libraries care about backports or keeping legacy software usable ?
-These are very important concerns and even more difficult to enforce in a Java environment. %citation needed
+The \textit{graphiti} library is a component of the \enquote{Eclipse Modelling Framework}. As one of the main feature of the plug-in is to be able to draw business process, it relies on this library. Like other eclipse core libraries it is pretty well documented and the javadoc is easily available online. Maybe too easily avaiable as there was javadoc websites for every version of eclipse which was a bit troubling at first. After a while, I found the right version that could explain the errors I had on my IDE (One of the methods the code was using wasn't referenced any more in the Kepler version of the library and the type calling this method was marked as deprecated). Even though the new methods were documented, nothing was said about why this had been deprecated and how it was possible to work around this. I eventually found a workaround for my problem but it taught me a great lesson for future software documentation I may write : always not only document what you changed but also why or to what purpose you changed the library.
+
+During this exercise I familiarized myself with build tools such as maven which manage dependencies and make the building process painless. Although from a developer point of view it can be a real mess especially because it relies on hard-coded urls to get the dependencies which can yield 404 errors if the website has changed. This means manually changing the address in the configuration file. Maven with ant are however the de-facto tools for automated building Java applications and it was interesting learn more about them. Once again this is something that can only be covered in a production environment and is hard to actually introduce in class.
+
+This task presented me a part of software development we rarely talk about in class : production environment and dependency management. Developing a software that is portable is really important and it must be a very important concern. Will the libraries I use be available for future developers ? Are the maintainers of these libraries care about backports or keeping legacy software usable ? These are questions a developer should always ask himself and even more difficult to enforce in a Java environment. Sometimes it is better to implement a less good feature with strong, supported libraries.
+
+
 
 
 \section{Extending the Theoretical Model by Adding Time}
@@ -1132,7 +1148,7 @@ Finally try to avoid \enquote{why} questions because they are often aggressive a
 
 \begin{table}[!htbp]
 \begin{center}
-\begin{tabularx}{\textwidth}{|l|X|X|X|}
+\begin{tabularx}{\textwidth}{lXXX}
 \hline
 Stage      & Underlying process & What happens & Moderator task \\
 \hline \hline
@@ -1142,7 +1158,7 @@ Storming   & Share of voice, demanding attention, opting out or rebelling & Chal
 \hline
 Norming    &  Sense of harmony, cohesion and support, norms emerge and group take off & People take turn to speak without moderator having to ask, the energy feels positive and harmonious & Notice and enforce norms, deal with any implicit or explicit rule breaking ; time to get into the real work, make plans and set agendas, keep communication channels flexible.  \\
 \hline
-Performing & Individuals are subservient to the group, roles are flexible and task oriented & Sense of concentration and flow, everything seems easy, high energy, group works without being asked to & This is the time to introduce difficult questions, projective techniques \\
+Performing & Individuals are subservient to the group, roles are flexible and task oriented & Sense of concentration and flow, everything seems easy, high energy, group works without being asked to & This is the time to introduce difficult questions, use projective techniques \\
 \hline
 \multicolumn{4}{c}{The group slips back into one of the previous stages before it can perform again} \\
 \hline
@@ -1180,34 +1196,40 @@ When recruiting people it is important to think of incentives. Attending a focus
 Finally it is also important to think of the logistics before hand. First the focus group will need to be recorded, therefore we will need a room with the proper video and sound recording equipment. The location also needs to be calm and feature a round table so that everyone shares the same setting. 
 Perhaps it might be convenient to organize a little gathering with snacks and drinks at the end to let people talk to each other and deal with the mourning stage of the group.
 
-\subsection{Raw Data Analysis : Tools and Methodology}
+\subsection{Textual Data Analysis : Tools and Methodology}
 
 After conducting all the focus groups we are left with a considerable amount of data mostly constituted of transcripts and maybe moderator's feedback and impressions. This constitutes our raw database, in order to extract insights from it we can use different tools and approaches. The textual data analysis may be conducted in parallel with the data collection leading to some tweaks in the progress of the focus group \autocite{pope2000}. The researcher must go back and forth from theory-driven techniques that we present in this section to reading the textual data to never lose sight of the context. \autocite{pope2000} and \autocite{magne2014} course on qualitative marketing research give extensive informations on different techniques, the ones we focus on below were chosen because they are the most relevant to our case.
 
-\paragraph{Frequencies} Count the number of occurences of a word
+Before anything one possibility is to code the answers to the questions. This consists in creating semantic groups of words. For example the words \enquote{family} and \enquote{doctor} cannot be considered separately if used jointly because then, they refer to the \enquote{family doctor}. This analysis can be automated to a point using computer software that can reduce expressions by eliminating conjunctions and other small words or by truncate verbs to the infinitive form. Once the semantic groups are made we will have greatly reduced the number of words in the study. This method yields interesting and fast results. It is easy to implement and to understand. It can be cross exploited with other methods such as co-occurrence of themes.
 
-\paragraph{Co-occurence} How different concepts occur in same sentences from the same person. Mappin chi square?
+This approach however has a few drawbacks. It can be biased by the person coding the text because this can lead to interpretations or complex choices. Moreover by doing this we lose informations about the tone or the form of the speech and the rare or complex answers are lost. 
 
-\paragraph{graph-theory driven techniques} Starting from a co-occurrence matrices as input. They provide a bigger picture view of the sample
+More complex techniques like the correspondence analysis can also be used and leveraged by specialized software. Correspondence analysis gives us a graphical representation of cross tabulation. Such tables appear when we can compare the frequency of events for different categories. In our example we could compare the frequency of keywords (from previous coding) for each participants. \autocite{yelland2010correspondence} This method outputs a two-dimensional map presenting the different terms and participants. It uses the chi-square as distance between two qualitative variables. The mapping can be (and should be) done by software built for qualitative marketing research analysis.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.85\textwidth]{AFCex.jpg}
+\caption{An example of a correspondence analysis map from \autocite{AFCwebsite}}
+\label{AFCexample}
+\end{figure}
+
+Figure \ref{AFCexample} is an example of the map output from a correspondence analysis. It is a powerful visual tool. For example we can see that, in the mind of participants, Brand E is seen as more innovative. Precisely this means that the innovative term or semantic group is often associated or co-occurring with Brand E. Also we see that Brand D is associated with lot of words which can be interpreted as a leadership position on the market.
+
 
 
 \subsection{Proposed Themes and Questioning Route for a Focus Group for Regorus}
 
 The table \ref{proposedRoadmap} is a proposition, a draft of a possible execution of a focus group. It describes principal themes and possible questions for each of them with associated intentions behind it. For each questions don't forget the basic rules of questioning and try to get the most out of participants by using probing techniques and follow-up questions. It can be seen as a starting point for a more thorough reflection on conducting a qualitative marketing research in the light of all the previous material.
 
-Themes ?
-Motivations (possible incentives)
-Decision making process
-Influences (Reaction to theory, people of influence)
-Features review (anticipated, likes, dislikes)
-
 
 \definecolor{myBlue}{HTML}{026079}
 \definecolor{blue}{HTML}{1693A5}
 \definecolor{Gray}{gray}{0.55}
+\definecolor{lightGray}{HTML}{EEEEEE}
 
 \renewcommand{\familydefault}{\sfdefault}
 \renewcommand{\arraystretch}{1.5}
+
 
 \newpage
 \LTXtable{\textwidth}{fancy-table.tex}
