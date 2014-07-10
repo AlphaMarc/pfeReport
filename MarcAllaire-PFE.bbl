@@ -295,6 +295,57 @@
   \field{year}{2001}
 \endentry
 
+\entry{chesbrough2006}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Chesbrough}{C.}%
+     {Henry}{H.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Crowther}{C.}%
+     {Adrienne~Kardon}{A.~K.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Wiley Online Library}%
+  }
+  \keyw{strat}
+  \strng{namehash}{CHCAK1}
+  \strng{fullhash}{CHCAK1}
+  \field{labelyear}{2006}
+  \field{sortinit}{C}
+  \field{number}{3}
+  \field{pages}{229\bibrangedash 236}
+  \field{title}{Beyond high tech: early adopters of open innovation in other
+  industries}
+  \field{volume}{36}
+  \field{journaltitle}{R\&d Management}
+  \field{year}{2006}
+\endentry
+
+\entry{chesbrough2003}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Chesbrough}{C.}%
+     {Henry~William}{H.~W.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Harvard Business Press}%
+  }
+  \keyw{strat}
+  \strng{namehash}{CHW1}
+  \strng{fullhash}{CHW1}
+  \field{labelyear}{2003}
+  \field{sortinit}{C}
+  \field{title}{Open innovation: The new imperative for creating and profiting
+  from technology}
+  \field{year}{2003}
+\endentry
+
 \entry{Choudary2014}{online}{}
   \name{author}{1}{}{%
     {{}%
@@ -1525,6 +1576,27 @@
   \field{year}{2003}
 \endentry
 
+\entry{rogers2010}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Rogers}{R.}%
+     {Everett~M}{E.~M.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{2}{%
+    {Simon}%
+    {Schuster}%
+  }
+  \keyw{strat}
+  \strng{namehash}{REM1}
+  \strng{fullhash}{REM1}
+  \field{labelyear}{2010}
+  \field{sortinit}{R}
+  \field{title}{Diffusion of innovations}
+  \field{year}{2010}
+\endentry
+
 \entry{AFCwebsite}{online}{}
   \name{author}{1}{}{%
     {{}%
@@ -1672,9 +1744,6 @@
   \strng{fullhash}{YP1}
   \field{labelyear}{2010}
   \field{sortinit}{Y}
-  \verb{doi}
-  \verb 10.3888/tmj.12-4
-  \endverb
   \field{issn}{10971610}
   \field{title}{An Introduction to Correspondence Analysis}
   \verb{url}

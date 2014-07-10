@@ -22,7 +22,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4}An Algorithm for Business Process Compliance}{10}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5}Tools Already Developed : Regorus and SPINdle}{11}
+\contentsline {subsection}{\numberline {5}Tools Already Developed : Regorus and SPINdle}{12}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {5.a}Regorus}{12}
 \defcounter {refsection}{0}\relax 
