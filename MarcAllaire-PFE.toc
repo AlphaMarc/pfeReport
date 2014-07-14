@@ -54,54 +54,54 @@
 \defcounter {refsection}{0}\relax 
 \newpage 
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {III} Strategic Reflection on Regorus}{25}
+\contentsline {chapter}{\numberline {III} Strategic Reflection on Regorus}{26}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {I}Business Process Management and Compliance}{25}
+\contentsline {section}{\numberline {I}Business Process Management and Compliance}{26}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {II}A Critical Summary of the Work Done}{26}
+\contentsline {section}{\numberline {II}A Critical Summary of the Work Done}{27}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1}Historic}{26}
+\contentsline {subsection}{\numberline {1}Historic}{27}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2}Comments}{28}
+\contentsline {subsection}{\numberline {2}Comments}{29}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {III}Finding a Business Model for Regorus}{29}
+\contentsline {section}{\numberline {III}Finding a Business Model for Regorus}{30}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1}Two-Sided Markets}{29}
+\contentsline {subsection}{\numberline {1}Two-Sided Markets}{30}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.a}A Definition for Two-Sided Markets and its Dynamics}{29}
+\contentsline {subsubsection}{\numberline {1.a}A Definition for Two-Sided Markets and its Dynamics}{30}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2}How Does Regorus Fits the Model}{31}
+\contentsline {subsection}{\numberline {2}How Does Regorus Fits the Model}{32}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.a}Possible Users of the Platform and Strategies}{31}
+\contentsline {subsubsection}{\numberline {2.a}Possible Users of the Platform and Strategies}{32}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.b}Platform Pricing}{32}
+\contentsline {subsubsection}{\numberline {2.b}Platform Pricing}{33}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3}How Business Process Modelling is Integrated in Knowledge Management}{33}
+\contentsline {subsection}{\numberline {3}How Business Process Modelling is Integrated in Knowledge Management}{34}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {IV}What can be done to improve market penetration : Qualitative Marketing Research}{34}
+\contentsline {section}{\numberline {IV}What can be done to improve market penetration : Qualitative Marketing Research}{35}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1}Qualitative Marketing Research Explained}{34}
+\contentsline {subsection}{\numberline {1}Qualitative Marketing Research Explained}{35}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.a}Definition and Objectives}{34}
+\contentsline {subsubsection}{\numberline {1.a}Definition and Objectives}{35}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.b}Interpretation and Reliability of Qualitative Research Results}{35}
+\contentsline {subsubsection}{\numberline {1.b}Interpretation and Reliability of Qualitative Research Results}{36}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2}What are we Researching ?}{35}
+\contentsline {subsection}{\numberline {2}What are we Researching ?}{36}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3}The Focus Group, Methodology, Goals and Progress}{36}
+\contentsline {subsection}{\numberline {3}The Focus Group, Methodology, Goals and Progress}{37}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.a}History and Theoretical Background}{36}
+\contentsline {subsubsection}{\numberline {3.a}History and Theoretical Background}{37}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.b}The Role of the Moderator}{36}
+\contentsline {subsubsection}{\numberline {3.b}The Role of the Moderator}{37}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.c}How to Come up With Good Questions}{38}
+\contentsline {subsubsection}{\numberline {3.c}How to Come up With Good Questions}{39}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.d}Sequence Your Questions to get the Most out of Participants}{39}
+\contentsline {subsubsection}{\numberline {3.d}Sequence Your Questions to get the Most out of Participants}{40}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.e}Implementation of the Focus Group}{41}
+\contentsline {subsubsection}{\numberline {3.e}Implementation of the Focus Group}{42}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4}Textual Data Analysis : Tools and Methodology}{42}
+\contentsline {subsection}{\numberline {4}Textual Data Analysis : Tools and Methodology}{43}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5}Proposed Themes and Questioning Route for a Focus Group for Regorus}{43}
+\contentsline {subsection}{\numberline {5}Proposed Themes and Questioning Route for a Focus Group for Regorus}{44}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Strategic Conclusions}{46}
+\contentsline {section}{Strategic Conclusions}{47}
