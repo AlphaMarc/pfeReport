@@ -50,6 +50,8 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {paragraph}{Consider sets of obligations from the algo}{23}
 \defcounter {refsection}{0}\relax 
+\contentsline {section}{Technical Conclusions}{24}
+\defcounter {refsection}{0}\relax 
 \newpage 
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {III} Strategic Reflection on Regorus}{25}
@@ -62,7 +64,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2}Comments}{28}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {III}Finding a Business Model for Regorus}{28}
+\contentsline {section}{\numberline {III}Finding a Business Model for Regorus}{29}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1}Two-Sided Markets}{29}
 \defcounter {refsection}{0}\relax 
@@ -75,10 +77,6 @@
 \contentsline {subsubsection}{\numberline {2.b}Platform Pricing}{32}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3}How Business Process Modelling is Integrated in Knowledge Management}{33}
-\defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.a}Presentation of Knowledge Management and its Advantages}{33}
-\defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.b}Regorus Uses BPMN Which is Designed to Make Knowledge Explicit}{33}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {IV}What can be done to improve market penetration : Qualitative Marketing Research}{34}
 \defcounter {refsection}{0}\relax 
@@ -105,3 +103,5 @@
 \contentsline {subsection}{\numberline {4}Textual Data Analysis : Tools and Methodology}{42}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {5}Proposed Themes and Questioning Route for a Focus Group for Regorus}{43}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Strategic Conclusions}{46}
